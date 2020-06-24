@@ -20,12 +20,12 @@ with onto:
     
     class Patient(Personne):
         pass    
-    class Poid (Patient >> float):
+    class poid (Patient >> float):
         pass
-    class Taille (Patient >> float): #une seul Taille
+    class taille (Patient >> float): #une seul Taille
         pass
 
-    class Id(DataProperty,FunctionalProperty):
+    class id(DataProperty,FunctionalProperty):
         domain = [Patient]
         range = [int]
         pass
@@ -35,17 +35,47 @@ with onto:
     
     class Maladies(Thing):
         pass
+
+    class Maladies_chroniques(Maladies):
+        pass
+
     
     class Adresse(Thing):
         pass
     
     class Wilaya(Adresse):
         pass
+    #attributs
+    class nomWilaya(DataProperty,FunctionalProperty):
+        domain = [Wilaya]
+        range = [str]
+        pass
+    class idWilaya(DataProperty,FunctionalProperty):
+        domain = [Wilaya]
+        range = [int]
+        pass
+
     
     class Daira(Wilaya):
         pass
+    class nomDaira(Daira >> str ):
+        pass
+    class idDaira(DataProperty,FunctionalProperty):
+        domain = [Daira]
+        range = [int]
+        pass
+    class Sympthomes(Thing):
+        pass
+    class Sympthomes_covid(Sympthomes):
+        pass
+    class Sympthomes_autres_maladies(Sympthomes):
+        pass
+    
     class Fiche(Thing):
         pass
+    class Traitement(Thing):
+        pass
+
     ##----------Relations-----------
     class a_allergies(Patient >> Allergies):
         pass
@@ -53,3 +83,22 @@ with onto:
         pass
     class duree_depuis_dernier_sympthomes(Patient >> int):
         pass
+    class a_maladies_chroniques(Patient >> Maladies_chroniques):
+        pass
+    class a_sympthomes(Patient >> Sympthomes):
+        pass
+    class na_pas_sympthomes(Patient >> Sympthomes):
+        pass
+    class est_sympthomes_maladie(Sympthomes >> Maladies):
+        pass
+    class a_maladie (Patient >> Maladies):
+        pass
+    class na_pas_maladies( Patient >> Maladies):
+        pass
+    class prend_traitement ( Patient >> Traitement):
+        pass
+    class habite_wilaya( Patient >> Wilaya):
+        pass
+    class habite_daira( Patient >> Daira):
+        pass
+    
