@@ -1,3 +1,4 @@
+
 from owlready2 import *
 
 
@@ -9,23 +10,40 @@ with onto:
     
     class Personne(Thing):
         pass
+
     #attribut d"une personne
-    class age (Personne >> int):#une personne n'a qu'un seul age:
+    class Nom(DataProperty, FunctionalProperty):
+        range = [str]
+        domain = [Personne]
+
+    class Prenom(DataProperty):
+        range = [str]
+        domain = [Personne]
+
+    class age (DataProperty, FunctionalProperty): #une personne n'a qu'un seul age:
+        range = [int]
+        domain = [Personne]
         pass
+
     class sexe (DataProperty, FunctionalProperty):
         range = [str]
         domain = [Personne]
         pass
-    
-    
-    class Patient(Personne):
-        pass    
-    class poid (Patient >> float):
+
+    class poid (DataProperty, FunctionalProperty):
+        range = [float]
+        domain = [Personne]
         pass
-    class taille (Patient >> float): #une seul Taille
+        
+    class taille (DataProperty, FunctionalProperty): #une seul Taille
+        range = [float]
+        domain = [Personne]
         pass
 
-    class id(DataProperty,FunctionalProperty):
+    class Patient(Personne):
+        pass    
+
+    class id_patient(DataProperty,FunctionalProperty):
         domain = [Patient]
         range = [int]
         pass
@@ -38,13 +56,13 @@ with onto:
 
     class Maladies_chroniques(Maladies):
         pass
-
     
     class Adresse(Thing):
         pass
     
     class Wilaya(Adresse):
         pass
+
     #attributs
     class nomWilaya(DataProperty,FunctionalProperty):
         domain = [Wilaya]
@@ -54,26 +72,57 @@ with onto:
         domain = [Wilaya]
         range = [int]
         pass
-
     
     class Daira(Wilaya):
         pass
+
     class nomDaira(Daira >> str ):
         pass
+
     class idDaira(DataProperty,FunctionalProperty):
         domain = [Daira]
         range = [int]
         pass
+
     class Sympthomes(Thing):
         pass
+
     class Sympthomes_covid(Sympthomes):
         pass
-    class Sympthomes_autres_maladies(Sympthomes):
+
+    class Sympthomes_autres(Sympthomes):
         pass
-    
+
+    class Traitement(Thing):   # patient --> str ??
+        pass
+
+    class Medecin(personne):
+        pass
+
+    class id_medecin(DataProperty, FunctionalProperty):
+        domain = [Medecin]
+        range = [str]
+        pass
+
+    class medecin_spcl(medecin >> str):
+        pass
+
+    class Orientation(Thing):
+         pass
+
+    class RDV(Orientation):
+        pass
+
+    class Hopital(Orientation):
+        pass
+
+    class prise_charge_domicile(Orientation):
+        pass
+
     class Fiche(Thing):
         pass
-    class Traitement(Thing):
+      
+    class typeOrientation(Fiche >> Orientation):
         pass
 
     ##----------Relations-----------
