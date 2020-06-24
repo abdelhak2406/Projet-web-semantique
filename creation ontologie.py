@@ -102,3 +102,4 @@ with onto:
     class habite_daira( Patient >> Daira):
         pass
     
+onto.save("ontologie.owl", format="ntriples")
