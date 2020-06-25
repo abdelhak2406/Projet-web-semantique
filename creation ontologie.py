@@ -12,11 +12,11 @@ with onto:
         pass
 
     #attribut d"une personne
-    class Nom(DataProperty, FunctionalProperty):
+    class nom(DataProperty, FunctionalProperty):
         range = [str]
         domain = [Personne]
 
-    class Prenom(DataProperty):
+    class prenom(DataProperty):
         range = [str]
         domain = [Personne]
 
@@ -76,7 +76,7 @@ with onto:
     class Daira(Wilaya):
         pass
 
-    class nomDaira(Daira >> str ):
+    class nomDaira(Daira >> str ):#Fonctionelle ou pas?
         pass
 
     class idDaira(DataProperty,FunctionalProperty):
@@ -104,7 +104,7 @@ with onto:
         range = [str]
         pass
 
-    class medecin_spcl(medecin >> str):
+    class medecin_spcl(medecin >> str):#on pourrait utiliser une autre classe pour spécialité
         pass
 
     class Orientation(Thing):
