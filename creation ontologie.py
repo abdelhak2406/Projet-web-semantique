@@ -154,13 +154,15 @@ with onto:
         pass
     class rediger( Medecin >> Fiche):           
         pass
-    class concerne( Fiche >> Patient):           
+    class est_concerne( Patient >> Fiche):           
         pass
     class resultat_or( Fiche >> Orientation):           
         pass
     class analyser( Medecin >> Sympthomes):           
         pass
     class consulte( Medecin >> Patient):           
+        pass
+    class est_oriente( Patient >> Orientation):           
         pass
 
 
