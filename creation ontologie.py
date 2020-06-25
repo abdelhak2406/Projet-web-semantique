@@ -122,33 +122,52 @@ with onto:
     class Fiche(Thing):
         pass
       
-    class typeOrientation(Fiche >> Orientation):
+    class typeOrientation(Fiche >> Orientation):    # je pense pas que c utile ça 
         pass
 
     ##----------Relations-----------
     class a_allergies(Patient >> Allergies):
         pass
-    class duree_depuis_derniere_sortie(Patient >> int):
+    class duree_depuis_derniere_sortie(Patient >> int):          # c'est pas une relation mais un attribut de patient 
         pass
-    class duree_depuis_dernier_sympthomes(Patient >> int):
+    class duree_depuis_dernier_sympthomes(Patient >> int):       # attribut de patient aussi ( c pas une relation entre 2 classes )
         pass
     class a_maladies_chroniques(Patient >> Maladies_chroniques):
         pass
     class a_sympthomes(Patient >> Sympthomes):
         pass
-    class na_pas_sympthomes(Patient >> Sympthomes):
+    class na_pas_sympthomes(Patient >> Sympthomes):              # nop ça ne sert a rien et meme tu peux pas avoir 2 relations entre 2 classes i think
         pass
     class est_sympthomes_maladie(Sympthomes >> Maladies):
         pass
-    class a_maladie (Patient >> Maladies):
+    class a_maladie (Patient >> Maladies):                     # on le met sois pour maladie nagh maladie chronique pas les 2 
         pass
     class na_pas_maladies( Patient >> Maladies):
         pass
     class prend_traitement ( Patient >> Traitement):
         pass
-    class habite_wilaya( Patient >> Wilaya):
+    class habite_wilaya( Patient >> Wilaya):        # je pense qu'on doit juste faire la relation habite qui sera entre patient et wilaya
         pass
-    class habite_daira( Patient >> Daira):
+    class habite_daira( Patient >> Daira):          # prsq daira va heriter de cette relation aussi 
         pass
-    
+    class prend_RDV( Patient >> RDV):           
+        pass
+    class rediger( Medecin >> Fiche):           
+        pass
+    class est_concerne( Patient >> Fiche):           
+        pass
+    class resultat_or( Fiche >> Orientation):           
+        pass
+    class analyser( Medecin >> Sympthomes):           
+        pass
+    class consulte( Medecin >> Patient):           
+        pass
+    class est_oriente( Patient >> Orientation):           
+        pass
+
+
+   # et si on ne mettait pas la classe orientation mais juste la relation orienté ? mais du coup elle sera entre patient et hopital 
+   # et entre patient et domicile c possible ? 
+
+
 onto.save("ontologie.owl", format="ntriples")
