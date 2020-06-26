@@ -54,7 +54,7 @@ with onto:
     class Maladies(Thing):
         pass
 
-    class Maladies_chroniques(Maladies):
+    class Maladies_chroniques(Maladies): #pourrait éventuellement etre supprimer et faire comme racim !avec du scrapping
         pass
     
     class Adresse(Thing):
@@ -76,7 +76,9 @@ with onto:
     class Daira(Wilaya):
         pass
 
-    class nomDaira(Daira >> str ):#Fonctionelle ou pas?
+    class nomDaira(DataProperty,FunctionalProperty ):
+        domain = [Daira]
+        range = [int]
         pass
 
     class idDaira(DataProperty,FunctionalProperty):
@@ -96,7 +98,7 @@ with onto:
     class Traitement(Thing):   # patient --> str ??
         pass
 
-    class Medecin(personne):
+    class Medecin(Personne):
         pass
 
     class id_medecin(DataProperty, FunctionalProperty):
@@ -104,16 +106,16 @@ with onto:
         range = [str]
         pass
 
-    class medecin_spcl(medecin >> str):#on pourrait utiliser une autre classe pour spécialité
+    class medecin_spcl(Medecin >> str):#on pourrait utiliser une autre classe pour spécialité
         pass
 
     class Orientation(Thing):
          pass
 
-    class RDV(Orientation):
+    class RDV(Thing):
         pass
 
-    class Hopital(Orientation):
+    class Hopital(Thing):
         pass
 
     class prise_charge_domicile(Orientation):
@@ -122,27 +124,22 @@ with onto:
     class Fiche(Thing):
         pass
       
-    class typeOrientation(Fiche >> Orientation):    # je pense pas que c utile ça 
+    class duree_depuis_derniere_sortie(Patient >> int):          # c'est pas une relation mais un attribut de patient 
+        pass
+    class duree_depuis_dernier_sympthomes(Patient >> int):       # attribut de patient aussi ( c pas une relation entre 2 classes )
         pass
 
     ##----------Relations-----------
     class a_allergies(Patient >> Allergies):
         pass
-    class duree_depuis_derniere_sortie(Patient >> int):          # c'est pas une relation mais un attribut de patient 
-        pass
-    class duree_depuis_dernier_sympthomes(Patient >> int):       # attribut de patient aussi ( c pas une relation entre 2 classes )
-        pass
+
     class a_maladies_chroniques(Patient >> Maladies_chroniques):
         pass
     class a_sympthomes(Patient >> Sympthomes):
         pass
-    class na_pas_sympthomes(Patient >> Sympthomes):              # nop ça ne sert a rien et meme tu peux pas avoir 2 relations entre 2 classes i think
-        pass
     class est_sympthomes_maladie(Sympthomes >> Maladies):
         pass
     class a_maladie (Patient >> Maladies):                     # on le met sois pour maladie nagh maladie chronique pas les 2 
-        pass
-    class na_pas_maladies( Patient >> Maladies):
         pass
     class prend_traitement ( Patient >> Traitement):
         pass
@@ -150,6 +147,8 @@ with onto:
         pass
     class habite_daira( Patient >> Daira):          # prsq daira va heriter de cette relation aussi 
         pass
+    class est_daira_de(Daira >> Wilaya):
+        pass 
     class prend_RDV( Patient >> RDV):           
         pass
     class rediger( Medecin >> Fiche):           
@@ -158,14 +157,15 @@ with onto:
         pass
     class resultat_or( Fiche >> Orientation):           
         pass
-    class analyser( Medecin >> Sympthomes):           
-        pass
-    class consulte( Medecin >> Patient):           
+    class consulte( Patient >> Medecin):           
         pass
     class est_oriente( Patient >> Orientation):           
         pass
-
-
+    class hospitalise_a(Orientation >> Hopital):
+        pass
+    
+    class adresse_hopitale(Hopital >> Adresse):
+        pass
    # et si on ne mettait pas la classe orientation mais juste la relation orienté ? mais du coup elle sera entre patient et hopital 
    # et entre patient et domicile c possible ? 
 

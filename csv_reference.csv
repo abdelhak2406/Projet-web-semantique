@@ -1,0 +1,3 @@
+id patient ; id_medecin ; age ; taille(cm) ; sexe ; poid ; Allergies ; wilaya_patient ; daira_patient ; sympthomes(liste) ; Maladie(diagnostique) ; Maladies_chroniques ; traitement (souscrit par le medecin) ; duree_depuis_derniére_sortie ; duree_depuis_dernie_sympthomes ; 
+0 ; 0 ; 18 ; 175 ; homme ; 65 ; ; Bouira ; Mchedallah ; [fiévre , toux séche , morve ] ; rhume ; ; piqure de chien ; 2  ; 4  ;   
+2 ; 0 ; 21 ; 170 ; femme ; 60 ; Bejaia ; Ighil Ali ; [contraction , fiévre , mal articulations , difficulté respiration ] ; enceinte! ; ; piqure de frenouille ; 1  ; 1 
