@@ -47,16 +47,10 @@ with onto:
         domain = [Patient]
         range = [int]
         pass
-    
-    class Allergies(Thing):
-        pass
-    
+        
     class Maladies(Thing):
         pass
 
-    class Maladies_chroniques(Maladies): #pourrait éventuellement etre supprimer et faire comme racim !avec du scrapping
-        pass
-    
     class Adresse(Thing):
         pass
     
@@ -130,11 +124,6 @@ with onto:
         pass
 
     ##----------Relations-----------
-    class a_allergies(Patient >> Allergies):
-        pass
-
-    class a_maladies_chroniques(Patient >> Maladies_chroniques):
-        pass
     class a_sympthomes(Patient >> Sympthomes):
         pass
     class est_sympthomes_maladie(Sympthomes >> Maladies):
