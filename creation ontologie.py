@@ -2,7 +2,7 @@
 from owlready2 import *
 
 
-#On crÃ©e une nouvelle ontologie 
+#On crée une nouvelle ontologie 
 onto = get_ontology("https://projetWebsem.org/ontologie.owl")
 
 with onto:
@@ -67,17 +67,12 @@ with onto:
         range = [int]
         pass
     
-    class Daira(Wilaya):
+    class Commune(Wilaya):
         pass
 
-    class nomDaira(DataProperty,FunctionalProperty ):
-        domain = [Daira]
-        range = [int]
-        pass
-
-    class idDaira(DataProperty,FunctionalProperty):
-        domain = [Daira]
-        range = [int]
+    class nomCommune(DataProperty,FunctionalProperty ):
+        domain = [Commune]
+        range = [str]
         pass
 
     class Sympthomes(Thing):
@@ -100,7 +95,7 @@ with onto:
         range = [str]
         pass
 
-    class medecin_spcl(Medecin >> str):#on pourrait utiliser une autre classe pour spÃ©cialitÃ©
+    class medecin_spcl(Medecin >> str):#on pourrait utiliser une autre classe pour spécialité
         pass
 
     class Orientation(Thing):
@@ -120,6 +115,7 @@ with onto:
       
     class duree_depuis_derniere_sortie(Patient >> int):          # c'est pas une relation mais un attribut de patient 
         pass
+
     class duree_depuis_dernier_sympthomes(Patient >> int):       # attribut de patient aussi ( c pas une relation entre 2 classes )
         pass
 
@@ -134,10 +130,10 @@ with onto:
         pass
     class habite_wilaya( Patient >> Wilaya):        # je pense qu'on doit juste faire la relation habite qui sera entre patient et wilaya
         pass
-    class habite_daira( Patient >> Daira):          # prsq daira va heriter de cette relation aussi 
+    class habite_commune( Patient >> Commune):          # prsq daira va heriter de cette relation aussi 
         pass
-    class est_daira_de(Daira >> Wilaya):
-        pass 
+    class commune_de(Commune >> Wilaya):
+        pass
     class prend_RDV( Patient >> RDV):           
         pass
     class rediger( Medecin >> Fiche):           
@@ -151,11 +147,12 @@ with onto:
     class est_oriente( Patient >> Orientation):           
         pass
     class hospitalise_a(Orientation >> Hopital):
-        pass
-    
+        pass   
     class adresse_hopitale(Hopital >> Adresse):
         pass
-   # et si on ne mettait pas la classe orientation mais juste la relation orientÃ© ? mais du coup elle sera entre patient et hopital 
+    
+      
+   # et si on ne mettait pas la classe orientation mais juste la relation orienté ? mais du coup elle sera entre patient et hopital 
    # et entre patient et domicile c possible ? 
 
 
