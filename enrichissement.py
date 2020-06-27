@@ -10,7 +10,7 @@ import re
 
 class traitemnt_onto:
     onto = get_ontology("/home/goku/Code/Projet-web-semantique/ontologie.owl").load()
-    ns = "https://projetWebsem.org/ontologie.owl"
+    mon_iri = "https://projetWebsem.org/ontologie.owl"
     onto_name = "ontologie.owl"
     def __init__(self):
         self.dico = self.creation_dictionnaire()
@@ -114,8 +114,40 @@ class traitemnt_onto:
     def save_onto(self):
         self.onto.save(self.onto_name, format="ntriples")
 
+    def enrichir_Wilaya(self, path):
+        wilayas = pd.read_csv(path)
+        for i in range(len(wilayas)):
+            w = self.dico["Wilaya"]
+            nom_w = wilayas.iloc[i]['nom']
+            code_w = wilayas.iloc[i]['code'].tolist()
+            w.nomWilaya = nom_w
+            w.idWilaya = code_w
+            w.iri =  mon_iri + "wilaya" + str(code_w)
+
+    def enrichir_Commune(self, path):
+        communes = pd.read_csv(path)
+        for i in range(len(communes)):
+            c = self.dico["Commune"]
+            nom_c = communes.iloc[i]['nom']
+            c.nomCommune = nom_c
+            code_c = communes.iloc[i]['code_postal']
+            wilaya_liée = communes.iloc[i]['wilaya_id'].tolist()
+   
+             # code postal se compose de 5 chiffres so ceux qui ont 4 c le 0 qui a été retiré donc on doit l remettre
+            if (len(str(code_c)) == 4 ):
+                c.iri = mon_iri + "commune" + "0" + str(code_c)
+            else:
+                c.iri = mon_iri + "commune" + str(code_c) 
+
+            # lier chaque commune avc sa wilaya
+            c.commune_de.append(onto.search(iri= mon_iri + "wilaya" + str(wilaya_liée))[0])
+
+
+
 if __name__ == "__main__":
 
     ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()
     ontolo.save_onto()
+    ontolo.enrichir_Wilaya("wilaya.csv")
+    ontolo.enrichir_Commune("communes.csv")
