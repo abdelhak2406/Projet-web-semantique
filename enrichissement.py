@@ -7,7 +7,7 @@ import types
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
-
+import pandas as pd
 class traitemnt_onto:
     onto = get_ontology("/home/goku/Code/Projet-web-semantique/ontologie.owl").load()
     mon_iri = "https://projetWebsem.org/ontologie.owl"
