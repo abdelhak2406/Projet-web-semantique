@@ -112,7 +112,7 @@ class traitemnt_onto:
     def save_onto(self):
         self.onto.save(self.onto_name, format="ntriples")
 
-    def enrichir_Wilaya(self, path):
+    def creer_Wilaya(self, path):
         wilayas = pd.read_csv(path)
         for i in range(len(wilayas)):
             w = self.dico["Wilaya"]
@@ -122,7 +122,7 @@ class traitemnt_onto:
             w.idWilaya = code_w
             w.iri =  mon_iri + "wilaya" + str(code_w)
 
-    def enrichir_Commune(self, path):
+    def creer_Commune(self, path):
         communes = pd.read_csv(path)
         for i in range(len(communes)):
             c = self.dico["Commune"]
@@ -140,6 +140,32 @@ class traitemnt_onto:
             # lier chaque commune avc sa wilaya
             c.commune_de.append(onto.search(iri= mon_iri + "wilaya" + str(wilaya_liée))[0])
 
+    def creer_medecin(id,nom,prenom,sexe,spécialité):
+        m = self.dico["Medecin"]
+        m.id_medecin = id
+        m.nom = nom
+        m.prenom = prenom
+        m.sexe = sexe
+        m.medecin_spcl = spécialité # et si on faisait aussi du scrapping pour les specialités ? nagh smbalec on laisse akka 
+        m.iri = mon_iri + "medecin" + str(id)
+       # je pense qu'on devra mettre ici les relation que le medecin fera genre  rediger fiche et tt 
+
+    def creer_patient(id,nom,prenom,sexe,age,poid,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements):
+        p =  self.dico["Patient"] 
+        p.id_patient = id
+        p.nom = nom
+        p.prenom = prenom
+        p.sexe = sexe
+        p.age = age
+        p.poid = poid
+        p.duree_depuis_derniere_sortie = nb_jrs_depuis_derniere_sortie
+        p.duree_depuis_dernier_sympthomes = nb_jrs_depuis_premiers_sympthomes
+        m.iri = mon_iri + "patient" + str(id) # faudra mettre str pour l id du patient dans l'ontologie 
+        # soo pour les autres truc je suppose que cv pas etre aussi facile que ça :) on y pensera apres 
+
+#je pense on devrai faire ça aussi pour maladies et symptomes prsq on on a generé un fichier contenant les maladies 
+# maiiiiiis on a pas crééer les objets    
+        
 
 
 if __name__ == "__main__":
@@ -147,5 +173,5 @@ if __name__ == "__main__":
     ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()
     ontolo.save_onto()
-    ontolo.enrichir_Wilaya("Localisation_csv/wilayas.csv")
-    ontolo.enrichir_Commune("Localisation_csv/communes.csv")
+    ontolo.creer_Wilaya("Localisation_csv/wilayas.csv")
+    ontolo.creer_Commune("Localisation_csv/communes.csv")

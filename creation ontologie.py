@@ -45,7 +45,7 @@ with onto:
 
     class id_patient(DataProperty,FunctionalProperty):
         domain = [Patient]
-        range = [int]
+        range = [str]
         pass
         
     class Maladies(Thing):
