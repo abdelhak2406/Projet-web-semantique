@@ -147,5 +147,5 @@ if __name__ == "__main__":
     ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()
     ontolo.save_onto()
-    ontolo.enrichir_Wilaya("wilaya.csv")
-    ontolo.enrichir_Commune("communes.csv")
+    ontolo.enrichir_Wilaya("Localisation_csv/wilayas.csv")
+    ontolo.enrichir_Commune("Localisation_csv/communes.csv")
