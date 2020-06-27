@@ -10,11 +10,10 @@ import re
 
 class traitemnt_onto:
     onto = get_ontology("/home/goku/Code/Projet-web-semantique/ontologie.owl").load()
-    ns = "https://projetWebsem.org/ontologie.owl"
+    my_iri = "https://projetWebsem.org/ontologie.owl"
     onto_name = "ontologie.owl"
     def __init__(self):
         self.dico = self.creation_dictionnaire()
-        pass
     def creation_dictionnaire(self):
         """ 
         methode qui parcours les classes de l'ontologie et crée un dictionnaire {nomclasse:objet}
@@ -28,18 +27,18 @@ class traitemnt_onto:
 
     def enrichir_sympthomes_csv(self,nom_sortie):#eventuellement a modifier
         # nom_sortie = "symptomes.csv"    
-            with open (nom_sortie, 'w') as csvfile:
-                filewriter = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
-                filewriter.writerow(['Symptomes'])
-                filewriter.writerow(['fièvre'])
-                filewriter.writerow(['toux sèche'])
-                filewriter.writerow(['fatigue'])
-                filewriter.writerow(['courbatures'])
-                filewriter.writerow(['congestion nasale'])
-                filewriter.writerow(['écoulement nasal'])
-                filewriter.writerow(['maux de gorge'])
-                filewriter.writerow(['diarhée'])
-                filewriter.writerow(['détresse respiratoire'])
+        with open (nom_sortie, 'w') as csvfile:
+            filewriter = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            filewriter.writerow(['Symptomes'])
+            filewriter.writerow(['fièvre'])
+            filewriter.writerow(['toux sèche'])
+            filewriter.writerow(['fatigue'])
+            filewriter.writerow(['courbatures'])
+            filewriter.writerow(['congestion nasale'])
+            filewriter.writerow(['écoulement nasal'])
+            filewriter.writerow(['maux de gorge'])
+            filewriter.writerow(['diarhée'])
+            filewriter.writerow(['détresse respiratoire'])
 
     def ajout_classe(self,nom_classe,herite_de=Thing):#penser a esseyer de voir si le truc avec THing marche
         if not self.is_in_ontology(nom_classe):
@@ -54,9 +53,8 @@ class traitemnt_onto:
                 return True
         return False
 
-
     def enrichir_maladies(self):
-        quote_page = quote_page = "https://www.sante-sur-le-net.com/maladies/"
+        quote_page = "https://www.sante-sur-le-net.com/maladies/"
         #ouvrir la page
         page = urlopen(quote_page)
         # parse the html using beautiful soup and store in variable `soup`
@@ -114,8 +112,12 @@ class traitemnt_onto:
     def save_onto(self):
         self.onto.save(self.onto_name, format="ntriples")
 
+
+
 if __name__ == "__main__":
 
     ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()
     ontolo.save_onto()
+
+
