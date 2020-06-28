@@ -2,7 +2,7 @@
 from owlready2 import *
 
 
-#On crée une nouvelle ontologie 
+#On cree une nouvelle ontologie 
 onto = get_ontology("https://projetWebsem.org/ontologie.owl")
 
 with onto:
@@ -78,7 +78,7 @@ with onto:
     class Sympthomes(Thing):
         pass
 
-    class Sympthomes_covid(Sympthomes):
+    class Sympthomes_covid(Sympthomes): #cette classe ainsi que sympthoes autres l'autre pourrait s'avÃ©rer inutile
         pass
 
     class Sympthomes_autres(Sympthomes):
@@ -95,7 +95,7 @@ with onto:
         range = [str]
         pass
 
-    class medecin_spcl(Medecin >> str):#on pourrait utiliser une autre classe pour spécialité
+    class medecin_spcl(Medecin >> str):#on pourrait utiliser une autre classe pour spï¿½cialitï¿½
         pass
 
     class Orientation(Thing):
@@ -152,7 +152,7 @@ with onto:
         pass
     
       
-   # et si on ne mettait pas la classe orientation mais juste la relation orienté ? mais du coup elle sera entre patient et hopital 
+   # et si on ne mettait pas la classe orientation mais juste la relation orientï¿½ ? mais du coup elle sera entre patient et hopital 
    # et entre patient et domicile c possible ? 
 
 

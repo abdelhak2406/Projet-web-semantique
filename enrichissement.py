@@ -10,10 +10,11 @@ import re
 import pandas as pd
 class traitemnt_onto:
     onto = get_ontology("/home/goku/Code/Projet-web-semantique/ontologie.owl").load()
-    mon_iri = "https://projetWebsem.org/ontologie.owl"
+    mon_iri = "https://projetWebsem.org/ontologie.owl#"
     onto_name = "ontologie.owl"
     def __init__(self):
         self.dico = self.creation_dictionnaire()
+    
     def creation_dictionnaire(self):
         """ 
         methode qui parcours les classes de l'ontologie et crée un dictionnaire {nomclasse:objet}
@@ -42,12 +43,14 @@ class traitemnt_onto:
 
     def ajout_classe(self,nom_classe,herite_de=Thing):#penser a esseyer de voir si le truc avec THing marche
         if not self.is_in_ontology(nom_classe):
+            nom_classe = re.sub(r" |-", "_", nom_classe).title()
             with self.onto:
                 new_class = types.new_class(nom_classe,(herite_de,))
                 #mettre a jour le dictionnaire
                 self.dico = self.creation_dictionnaire()
 
     def is_in_ontology(self,class_name):
+        class_name = re.sub(r" |-", "_", class_name).title()
         for i in self.onto.classes():
             if (class_name == i.name):
                 return True
@@ -71,8 +74,10 @@ class traitemnt_onto:
         
         # Récupérer les noms des types des maladies et créer les classes
         for mld in types_maladies:
-            nom = mld.split("/")[-1].title() #extraire type maladie
+            nom = mld.split("/")[-1] #extraire type maladie
+            ##essai de comment marcje relace pour les nom
             noms_types.append(nom)
+            nom = re.sub(r" |-", "_", nom).title()
             #creation des classes nécessaire
             self.ajout_classe(nom,self.dico["Maladies"])
 
@@ -80,7 +85,8 @@ class traitemnt_onto:
         for maladie in noms_types:
             if maladie != "dermatologie" and maladie != "gynecologie" and maladie != "ophtalmologie": #on s'en fou de ceux la?
                 # Création de chaque type de maladie
-                self.ajout_classe(maladie,self.dico["Maladies"])            #enrichissement des types? peut etre a supprimer
+                mala = re.sub(r" |-", "_", maladie).title()
+                self.ajout_classe(mala,self.dico["Maladies"])            #enrichissement des types? peut etre a supprimer
 
                 page_maladie = urlopen(quote_page+maladie)#ouvrir la page d'un type de maladie!
                 soup = BeautifulSoup(page_maladie, 'html.parser')
@@ -106,8 +112,9 @@ class traitemnt_onto:
                                 and "maladies" in lien_maladie[0])
                     if condition:
                         nom_maladie = lien_maladie[0].split('/')[-2].title()
+                        nom_maladie = re.sub(r" |-", "_", nom_maladie)
                         liste_maladies.append(nom_maladie)
-                        self.ajout_classe(nom_maladie,self.dico[maladie])
+                        self.ajout_classe(nom_maladie,self.dico[mala])
 
     def save_onto(self):
         self.onto.save(self.onto_name, format="ntriples")
@@ -115,53 +122,71 @@ class traitemnt_onto:
     def creer_Wilaya(self, path):
         wilayas = pd.read_csv(path)
         for i in range(len(wilayas)):
-            w = self.dico["Wilaya"]
+            w = self.dico["Wilaya"]()
             nom_w = wilayas.iloc[i]['nom']
-            code_w = wilayas.iloc[i]['code'].tolist()
+            nom_w = re.sub(r" |-", "_", nom_w)
+            code_w = str(wilayas.iloc[i]['code'])
             w.nomWilaya = nom_w
             w.idWilaya = code_w
-            w.iri =  mon_iri + "wilaya" + str(code_w)
+            w.iri =  self.mon_iri + "wilaya" + code_w
 
     def creer_Commune(self, path):
         communes = pd.read_csv(path)
         for i in range(len(communes)):
-            c = self.dico["Commune"]
+            c = self.dico["Commune"]()
             nom_c = communes.iloc[i]['nom']
+            nom_c = re.sub(r" |-", "_", nom_c)
             c.nomCommune = nom_c
             code_c = communes.iloc[i]['code_postal']
-            wilaya_liée = communes.iloc[i]['wilaya_id'].tolist()
+            wilaya_lie = str(communes.iloc[i]['wilaya_id'])
    
              # code postal se compose de 5 chiffres so ceux qui ont 4 c le 0 qui a été retiré donc on doit l remettre
             if (len(str(code_c)) == 4 ):
-                c.iri = mon_iri + "commune" + "0" + str(code_c)
+                c.iri = self.mon_iri + "commune" + "0" + str(code_c)
             else:
-                c.iri = mon_iri + "commune" + str(code_c) 
+                c.iri = self.mon_iri + "commune" + str(code_c) 
 
             # lier chaque commune avc sa wilaya
-            c.commune_de.append(onto.search(iri= mon_iri + "wilaya" + str(wilaya_liée))[0])
+            c.commune_de.append(self.onto.search(iri= self.mon_iri + "wilaya" + wilaya_lie)[0])
 
-    def creer_medecin(id,nom,prenom,sexe,spécialité):
-        m = self.dico["Medecin"]
+    def creer_medecin(self,id,nom,prenom,sexe,spécialité):
+        m = self.dico["Medecin"]()
         m.id_medecin = id
         m.nom = nom
         m.prenom = prenom
         m.sexe = sexe
         m.medecin_spcl = spécialité # et si on faisait aussi du scrapping pour les specialités ? nagh smbalec on laisse akka 
-        m.iri = mon_iri + "medecin" + str(id)
+        m.iri = self.mon_iri + "medecin" + str(id)
        # je pense qu'on devra mettre ici les relation que le medecin fera genre  rediger fiche et tt 
 
-    def creer_patient(id,nom,prenom,sexe,age,poid,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements):
-        p =  self.dico["Patient"] 
+    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements):
+        p =  self.dico["Patient"]()
         p.id_patient = id
-        p.nom = nom
-        p.prenom = prenom
+        #p.nom = nom    pourquio avoir le nom et le prénom?
+        #p.prenom = prenom
+        p.taille = taille
         p.sexe = sexe
         p.age = age
         p.poid = poid
-        p.duree_depuis_derniere_sortie = nb_jrs_depuis_derniere_sortie
-        p.duree_depuis_dernier_sympthomes = nb_jrs_depuis_premiers_sympthomes
-        m.iri = mon_iri + "patient" + str(id) # faudra mettre str pour l id du patient dans l'ontologie 
-        # soo pour les autres truc je suppose que cv pas etre aussi facile que ça :) on y pensera apres 
+        p.duree_depuis_derniere_sortie.append(nb_jrs_depuis_derniere_sortie)
+        p.duree_depuis_dernier_sympthomes.append(nb_jrs_depuis_premiers_sympthomes)
+        
+        #p.iri = self.mon_iri + "patient" + str(id) # faudra mettre str pour l id du patient dans l'ontologie 
+        
+        liste_sympthomes = symptomes.split(",")
+        for i in liste_sympthomes: 
+            i = re.sub(r" |-", "_", i)#remplace tout les espaces et - avec _ 
+            res = self.onto.search(iri="*"+i.lower()+"*")
+            if(res ==[]):#objet non instancier
+                if(not self.is_in_ontology(i.lower())):#regarder si classes n'existe pas on la crEe  
+                    self.ajout_classe(nom_classe=i.title(),herite_de=self.dico["Sympthomes"])
+                symp = self.dico[i.title()]() #creer objet 
+                #creer la relation 
+                p.a_sympthomes = [symp]
+            else:#objet instancier
+                p.a_sympthomes.append(res[0])
+
+        
 
 #je pense on devrai faire ça aussi pour maladies et symptomes prsq on on a generé un fichier contenant les maladies 
 # maiiiiiis on a pas crééer les objets    
@@ -172,6 +197,6 @@ if __name__ == "__main__":
 
     ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()
-    ontolo.save_onto()
     ontolo.creer_Wilaya("Localisation_csv/wilayas.csv")
     ontolo.creer_Commune("Localisation_csv/communes.csv")
+    ontolo.save_onto()
