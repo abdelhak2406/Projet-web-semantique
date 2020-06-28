@@ -119,6 +119,41 @@ class traitemnt_onto:
     def save_onto(self):
         self.onto.save(self.onto_name, format="ntriples")
 
+class patient_onto(traitemnt_onto):
+    def __init__(self):
+        super().__init__()
+
+    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements):
+        p =  self.dico["Patient"]()
+        p.id_patient = id
+        #p.nom = nom    pourquio avoir le nom et le prénom?
+        #p.prenom = prenom
+        p.taille = taille
+        p.sexe = sexe
+        p.age = age
+        p.poid = poid
+        p.duree_depuis_derniere_sortie.append(nb_jrs_depuis_derniere_sortie)
+        p.duree_depuis_dernier_sympthomes.append(nb_jrs_depuis_premiers_sympthomes)
+        
+        #p.iri = self.mon_iri + "patient" + str(id) # faudra mettre str pour l id du patient dans l'ontologie 
+        
+        liste_sympthomes = symptomes.split(",")
+        for i in liste_sympthomes: 
+            i = re.sub(r" |-", "_", i)#remplace tout les espaces et - avec _ 
+            res = self.onto.search(iri="*"+i.lower()+"*")
+            if(res ==[]):#objet non instancier
+                if(not self.is_in_ontology(i.lower())):#regarder si classes n'existe pas on la crEe  
+                    self.ajout_classe(nom_classe=i.title(),herite_de=self.dico["Sympthomes"])
+                symp = self.dico[i.title()]() #creer objet 
+                #creer la relation 
+                p.a_sympthomes = [symp]
+            else:#objet instancier
+                p.a_sympthomes.append(res[0])
+
+
+class adresses_onto(traitemnt_onto):
+    def __init__(self):
+        super().__init__()
     def creer_Wilaya(self, path):
         wilayas = pd.read_csv(path)
         for i in range(len(wilayas)):
@@ -149,6 +184,11 @@ class traitemnt_onto:
             # lier chaque commune avc sa wilaya
             c.commune_de.append(self.onto.search(iri= self.mon_iri + "wilaya" + wilaya_lie)[0])
 
+
+class medecin_onto(traitemnt_onto):
+    def __init__(self):
+        super().__init__()
+    
     def creer_medecin(self,id,nom,prenom,sexe,spécialité):
         m = self.dico["Medecin"]()
         m.id_medecin = id
@@ -159,44 +199,18 @@ class traitemnt_onto:
         m.iri = self.mon_iri + "medecin" + str(id)
        # je pense qu'on devra mettre ici les relation que le medecin fera genre  rediger fiche et tt 
 
-    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements):
-        p =  self.dico["Patient"]()
-        p.id_patient = id
-        #p.nom = nom    pourquio avoir le nom et le prénom?
-        #p.prenom = prenom
-        p.taille = taille
-        p.sexe = sexe
-        p.age = age
-        p.poid = poid
-        p.duree_depuis_derniere_sortie.append(nb_jrs_depuis_derniere_sortie)
-        p.duree_depuis_dernier_sympthomes.append(nb_jrs_depuis_premiers_sympthomes)
-        
-        #p.iri = self.mon_iri + "patient" + str(id) # faudra mettre str pour l id du patient dans l'ontologie 
-        
-        liste_sympthomes = symptomes.split(",")
-        for i in liste_sympthomes: 
-            i = re.sub(r" |-", "_", i)#remplace tout les espaces et - avec _ 
-            res = self.onto.search(iri="*"+i.lower()+"*")
-            if(res ==[]):#objet non instancier
-                if(not self.is_in_ontology(i.lower())):#regarder si classes n'existe pas on la crEe  
-                    self.ajout_classe(nom_classe=i.title(),herite_de=self.dico["Sympthomes"])
-                symp = self.dico[i.title()]() #creer objet 
-                #creer la relation 
-                p.a_sympthomes = [symp]
-            else:#objet instancier
-                p.a_sympthomes.append(res[0])
 
-        
-
-#je pense on devrai faire ça aussi pour maladies et symptomes prsq on on a generé un fichier contenant les maladies 
-# maiiiiiis on a pas crééer les objets    
-        
-
+class fiche(traitemnt_onto):
+    def __init__(self):
+        super().__init__()
 
 if __name__ == "__main__":
 
     ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()
-    ontolo.creer_Wilaya("Localisation_csv/wilayas.csv")
-    ontolo.creer_Commune("Localisation_csv/communes.csv")
     ontolo.save_onto()
+    adresse = adresses_onto()
+    adresse.creer_Wilaya("Localisation_csv/wilayas.csv")
+    adresse.creer_Commune("Localisation_csv/communes.csv")
+    adresse.save_onto()
+    
