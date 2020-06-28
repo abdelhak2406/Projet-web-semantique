@@ -113,10 +113,14 @@ with onto:
     class Fiche(Thing):
         pass
       
-    class duree_depuis_derniere_sortie(Patient >> int):          # c'est pas une relation mais un attribut de patient 
+    class nb_jrs_depuis_derniere_sortie(DataProperty , FunctionalProperty):          # c'est pas une relation mais un attribut de patient 
+        domain = [Patient]
+        range = [int]
         pass
 
-    class duree_depuis_dernier_sympthomes(Patient >> int):       # attribut de patient aussi ( c pas une relation entre 2 classes )
+    class nb_jrs_depuis_premiers_sympthomes(DataProperty , FunctionalProperty):       # attribut de patient aussi ( c pas une relation entre 2 classes )
+        domain = [Patient]
+        range = [int]
         pass
 
     ##----------Relations-----------
