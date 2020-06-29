@@ -8,6 +8,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
+import rdflib
 class traitemnt_onto:
     onto = get_ontology("/home/goku/Code/Projet-web-semantique/ontologie.owl").load()
     mon_iri = "https://projetWebsem.org/ontologie.owl#"
@@ -118,7 +119,17 @@ class traitemnt_onto:
 
     def save_onto(self):
         self.onto.save(self.onto_name, format="ntriples")
-
+    
+    def replace(self,string, substitutions):
+        """remplace un enseble de str en un ensembe de str 
+        exemple:
+            string = "spam foo bar foo bar spam"
+            substitutions = {"foo": "FOO", "bar": "BAR"}
+            output = replace(string, substitutions)
+        """
+        substrings = sorted(substitutions, key=len, reverse=True)
+        regex = re.compile('|'.join(map(re.escape, substrings)))
+        return regex.sub(lambda match: substitutions[match.group(0)], string)
 class patient_onto(traitemnt_onto):
     def __init__(self):
         super().__init__()
@@ -180,8 +191,6 @@ class patient_onto(traitemnt_onto):
         for i in p.prend_traitement:
             print(i.name)
             
-
-
         #-------------------------------------------
         wil_code = adresses_onto().get_code_wilaya(wilaya)
         wil = self.onto.search(iri='*'+wil_code)[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utiliser
@@ -192,7 +201,84 @@ class patient_onto(traitemnt_onto):
         com = self.onto.search(iri='*'+com_code)[0]
         p.habite_commune.append(com)
         #print("commune : ",p.habite_commune[0].nomCommune)
-        
+    
+
+    def request(self):
+
+        """
+        requete qui permet de trouve les patient et  leurs maladie en fonction de l'id
+        """
+        graph = rdflib.Graph()
+        graph.parse("ontologie.owl",format="turtle")
+        open("graph_turtle.rdf","w")    
+        graph.serialize("graph_turtle.rdf",format="turtle")
+        id0 = "2"
+        requete = """ 
+        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
+        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        prefix xml: <http://www.w3.org/XML/1998/namespace> 
+    
+        SELECT ?patient  ?maladie
+        WHERE{
+        ?patient rdf:type ns1:Patient . 
+        ?patient ns1:id_patient %id.
+        ?patient ns1:a_maladie ?maladie .
+        }
+        """.replace("%id",id0)
+        result = graph.query(requete)
+        for i in result:
+            print("===")
+            cpt = 0
+            for j in i:
+                print(cpt," - ",j)
+                cpt = cpt + 1
+            print("====")
+    
+    def request_2(self):
+
+        """
+        liste de patient atteint d'une maladie
+        """
+        graph = rdflib.Graph()
+        graph.parse("ontologie.owl",format="turtle")
+        open("graph_turtle.rdf","w")    
+        graph.serialize("graph_turtle.rdf",format="turtle")
+
+        nom_wilaya = "Béjaïa"
+        nom_wilaya = re.sub(r" |-", "_", nom_wilaya).title()#nom de la wilaya
+
+        maladie = "enceinte"
+        maladie = re.sub(r" |-", "_",maladie).title()
+        requete = """
+        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
+        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        prefix xml: <http://www.w3.org/XML/1998/namespace> 
+
+        SELECT ?patient 
+        WHERE{
+        ?patient rdf:type ns1:Patient . 
+        ?patient ns1:a_maladie ?maladie .
+        ?maladie rdf:type ns1:x1 .
+        ?patient ns1:habite_wilaya ?wilaya .
+        ?wilaya ns1:nomWilaya ?nom_wil  
+        FILTER regex(?nom_wil,"x0")
+        }
+        """
+        substitutions = {"x0":nom_wilaya,"x1":maladie}
+        requete = self.replace(requete, substitutions)
+        result = graph.query(requete)
+        for i in result:
+            print("===")
+            cpt = 0
+            for j in i:
+                print(cpt," - ",j)
+                cpt = cpt + 1
+            print("====")
+
 
 
 class adresses_onto(traitemnt_onto):
