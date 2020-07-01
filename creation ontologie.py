@@ -75,39 +75,49 @@ with onto:
         range = [str]
         pass
 
-    class Sympthomes(Thing):
+    class Sympthomes(Thing):  
+        pass
+    
+    class gravite_sympthome(DataProperty,FunctionalProperty): # severe , grave et moderer 
+        domain = [Sympthomes]
+        range = [str]
         pass
 
-    class Sympthomes_covid(Sympthomes): #cette classe ainsi que sympthoes autres l'autre pourrait s'avérer inutile
-        pass
-
-    class Sympthomes_autres(Sympthomes):
-        pass
-
-    class Traitement(Thing):   # patient --> str ??
+    class Traitement(Thing):   # les traitement que prend le patient actuellement 
         pass
 
     class Medecin(Personne):
         pass
-
+    #pour le lieu de residence du medecin et de l'hopital ou il exerce nous estimons que nous navons pas besoin de le preciser
     class id_medecin(DataProperty, FunctionalProperty):
         domain = [Medecin]
         range = [str]
         pass
 
-    class medecin_spcl(Medecin >> str):#on pourrait utiliser une autre classe pour sp�cialit�
+    class medecin_spcl(Medecin >> str): #on va garder sa comme sa mais ou pourrait faire du scrapping et creer une classe
         pass
 
-    class Orientation(Thing):
-         pass
-
-    class RDV(Thing):
+    class Consultation(Thing):
         pass
-
+    class date_consultation(DataProperty, FunctionalProperty): # 
+        domain = [Consultation]
+        range = [datetime.date]
+        pass
+    
+    class Orientation(Thing):# par orientation on parle de soit aller a lhopital ou bien a la maison ou bien
+        pass
+    class type_orientation(DataProperty, FunctionalProperty): # rdv ou  prise en charge domicile ou prise en charge hopital
+        domain = [Orientation]
+        range = [str]
+        pass
+    
+    class RDV(Thing): # pour prendre rendez vous chez un medecin 
+        pass
+    class date_rendez_vous(DataProperty, FunctionalProperty):
+        domain = [RDV]
+        range = [datetime.date]
+        pass
     class Hopital(Thing):
-        pass
-
-    class prise_charge_domicile(Orientation):
         pass
 
     class Fiche(Thing):
@@ -132,7 +142,7 @@ with onto:
         pass
     class prend_traitement ( Patient >> Traitement):
         pass
-    class habite_wilaya( Patient >> Wilaya):        # je pense qu'on doit juste faire la relation habite qui sera entre patient et wilaya
+    class habite_wilaya( Patient >> Wilaya):            # je pense qu'on doit juste faire la relation habite qui sera entre patient et wilaya
         pass
     class habite_commune( Patient >> Commune):          # prsq daira va heriter de cette relation aussi 
         pass
@@ -140,22 +150,20 @@ with onto:
         pass
     class prend_RDV( Patient >> RDV):           
         pass
-    class rediger( Medecin >> Fiche):           
+    class redige_fiche( Medecin >> Fiche):               #si une fiche est un papier regroupant le nom du medecin et le nom du patient  (un seul) alors je n'en vois pas l"inteet
+                                            #si une fiche contient les information des medecin de ces patient ect... alors oui ,l'idee est interessante
         pass
-    class est_concerne( Patient >> Fiche):           
+
+    class consulte( Patient >> Consultation):       #on pourra obtenir la nom du medecim consulter a partir de consultation            
         pass
-    class resultat_or( Fiche >> Orientation):           
-        pass
-    class consulte( Patient >> Medecin):           
-        pass
-    class est_oriente( Patient >> Orientation):           
+    class est_oriente( Consultation >> Orientation): # le reesultat de la consultation            
         pass
     class hospitalise_a(Orientation >> Hopital):
         pass   
     class adresse_hopitale(Hopital >> Adresse):
         pass
-    
-      
+    class effectue_consultation(Medecin >> Consultation):
+        pass 
    # et si on ne mettait pas la classe orientation mais juste la relation orient� ? mais du coup elle sera entre patient et hopital 
    # et entre patient et domicile c possible ? 
 

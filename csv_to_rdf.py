@@ -3,7 +3,6 @@ import pandas as pd
 from enrichissement import patient_onto as pat
 #lire
 fiche =  pd.read_csv("csv_reference.csv")
-print (fiche)
 ontolo = pat()
 
 for i,j  in fiche.iterrows():
@@ -11,7 +10,9 @@ for i,j  in fiche.iterrows():
     j["nb_jrs_depuis_premiers_sympthomes"],symptomes=j["sympthomes"],maladies=j["Maladie(diagnostique)"],traitements=j["traitement"])
 
 ontolo.save_onto()
-ontolo.request_2()
+print("something")
+#ontolo.request_3("Oum El Bouaghi","Ouled Zouai")
+ontolo.request_4(19)
 #la on doit remplir notre entologie$
 """for i in ontolo.onto.individuals():
     print(i.iri)

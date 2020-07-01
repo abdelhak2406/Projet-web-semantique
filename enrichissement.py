@@ -203,7 +203,7 @@ class patient_onto(traitemnt_onto):
         #print("commune : ",p.habite_commune[0].nomCommune)
     
 
-    def request(self):
+    def request(self,id):
 
         """
         requete qui permet de trouve les patient et  leurs maladie en fonction de l'id
@@ -212,7 +212,9 @@ class patient_onto(traitemnt_onto):
         graph.parse("ontologie.owl",format="turtle")
         open("graph_turtle.rdf","w")    
         graph.serialize("graph_turtle.rdf",format="turtle")
-        id0 = "2"
+
+
+        
         requete = """ 
         prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
         prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
@@ -226,7 +228,7 @@ class patient_onto(traitemnt_onto):
         ?patient ns1:id_patient %id.
         ?patient ns1:a_maladie ?maladie .
         }
-        """.replace("%id",id0)
+        """.replace("%id",id)
         result = graph.query(requete)
         for i in result:
             print("===")
@@ -248,9 +250,10 @@ class patient_onto(traitemnt_onto):
 
         nom_wilaya = "Béjaïa"
         nom_wilaya = re.sub(r" |-", "_", nom_wilaya).title()#nom de la wilaya
-
         maladie = "enceinte"
         maladie = re.sub(r" |-", "_",maladie).title()
+        
+        
         requete = """
         prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
         prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
@@ -279,8 +282,90 @@ class patient_onto(traitemnt_onto):
                 cpt = cpt + 1
             print("====")
 
+    def request_3(self,wilaya,commune ):
+        """ nombre de patient atteint du covid dans une commune d'une certaine wilaya  """
+        commune = re.sub(r" |-", "_", commune).title()
+        wilaya = re.sub(r" |-", "_", wilaya).title()
+        nom_maladie = "Covid19"
+        
+        
+        graph = rdflib.Graph()
+        graph.parse("ontologie.owl",format="turtle")
+        open("graph_turtle.rdf","w")    
+        graph.serialize("graph_turtle.rdf",format="turtle")
+        
+        requete = """
+        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
+        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        prefix xml: <http://www.w3.org/XML/1998/namespace> 
 
+        SELECT  (COUNT(?patient) AS ?triples)
+        WHERE{
+        ?patient rdf:type ns1:Patient . 
+        ?patient ns1:a_maladie ?maladie .
+        ?maladie rdf:type ns1:x1 .
+        ?patient ns1:habite_wilaya ?wilaya .
+        ?wilaya ns1:nomWilaya ?nom_wil  .
+        ?patient ns1:habite_commune ?commune .
+        ?commune ns1:nomCommune ?nom_com .
+        FILTER regex(?nom_wil,"x0")
+        FILTER regex(?nom_com,"x2")
+        }
+        """
+        substitutions = {"x0":wilaya,"x1":nom_maladie,"x2":commune}
+        requete = self.replace(requete, substitutions)
+        result = graph.query(requete)
+        for i in result:
+            print("===")
+            for j in i:
+                print(" - ",j)
 
+            print("===")
+
+    def request_4(self,age):
+        """ nobre de patient de moins d'un age x ayant le covid """
+        graph = rdflib.Graph()
+        graph.parse("ontologie.owl",format="turtle")
+        open("graph_turtle.rdf","w")    
+        graph.serialize("graph_turtle.rdf",format="turtle")
+        
+        nom_maladie = "Covid19"
+
+        requete = """
+        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
+        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        prefix xml: <http://www.w3.org/XML/1998/namespace> 
+
+        SELECT ?patient ?agee
+        WHERE{
+        ?patient rdf:type ns1:Patient . 
+        ?patient ns1:a_maladie ?maladie .
+        ?maladie rdf:type ns1:x1 .
+        ?patient ns1:age ?agee .
+        FILTER (?agee < x0)
+        }
+        """
+
+        substitutions = {"x0":str(age),"x1":nom_maladie}
+        requete = self.replace(requete, substitutions)
+        result = graph.query(requete)
+        print(requete+"\n")       
+        for i in result:
+            print("===")
+            cpt = 0
+            for j in i:
+                print(cpt," - ",j)
+                cpt = cpt + 1
+            print("====")
+
+    def request_5(self):
+        """ 
+        determiner sympthomes pour une certaine maladie
+        """
 class adresses_onto(traitemnt_onto):
     path_wilaya = "Localisation_csv/wilayas.csv"
     path_commune = "Localisation_csv/communes.csv"
@@ -318,9 +403,7 @@ class adresses_onto(traitemnt_onto):
                 code = self.mon_iri + "commune" + "0" + str(code_c)
             else:
                 code = self.mon_iri + "commune" + str(code_c) 
-            self.encode_commune[nom_c]= code
-
-        
+            self.encode_commune[nom_c]= code  
 
     def creer_Wilaya(self, path):
         wilayas = pd.read_csv(path)
