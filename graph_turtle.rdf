@@ -814,12 +814,6 @@ ns1:Steato_Hepatite_Non_Alcoolique a <http://www.w3.org/2002/07/owl#Class> ;
 ns1:Stress a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf ns1:Psychiatrie .
 
-ns1:Sympthomes_autres a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Sympthomes .
-
-ns1:Sympthomes_covid a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Sympthomes .
-
 ns1:Syndrome_Adams_Strokes a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf ns1:Maladies_Rares .
 
@@ -998,10 +992,6 @@ ns1:a_maladie a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
 ns1:a_sympthomes a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
     rdfs:domain ns1:Patient ;
     rdfs:range ns1:Sympthomes .
-
-ns1:adresse_hopitale a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-    rdfs:domain ns1:Hopital ;
-    rdfs:range ns1:Adresse .
 
 ns1:age a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
         <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
@@ -8702,16 +8692,34 @@ ns1:commune_de a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
     rdfs:domain ns1:Commune ;
     rdfs:range ns1:Wilaya .
 
+ns1:commune_hopitale a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain ns1:Hopital ;
+    rdfs:range ns1:Commune .
+
+ns1:concerne a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain ns1:Consultation ;
+    rdfs:range ns1:Patient .
+
 ns1:consulte a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
     rdfs:domain ns1:Patient ;
-    rdfs:range ns1:Medecin .
+    rdfs:range ns1:Consultation .
 
-ns1:est_concerne a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-    rdfs:domain ns1:Patient ;
-    rdfs:range ns1:Fiche .
+ns1:date_consultation a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
+        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    rdfs:domain ns1:Consultation ;
+    rdfs:range xsd:date .
+
+ns1:date_rendez_vous a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
+        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    rdfs:domain ns1:RDV ;
+    rdfs:range xsd:date .
+
+ns1:effectue_consultation a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain ns1:Medecin ;
+    rdfs:range ns1:Consultation .
 
 ns1:est_oriente a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-    rdfs:domain ns1:Patient ;
+    rdfs:domain ns1:Consultation ;
     rdfs:range ns1:Orientation .
 
 ns1:est_sympthomes_maladie a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
@@ -8720,6 +8728,11 @@ ns1:est_sympthomes_maladie a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
 
 ns1:fiévre1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Fiévre .
+
+ns1:gravite_sympthome a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
+        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    rdfs:domain ns1:Sympthomes ;
+    rdfs:range xsd:string .
 
 ns1:habite_commune a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
     rdfs:domain ns1:Patient ;
@@ -8747,6 +8760,33 @@ ns1:id_patient a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
         <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
     rdfs:domain ns1:Patient ;
     rdfs:range xsd:string .
+
+ns1:medecin1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Medecin ;
+    ns1:effectue_consultation ns1:consultation1 ;
+    ns1:id_medecin 0 ;
+    ns1:medecin_spcl "généraliste"^^xsd:string ;
+    ns1:nom "vegapunk "^^xsd:string ;
+    ns1:prenom "noName"^^xsd:string ;
+    ns1:sexe "Homme"^^xsd:string .
+
+ns1:medecin2 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Medecin ;
+    ns1:effectue_consultation ns1:consultation2 ;
+    ns1:id_medecin 0 ;
+    ns1:medecin_spcl "cardiologue"^^xsd:string ;
+    ns1:nom "pasteur"^^xsd:string ;
+    ns1:prenom "louis"^^xsd:string ;
+    ns1:sexe "Homme"^^xsd:string .
+
+ns1:medecin3 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Medecin ;
+    ns1:effectue_consultation ns1:consultation3 ;
+    ns1:id_medecin 2 ;
+    ns1:medecin_spcl "virologue"^^xsd:string ;
+    ns1:nom "shopper"^^xsd:string ;
+    ns1:prenom "reine"^^xsd:string ;
+    ns1:sexe "Homme"^^xsd:string .
 
 ns1:medecin_spcl a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
     rdfs:domain ns1:Medecin ;
@@ -8776,6 +8816,161 @@ ns1:nomWilaya a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
         <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
     rdfs:domain ns1:Wilaya ;
     rdfs:range xsd:string .
+
+ns1:poid a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
+        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    rdfs:domain ns1:Personne ;
+    rdfs:range xsd:decimal .
+
+ns1:prend_RDV a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain ns1:Orientation ;
+    rdfs:range ns1:RDV .
+
+ns1:prend_traitement a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain ns1:Patient ;
+    rdfs:range ns1:Traitement .
+
+ns1:prenom a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
+        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    rdfs:domain ns1:Personne ;
+    rdfs:range xsd:string .
+
+ns1:redige_fiche a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain ns1:Medecin ;
+    rdfs:range ns1:Fiche .
+
+ns1:sexe a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
+        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    rdfs:domain ns1:Personne ;
+    rdfs:range xsd:string .
+
+ns1:taille a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
+        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    rdfs:domain ns1:Personne ;
+    rdfs:range xsd:decimal .
+
+ns1:toux_seche1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Toux_Seche .
+
+ns1:type_orientation a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
+        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    rdfs:domain ns1:Orientation ;
+    rdfs:range xsd:string .
+
+ns1:wilaya_hopitale a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    rdfs:domain ns1:Hopital ;
+    rdfs:range ns1:Wilaya .
+
+ns1:Adresse a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
+
+ns1:Contraction a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Sympthomes .
+
+ns1:Covid19 a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Difficulté_Respiration a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Sympthomes .
+
+ns1:Enceinte a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Fiche a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
+
+ns1:Fievre a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Sympthomes .
+
+ns1:Fiévre a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Sympthomes .
+
+ns1:Mal_Articulations a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Sympthomes .
+
+ns1:Morve a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Sympthomes .
+
+ns1:Piqure_De_Chien a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Traitement .
+
+ns1:Piqure_De_Grenouille a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Traitement .
+
+ns1:Piqure_De_Rat a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Traitement .
+
+ns1:Rhume a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Toux_Seche a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Sympthomes .
+
+ns1:commune04020 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Commune ;
+    ns1:commune_de ns1:wilaya4 ;
+    ns1:nomCommune "Ouled_Zouai"^^xsd:string .
+
+ns1:commune06017 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Commune ;
+    ns1:commune_de ns1:wilaya6 ;
+    ns1:nomCommune "Ighil_Ali"^^xsd:string .
+
+ns1:commune29043 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Commune ;
+    ns1:commune_de ns1:wilaya29 ;
+    ns1:nomCommune "Chorfa"^^xsd:string .
+
+ns1:consultation1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Consultation ;
+    ns1:concerne ns1:patient1 ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation1 .
+
+ns1:consultation2 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Consultation ;
+    ns1:concerne ns1:patient2 ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation2 .
+
+ns1:consultation3 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Consultation ;
+    ns1:concerne ns1:patient3 ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
+    ns1:est_oriente ns1:orientation3 .
+
+ns1:contraction1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Contraction .
+
+ns1:covid191 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Covid19 .
+
+ns1:enceinte1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Enceinte .
+
+ns1:fievre1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Fievre .
+
+ns1:mal_articulations1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Mal_Articulations .
+
+ns1:morve1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Morve .
+
+ns1:orientation1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Orientation ;
+    ns1:hospitalise_a <https://projetWebsem.org/ontologie.owl#hopital1/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation2 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Orientation ;
+    ns1:hospitalise_a <https://projetWebsem.org/ontologie.owl#hopital1/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation3 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Orientation ;
+    ns1:hospitalise_a <https://projetWebsem.org/ontologie.owl#hopital1/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
 
 ns1:patient1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Patient ;
@@ -8820,126 +9015,10 @@ ns1:patient3 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
     ns1:id_patient 5 ;
     ns1:nb_jrs_depuis_derniere_sortie 5 ;
     ns1:nb_jrs_depuis_premiers_sympthomes 6 ;
-    ns1:poid 15 ;
+    ns1:poid 60 ;
     ns1:prend_traitement ns1:piqure_de_rat1 ;
     ns1:sexe "femme"^^xsd:string ;
     ns1:taille 155 .
-
-ns1:poid a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
-        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-    rdfs:domain ns1:Personne ;
-    rdfs:range xsd:decimal .
-
-ns1:prend_RDV a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-    rdfs:domain ns1:Patient ;
-    rdfs:range ns1:RDV .
-
-ns1:prend_traitement a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-    rdfs:domain ns1:Patient ;
-    rdfs:range ns1:Traitement .
-
-ns1:prenom a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-    rdfs:domain ns1:Personne ;
-    rdfs:range xsd:string .
-
-ns1:prise_charge_domicile a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Orientation .
-
-ns1:rediger a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-    rdfs:domain ns1:Medecin ;
-    rdfs:range ns1:Fiche .
-
-ns1:resultat_or a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-    rdfs:domain ns1:Fiche ;
-    rdfs:range ns1:Orientation .
-
-ns1:sexe a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
-        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-    rdfs:domain ns1:Personne ;
-    rdfs:range xsd:string .
-
-ns1:taille a <http://www.w3.org/2002/07/owl#DatatypeProperty>,
-        <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-    rdfs:domain ns1:Personne ;
-    rdfs:range xsd:decimal .
-
-ns1:toux_seche1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Toux_Seche .
-
-ns1:Contraction a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Sympthomes .
-
-ns1:Covid19 a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Difficulté_Respiration a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Sympthomes .
-
-ns1:Enceinte a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Fievre a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Sympthomes .
-
-ns1:Fiévre a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Sympthomes .
-
-ns1:Mal_Articulations a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Sympthomes .
-
-ns1:Morve a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Sympthomes .
-
-ns1:Piqure_De_Chien a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Traitement .
-
-ns1:Piqure_De_Grenouille a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Traitement .
-
-ns1:Piqure_De_Rat a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Traitement .
-
-ns1:RDV a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
-
-ns1:Rhume a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Toux_Seche a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Sympthomes .
-
-ns1:commune04020 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Commune ;
-    ns1:commune_de ns1:wilaya4 ;
-    ns1:nomCommune "Ouled_Zouai"^^xsd:string .
-
-ns1:commune06017 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Commune ;
-    ns1:commune_de ns1:wilaya6 ;
-    ns1:nomCommune "Ighil_Ali"^^xsd:string .
-
-ns1:commune29043 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Commune ;
-    ns1:commune_de ns1:wilaya29 ;
-    ns1:nomCommune "Chorfa"^^xsd:string .
-
-ns1:contraction1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Contraction .
-
-ns1:covid191 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Covid19 .
-
-ns1:enceinte1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Enceinte .
-
-ns1:fievre1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Fievre .
-
-ns1:mal_articulations1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Mal_Articulations .
-
-ns1:morve1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
-        ns1:Morve .
 
 ns1:piqure_de_chien1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Piqure_De_Chien .
@@ -8953,10 +9032,7 @@ ns1:piqure_de_rat1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
 ns1:rhume1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Rhume .
 
-ns1:Adresse a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
-
-ns1:Hopital a <http://www.w3.org/2002/07/owl#Class> ;
+ns1:RDV a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
 
 ns1:difficulté_respiration1 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
@@ -8967,13 +9043,11 @@ ns1:wilaya37 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
     ns1:idWilaya "37"^^xsd:string ;
     ns1:nomWilaya "Tindouf"^^xsd:string .
 
-ns1:Fiche a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
+<https://projetWebsem.org/ontologie.owl#hopital1/toghza> a <http://www.w3.org/2002/07/owl#NamedIndividual>,
+        ns1:Hopital ;
+    ns1:wilaya_hopitale ns1:wilaya10 .
 
-ns1:Medecin a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Personne .
-
-ns1:Orientation a <http://www.w3.org/2002/07/owl#Class> ;
+ns1:Hopital a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
 
 ns1:Traitement a <http://www.w3.org/2002/07/owl#Class> ;
@@ -8983,6 +9057,15 @@ ns1:wilaya33 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Wilaya ;
     ns1:idWilaya "33"^^xsd:string ;
     ns1:nomWilaya "Illizi"^^xsd:string .
+
+ns1:Medecin a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Personne .
+
+ns1:Orientation a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
+
+ns1:Consultation a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
 
 ns1:Personne a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
@@ -8999,6 +9082,9 @@ ns1:Phlebologie a <http://www.w3.org/2002/07/owl#Class> ;
 ns1:Maladies_Parasitaires a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf ns1:Maladies .
 
+ns1:Sympthomes a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
+
 ns1:wilaya11 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Wilaya ;
     ns1:idWilaya "11"^^xsd:string ;
@@ -9006,9 +9092,6 @@ ns1:wilaya11 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
 
 ns1:Psychiatrie a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf ns1:Maladies .
-
-ns1:Sympthomes a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://www.w3.org/2002/07/owl#Thing> .
 
 ns1:Urologie_Nephro a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf ns1:Maladies .
@@ -9028,6 +9111,9 @@ ns1:wilaya45 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
     ns1:idWilaya "45"^^xsd:string ;
     ns1:nomWilaya "Naâma"^^xsd:string .
 
+ns1:Patient a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Personne .
+
 ns1:Pneumologie a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf ns1:Maladies .
 
@@ -9038,9 +9124,6 @@ ns1:wilaya47 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
 
 ns1:Metabolisme a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf ns1:Maladies .
-
-ns1:Patient a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Personne .
 
 ns1:wilaya20 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Wilaya ;
@@ -9233,9 +9316,6 @@ ns1:wilaya22 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
     ns1:idWilaya "22"^^xsd:string ;
     ns1:nomWilaya "Sidi_Bel_Abbès"^^xsd:string .
 
-ns1:Wilaya a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf ns1:Adresse .
-
 ns1:wilaya13 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Wilaya ;
     ns1:idWilaya "13"^^xsd:string ;
@@ -9245,6 +9325,9 @@ ns1:wilaya6 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Wilaya ;
     ns1:idWilaya "6"^^xsd:string ;
     ns1:nomWilaya "Béjaïa"^^xsd:string .
+
+ns1:Wilaya a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf ns1:Adresse .
 
 ns1:wilaya16 a <http://www.w3.org/2002/07/owl#NamedIndividual>,
         ns1:Wilaya ;

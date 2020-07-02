@@ -16,7 +16,7 @@ with onto:
         range = [str]
         domain = [Personne]
 
-    class prenom(DataProperty):
+    class prenom(DataProperty,FunctionalProperty):
         range = [str]
         domain = [Personne]
 
@@ -148,7 +148,7 @@ with onto:
         pass
     class commune_de(Commune >> Wilaya):
         pass
-    class prend_RDV( Patient >> RDV):           
+    class prend_RDV( Orientation >> RDV):           
         pass
     class redige_fiche( Medecin >> Fiche):               #si une fiche est un papier regroupant le nom du medecin et le nom du patient  (un seul) alors je n'en vois pas l"inteet
                                             #si une fiche contient les information des medecin de ces patient ect... alors oui ,l'idee est interessante
@@ -160,8 +160,13 @@ with onto:
         pass
     class hospitalise_a(Orientation >> Hopital):
         pass   
-    class adresse_hopitale(Hopital >> Adresse):
+    class concerne( Consultation >> Patient ):       #on pourra obtenir la nom du medecin consulter a partir de consultation    
         pass
+    class wilaya_hopitale(Hopital >> Wilaya):
+        pass
+    class commune_hopitale(Hopital >> Commune):
+        pass
+    
     class effectue_consultation(Medecin >> Consultation):
         pass 
    # et si on ne mettait pas la classe orientation mais juste la relation orient� ? mais du coup elle sera entre patient et hopital 

@@ -2,22 +2,41 @@ from enrichissement import adresses_onto
 from enrichissement import traitemnt_onto
 import re
 import rdflib
-
+import datetime
 class medecin_onto(traitemnt_onto):
+    objet_medecin  = None
     def __init__(self):
         super().__init__()
     
-    def creer_medecin(self,id,nom,prenom,sexe,spécialité):
+    def creer_medecin(self,id,sexe,specialite,nom,prenom,consultation,fiche=None):
+        """Args
+            id: id du medecin 
+            nom
+            prenom 
+            sexe
+            specialite : du medecin
+            fiche: objet fiche
+            consultation: objet consulatation 
+        """
         m = self.dico["Medecin"]()
         m.id_medecin = id
+        
         m.nom = nom
         m.prenom = prenom
         m.sexe = sexe
-        m.medecin_spcl = spécialité # et si on faisait aussi du scrapping pour les specialités ? nagh smbalec on laisse akka 
-        m.iri = self.mon_iri + "medecin" + str(id)
+        m.medecin_spcl.append(specialite) # et si on faisait aussi du scrapping pour les specialités ? nagh smbalec on laisse akka 
+        #m.iri = self.mon_iri + "medecin" + str(id)
        # je pense qu'on devra mettre ici les relation que le medecin fera genre  rediger fiche et tt 
+        if fiche != None:
+            m.redige_fiche.append(fiche)
+
+        m.effectue_consultation.append(consultation)
+
+        self.objet_medecin = m
+
 
 class patient_onto(traitemnt_onto):
+    objet_patient = None
     def __init__(self):
         super().__init__()
     def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements):
@@ -88,7 +107,9 @@ class patient_onto(traitemnt_onto):
         com = self.onto.search(iri='*'+com_code)[0]
         p.habite_commune.append(com)
         #print("commune : ",p.habite_commune[0].nomCommune)
-    
+        
+        
+        self.objet_patient = p
 
     def request(self,id):
 
@@ -253,3 +274,27 @@ class patient_onto(traitemnt_onto):
         """ 
         determiner sympthomes pour une certaine maladie
         """
+
+
+class consultation_onto(traitemnt_onto):
+    objet_consultation = None
+    def __init__(self):
+        super().__init__()
+
+    def creer_consultation(self, date_cons,patient,orientation):
+        """
+            patient : l'objet patient qu'on va créer  avant de creer une consultation 
+            date_cons : date de la consultation 
+            orientation = l'objet orientation qu'on a créer avant 
+
+        """
+        
+
+        cons = self.dico["Consultation"]()
+
+        tabdate=date_cons.split("/") #la on devrait obtenir un tableau de 3 elements date mois et anee    
+        cons.date_consultation = datetime.date(int(tabdate[2]),int(tabdate[1]),int(tabdate[0]))
+        cons.est_oriente.append(orientation)
+        cons.concerne.append(patient)
+        #je sais pas ce qu'elle retourne cette fonction prsq j besoin de l iri de l'orientation
+        self.objet_consultation = cons

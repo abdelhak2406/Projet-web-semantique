@@ -225,6 +225,8 @@ class orientation_onto(traitemnt_onto):
     a.creer_orientation(orient="prise_en_charge_hopital",patient=p,hopital="souq ahras")
     a.save_onto()
     """
+
+    objet_orientation = None
     def __init__(self):	    
         super().__init__()	
     def creer_orientation(self, orient,date_rdv=None,patient=None,hopital=None):
@@ -242,9 +244,7 @@ class orientation_onto(traitemnt_onto):
         print()
         if (orient == "prise_en_charge_domicile"):
             o.type_orientation = orient          
-            print("wazap")
         if (orient == "prise_de_rendez-vous" and date_rdv != None ): 
-            o = self.dico["Orientation"]()
             o.type_orientation = orient         
             r = self.dico["RDV"]()
             #on va créer un objet de type datetime et l'inputer directement ?           
@@ -258,24 +258,25 @@ class orientation_onto(traitemnt_onto):
 
         if (orient == "prise_en_charge_hopital" and (patient !=None) and hopital !=None):
             o.type_orientation = orient          
-            #la faut chercher si l'hopital existe ou pas! on suppose que les iri des opitaux contiendrons le nom des hopitaux (hopital/nomhopitale)
+            #la faut chercher si l'hopital existe ou pas! on suppose que les iri des opitaux contiendrons le nom des hopitaux (hopitalX/nomhopitale)
             
             #on va vérifier si l'hopital existe sinon on le crée , le probléme c'est qu'il faut savoir ou il se situe, 
             #on pourrait supposer que cela dépend tu patient, donc on vas tout simplement avoir en entrée aussi l'adresse du patient, ou plus simple l'objet patient 
             #lui meme 
-            hopital= re.sub(r" |-", "_", hopital)#remplace tout les espaces et - avec _ 
+            hopital= re.sub(r" |-", "_", hopital).lower()#remplace tout les espaces et - avec _ 
             res = self.onto.search(iri="*"+hopital.lower()+"*")
             if(res ==[]):#objet non instancier
                 #creer l'objet
                 h = self.dico["Hopital"]()                  
+                h.iri = h.iri+"/"+hopital
                 wil_code = adresses_onto().get_code_wilaya(patient.habite_wilaya[0].nomWilaya)
+
                 wil = self.onto.search(iri='*'+wil_code)[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utilise          
-                print(h)
                 h.wilaya_hopitale.append(wil)
-            
-            o.hospitalise_a.append(h)
-
-
+                o.hospitalise_a.append(h)
+            else:
+                o.hospitalise_a.append(res[0])
+        self.objet_orientation = o
 if __name__ == "__main__":
     ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()
@@ -284,4 +285,3 @@ if __name__ == "__main__":
     adresse.creer_Wilaya("Localisation_csv/wilayas.csv")
     adresse.creer_Commune("Localisation_csv/communes.csv")
     adresse.save_onto()
-    
