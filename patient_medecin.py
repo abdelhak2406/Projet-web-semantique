@@ -295,6 +295,6 @@ class consultation_onto(traitemnt_onto):
         tabdate=date_cons.split("/") #la on devrait obtenir un tableau de 3 elements date mois et anee    
         cons.date_consultation = datetime.date(int(tabdate[2]),int(tabdate[1]),int(tabdate[0]))
         cons.est_oriente.append(orientation)
-        cons.concerne.append(patient)
+        cons.consultation_concerne.append(patient)
         #je sais pas ce qu'elle retourne cette fonction prsq j besoin de l iri de l'orientation
         self.objet_consultation = cons

@@ -273,9 +273,9 @@ class orientation_onto(traitemnt_onto):
 
                 wil = self.onto.search(iri='*'+wil_code)[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utilise          
                 h.wilaya_hopitale.append(wil)
-                o.hospitalise_a.append(h)
+                o.orienter_vers_hopital.append(h)
             else:
-                o.hospitalise_a.append(res[0])
+                o.orienter_vers_hopital.append(res[0])
         self.objet_orientation = o
 if __name__ == "__main__":
     ontolo = traitemnt_onto()

@@ -136,39 +136,84 @@ with onto:
     ##----------Relations-----------
     class a_sympthomes(Patient >> Sympthomes):
         pass
-    class est_sympthomes_maladie(Sympthomes >> Maladies):
+    class sympthome_touche_patient(Sympthomes >> Patient):
+        inverse_property = a_sympthomes
         pass
     class a_maladie (Patient >> Maladies):                     # on le met sois pour maladie nagh maladie chronique pas les 2 
         pass
+    class maladie_touche_patient( Maladies >> Patient):
+        inverse_property = a_maladie
+        pass
     class prend_traitement ( Patient >> Traitement):
+        pass
+    class traitement_pris_par(Traitement >> Patient):
+        inverse_property = prend_traitement
         pass
     class habite_wilaya( Patient >> Wilaya):            # je pense qu'on doit juste faire la relation habite qui sera entre patient et wilaya
         pass
+    class wilaya_habite_par( Wilaya >> Patient):
+        inverse_property = habite_wilaya
+        pass
     class habite_commune( Patient >> Commune):          # prsq daira va heriter de cette relation aussi 
         pass
+    class commune_habite_par (Commune >> Patient):
+        inverse_property = habite_commune
+        pass
+    class consulte( Patient >> Consultation):       #on pourra obtenir la nom du medecim consulter a partir de consultation            
+        pass
+    class consultation_concerne( Consultation >> Patient):
+        inverse_property = consulte
+        pass
+    class est_hospitalilser_a(Patient >> Hopital):
+        pass
+    class prend_en_charge(Hopital >> Patient):
+        inverse_property = est_hospitalilser_a
+        pass
+    class est_sympthomes_maladie(Sympthomes >> Maladies):
+        pass
+    class a_comme_sympthomes(Maladies >> Sympthomes):
+        inverse_property = est_sympthomes_maladie
+        pass
+
     class commune_de(Commune >> Wilaya):
+        pass
+    class a_commune(Wilaya >> Commune):
+        inverse_property = commune_de
         pass
     class prend_RDV( Orientation >> RDV):           
         pass
+    class rdv_pris(RDV >> Orientation):
+        inverse_property = prend_RDV
+        pass
+    class orienter_vers_hopital(Orientation >> Hopital):#peut etre ajouter une relation qui lie directement le patient vers l'hopital?
+        pass 
+    
+    class hopital_orientation(Hopital >> Orientation):
+        inverse_property = orienter_vers_hopital
+        pass
+
     class redige_fiche( Medecin >> Fiche):               #si une fiche est un papier regroupant le nom du medecin et le nom du patient  (un seul) alors je n'en vois pas l"inteet
                                             #si une fiche contient les information des medecin de ces patient ect... alors oui ,l'idee est interessante
         pass
-
-    class consulte( Patient >> Consultation):       #on pourra obtenir la nom du medecim consulter a partir de consultation            
+    class est_rediger_par(Fiche >> Medecin):
+        inverse_property = redige_fiche
         pass
+    class effectue_consultation(Medecin >> Consultation):
+        pass
+    class consult_effectuer_par(Consultation >> Medecin):
+        inverse_property = effectue_consultation
+        pass
+
     class est_oriente( Consultation >> Orientation): # le reesultat de la consultation            
         pass
-    class hospitalise_a(Orientation >> Hopital):
-        pass   
-    class concerne( Consultation >> Patient ):       #on pourra obtenir la nom du medecin consulter a partir de consultation    
+    class cause_orientation(Orientation >> Consultation):
+        inverse_property = est_oriente
         pass
     class wilaya_hopitale(Hopital >> Wilaya):
         pass
     class commune_hopitale(Hopital >> Commune):
         pass
     
-    class effectue_consultation(Medecin >> Consultation):
-        pass 
    # et si on ne mettait pas la classe orientation mais juste la relation orient� ? mais du coup elle sera entre patient et hopital 
    # et entre patient et domicile c possible ? 
 
