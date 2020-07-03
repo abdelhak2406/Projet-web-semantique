@@ -20,14 +20,12 @@ class medecin_onto(traitemnt_onto):
             fiche: objet fiche
             consultation: objet consulatation 
         """
-        m = self.dico["Medecin"]()
+        m = self.obtenir_objet("Medecin",str(id))
         m.id_medecin = str(id)
-        
         m.nom = nom
         m.prenom = prenom
         m.sexe = sexe
         m.medecin_spcl.append(specialite) # et si on faisait aussi du scrapping pour les specialités ? nagh smbalec on laisse akka 
-        #m.iri = self.mon_iri + "medecin" + str(id)
        # je pense qu'on devra mettre ici les relation que le medecin fera genre  rediger fiche et tt 
         if fiche != None:
             m.redige_fiche.append(fiche)
@@ -43,6 +41,7 @@ class patient_onto(traitemnt_onto):
 
     def __init__(self):
         super().__init__()
+    
     def ajout_relations(self,liste,typee,pat,relation):
         """
         liste : contient les sympthomes ou les maladies ou les traitement 
@@ -64,6 +63,7 @@ class patient_onto(traitemnt_onto):
             else:#objet instancier
                 print("else patient: ",pat)
                 relation.append(res[0])
+    
     def ajout_sympthomes(self,liste_symp,pat):
         liste1 = liste_symp.split(",")
         for i in liste1:
@@ -76,8 +76,7 @@ class patient_onto(traitemnt_onto):
                 print("le sympthome ",symp.iri)
                 pat.a_sympthomes.append(symp)
             else:#l'objet existe
-                pat.a_sympthomes.append(res[0])
-            
+                pat.a_sympthomes.append(res[0])        
 
     def ajout_maladies(self,liste_mala,pat):
         liste1 = liste_mala.split(",")
@@ -86,11 +85,11 @@ class patient_onto(traitemnt_onto):
             res = self.onto.search(iri="*maladies/"+i)
             if res== []:
                 #créer l'objet sympthome
-                mala = self.dico["Maladies"]()
-                mala.iri = self.mon_iri+"maladies/"+i.lower()
+                mala = self.obtenir_objet("Maladies",i.lower())
                 pat.a_maladie.append(mala)
             else:#l'objet existe
                 pat.a_maladie.append(res[0])
+    
     def ajout_traitements(self,liste_trait,pat):
         liste1 = liste_trait.split(",")
         for i in liste1:
@@ -115,14 +114,18 @@ class patient_onto(traitemnt_onto):
         com = self.onto.search(iri='*'+com_code)[0]
         pat.habite_commune.append(com)
 
-    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements, consultation=None):
+    def ajout_hopital(self,hopital):
+        pass
+
+
+    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements,hopital=None, consultation=None):
 
         ##chercher si l'iri existe
         res0 =self.onto.search(iri="*"+"patient/"+str(id))
         if res0 == []:#il n'existe pas
             print("resultat ",res0)
             p =  self.dico["Patient"]()
-            p.iri = self.mon_iri + "patient" + str(id) #on le cree
+            p.iri = self.mon_iri + "patient/" + str(id) #on le cree
         else:#il existe(le patient ayant cet id)
             print("resuultat de la recherche du patient ",res0)
             print("id patient existant dans la base de donne nous supposons que c'est une autre consultation d'un meme patient")
@@ -159,6 +162,7 @@ class patient_onto(traitemnt_onto):
         #print("commune : ",p.habite_commune[0].nomCommune)
                
         self.objet_patient = p
+
     def creer_relations_sympthomes(self,maladie,sympthome):
         """
         creer la relation entre maladie et sympthomes est_sympthomes_maladies, le truc c'est que si un malade a plusieurs sympthomes, et bien sa devient vite des données tres fausse!
@@ -349,6 +353,8 @@ class consultation_onto(traitemnt_onto):
         tabdate=date_cons.split("/") #la on devrait obtenir un tableau de 3 elements date mois et anee    
         cons.date_consultation = datetime.date(int(tabdate[2]),int(tabdate[1]),int(tabdate[0]))
         cons.est_oriente.append(orientation)
+
         cons.consultation_concerne.append(patient)
+        
         #je sais pas ce qu'elle retourne cette fonction prsq j besoin de l iri de l'orientation
         self.objet_consultation = cons

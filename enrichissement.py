@@ -54,19 +54,22 @@ class traitemnt_onto:
                 #mettre a jour le dictionnaire
                 self.dico = self.creation_dictionnaire()
 
-    def ajout_objet(self,nom_classe,nom_objet):
+    def obtenir_objet(self,nom_classe,nom_objet):
         """
-        ajoute une instance d'un certaine objet donc pour cela il faudrait verifier si ce dernier existe ou pas dans la base de donne
+        retourne une instance d'un certaine objet donc pour cela il faudrait verifier si ce dernier existe ou pas dans la base de donne
         
         """
         rs = self.objet_existe(nom_classe,nom_objet)
         if rs==False :#obj n'existe pas
             nom_classe = re.sub(r" |-", "_", nom_classe).title()
-            return self.dico[nom_classe]()
+            ob = self.dico[nom_classe]()
+            nom_classe = nom_classe.lower()
+            nom_objet =  re.sub(r" |-", "_", nom_objet).lower() 
+            ob.iri = self.mon_iri+nom_classe+"/"+nom_objet
+            return ob
         else:
             return rs
-        
-
+    
     def objet_existe(self,nom_classe,nom_oj):
         """
         verifie si un objet existe ou pas si existe le renvoie sinon renvoie False
@@ -313,17 +316,13 @@ class orientation_onto(traitemnt_onto):
             hopital= re.sub(r" |-", "_", hopital).lower()#remplace tout les espaces et - avec _ 
             res = self.onto.search(iri="*"+hopital.lower()+"*")
 
-            if(res ==[]):#objet non instancier
-                #creer l'objet
-                h = self.dico["Hopital"]()                  
-                h.iri = h.iri+"/"+hopital
-                wil_code = adresses_onto().get_code_wilaya(patient.habite_wilaya[0].nomWilaya)
 
-                wil = self.onto.search(iri='*'+wil_code)[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utilise          
-                h.wilaya_hopitale.append(wil)
-                o.orienter_vers_hopital.append(h)
-            else:
-                o.orienter_vers_hopital.append(res[0])
+            h = self.obtenir_objet("Hopital",hopital)
+            wil_code = adresses_onto().get_code_wilaya(patient.habite_wilaya[0].nomWilaya)
+            wil = self.onto.search(iri='*'+wil_code)[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utilise          
+            h.wilaya_hopitale.append(wil)
+            o.orienter_vers_hopital.append(h)
+
 
         self.objet_orientation = o
 
