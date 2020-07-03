@@ -11,9 +11,11 @@ import pandas as pd
 import rdflib
 import datetime
 class traitemnt_onto:
+    
     onto = get_ontology("ontologie.owl").load()
     mon_iri = "https://projetWebsem.org/ontologie.owl#"
     onto_name = "ontologie.owl"
+
     def __init__(self):
         self.dico = self.creation_dictionnaire()
     
@@ -29,6 +31,7 @@ class traitemnt_onto:
         return dico
 
     def enrichir_sympthomes_csv(self,nom_sortie):#eventuellement a modifier
+
         # nom_sortie = "symptomes.csv"    
         with open (nom_sortie, 'w') as csvfile:
             filewriter = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
@@ -59,6 +62,7 @@ class traitemnt_onto:
         return False
 
     def enrichir_maladies(self):
+
         quote_page = "https://www.sante-sur-le-net.com/maladies/"
         #ouvrir la page
         page = urlopen(quote_page)
@@ -95,8 +99,7 @@ class traitemnt_onto:
                 header_maladies = soup.find_all('h3')#recuperer les maladies de ce type (ils sont dans un <a> dans un h3) 
                 print("maladie: ",maladie)
                 for x in header_maladies: #parcourir pour les ajouter a notre ontologie
-                    lien_maladie = [i['href'] for i in x.find_all('a', href=True)] # a cgaqye iteration sa retourne une liste avec 2 fois la meme url 
-                
+                    lien_maladie = [i['href'] for i in x.find_all('a', href=True)] # a cgaqye iteration sa retourne une liste avec 2 fois la meme url                
 
                     # Filtrer les pages pour n'avoir que des maladies dans l'ontologie
                     condition = ("myopathies" not in lien_maladie[0] 
@@ -133,24 +136,30 @@ class traitemnt_onto:
         return regex.sub(lambda match: substitutions[match.group(0)], string)
 
 class adresses_onto(traitemnt_onto):
+
     path_wilaya = "Localisation_csv/wilayas.csv"
     path_commune = "Localisation_csv/communes.csv"
     encode_wilaya = {}
     encode_commune = {}
+
     def __init__(self):
         super().__init__()
         self.create_dico_wilaya()
         self.create_dico_commune()
         
+
     def get_code_wilaya(self,wilaya):
         wilaya = re.sub(r" |-", "_", wilaya).lower()
         return self.encode_wilaya[wilaya]
     
+
     def get_code_commune(self,commune):
         commune = re.sub(r" |-", "_", commune).lower()
         return self.encode_commune[commune]
     
+
     def create_dico_wilaya(self):
+
         wilayas = pd.read_csv(self.path_wilaya)
         for i in range(len(wilayas)):
             nom_w = wilayas.iloc[i]['nom']
@@ -158,7 +167,9 @@ class adresses_onto(traitemnt_onto):
             code_w = str(wilayas.iloc[i]['code'])
             self.encode_wilaya[nom_w]= code_w
     
+
     def create_dico_commune(self):
+
         communes = pd.read_csv(self.path_commune)
         for i in range(len(communes)):
             nom_c = communes.iloc[i]['nom']
@@ -171,7 +182,9 @@ class adresses_onto(traitemnt_onto):
                 code = self.mon_iri + "commune" + str(code_c) 
             self.encode_commune[nom_c]= code  
 
+
     def creer_Wilaya(self, path):
+
         wilayas = pd.read_csv(path)
         for i in range(len(wilayas)):
             w = self.dico["Wilaya"]()
@@ -183,7 +196,9 @@ class adresses_onto(traitemnt_onto):
             w.idWilaya = code_w
             w.iri =  self.mon_iri + "wilaya" + code_w
 
+
     def creer_Commune(self, path):
+
         communes = pd.read_csv(path)
         for i in range(len(communes)):
             c = self.dico["Commune"]()
@@ -203,6 +218,7 @@ class adresses_onto(traitemnt_onto):
             c.commune_de.append(self.onto.search(iri= self.mon_iri + "wilaya" + wilaya_lie)[0])
 
 class orientation_onto(traitemnt_onto):
+
     """ a etait tester et marche pour re tester
     on = traitemnt_onto()
     p =  on.dico["Patient"]()
@@ -227,8 +243,10 @@ class orientation_onto(traitemnt_onto):
     """
 
     objet_orientation = None
+
     def __init__(self):	    
         super().__init__()	
+
     def creer_orientation(self, orient,date_rdv=None,patient=None,hopital=None):
         """args
            orient : type d'orientation :prise en charge domicile ou hopital ou bien prise de rdv
@@ -242,14 +260,15 @@ class orientation_onto(traitemnt_onto):
         #medecin = self.onto.search(iri=mon_iri + "medecin" + str(id_medecin))[0]
         o = self.dico["Orientation"]()
         print()
+
         if (orient == "prise_en_charge_domicile"):
-            o.type_orientation = orient          
+            o.type_orientation = orient  
+
         if (orient == "prise_de_rendez-vous" and date_rdv != None ): 
             o.type_orientation = orient         
             r = self.dico["RDV"]()
             #on va créer un objet de type datetime et l'inputer directement ?           
-            tabdate=date_rdv.split("/") #la on devrait obtenir un tableau de 3 elements date mois et anee
-            
+            tabdate=date_rdv.split("/") #la on devrait obtenir un tableau de 3 elements date mois et anee           
             r.date_rendez_vous= datetime.date(int(tabdate[2]),int(tabdate[1]),int(tabdate[0]))
             #print(r.date_rendez_vous)  donne cette sortie 2026-06-24 pour la date 24/06/2026
             o.prend_RDV.append(r)
@@ -265,6 +284,7 @@ class orientation_onto(traitemnt_onto):
             #lui meme 
             hopital= re.sub(r" |-", "_", hopital).lower()#remplace tout les espaces et - avec _ 
             res = self.onto.search(iri="*"+hopital.lower()+"*")
+
             if(res ==[]):#objet non instancier
                 #creer l'objet
                 h = self.dico["Hopital"]()                  
@@ -276,7 +296,52 @@ class orientation_onto(traitemnt_onto):
                 o.orienter_vers_hopital.append(h)
             else:
                 o.orienter_vers_hopital.append(res[0])
+
         self.objet_orientation = o
+
+class fiche_onto(traitemnt_onto):
+
+    objet_fiche = None
+    dictionnaire_fiches=[]  #le dico pour regrouper tt les fiche je c pas ma je le crée dagi nagh hors de cette classe
+
+    def __init__(self):	    
+        super().__init__()
+
+    def creer_fiche(self, id_p, id_m, age, taille, sexe, poid, wilaya_p, commune_p, symp, malad, trait, nb1, nb2, d, spcl_m, nom_m, prenom_m, orient=None):
+        f = self.dico["Fiche"]
+        info={}
+
+        info['id_patient'] = id_p
+        info['age'] = age
+        info['taille'] = taille
+        info['sexe'] = sexe
+        info['poid'] = poid
+        info['wilaya'] = wilaya_p
+        info['commune'] = commune_p
+        info['symptomes'] = symp
+        info['maladies_chroniques'] = malad
+        info['traitement'] = trait
+        info['nb_jrs_depuis_derniere_sortie'] = nb1
+        info['nb_jrs_depuis_premiers_symptomes'] = nb2
+        info['date_consultation'] = d
+        info['id_medecin'] = id_m
+        info['specialite_medecin'] = spcl_m
+        info['nom_medecin'] = nom_m
+        info['prenom_medecin'] = prenom_m
+        info['type_orientation'] = orient  #t'as pas mis orientation dans l fichier csv
+
+        dictionnaire_fiches.append(info)
+        
+        csv_columns = info.keys()
+        with open("fiches.csv", 'w') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+            writer.writeheader()
+            for i in dictionnaire_fiches:
+                writer.writerow(i)
+
+        self.fich = f
+
+
 if __name__ == "__main__":
     ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()

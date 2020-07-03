@@ -4,7 +4,9 @@ import re
 import rdflib
 import datetime
 class medecin_onto(traitemnt_onto):
+
     objet_medecin  = None
+
     def __init__(self):
         super().__init__()
     
@@ -36,10 +38,14 @@ class medecin_onto(traitemnt_onto):
 
 
 class patient_onto(traitemnt_onto):
+
     objet_patient = None
+
     def __init__(self):
         super().__init__()
-    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements):
+
+    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements, consultation=None):
+
         p =  self.dico["Patient"]()
         p.id_patient = id
         #p.nom = nom    pourquio avoir le nom et le prénom?
@@ -51,7 +57,10 @@ class patient_onto(traitemnt_onto):
         p.nb_jrs_depuis_derniere_sortie = nb_jrs_depuis_derniere_sortie
         p.nb_jrs_depuis_premiers_sympthomes = nb_jrs_depuis_premiers_sympthomes
         #p.iri = self.mon_iri + "patient" + str(id) # faudra mettre str pour l id du patient dans l'ontologie 
-        
+
+        if(consultation != None):
+            p.concerne.append(consultation)
+
         liste_sympthomes = symptomes.split(",")
         for i in liste_sympthomes: 
             i = re.sub(r" |-", "_", i)#remplace tout les espaces et - avec _ 
@@ -107,8 +116,7 @@ class patient_onto(traitemnt_onto):
         com = self.onto.search(iri='*'+com_code)[0]
         p.habite_commune.append(com)
         #print("commune : ",p.habite_commune[0].nomCommune)
-        
-        
+               
         self.objet_patient = p
 
     def request(self,id):
@@ -120,8 +128,6 @@ class patient_onto(traitemnt_onto):
         graph.parse("ontologie.owl",format="turtle")
         open("graph_turtle.rdf","w")    
         graph.serialize("graph_turtle.rdf",format="turtle")
-
-
         
         requete = """ 
         prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
@@ -277,7 +283,9 @@ class patient_onto(traitemnt_onto):
 
 
 class consultation_onto(traitemnt_onto):
+
     objet_consultation = None
+
     def __init__(self):
         super().__init__()
 
@@ -287,8 +295,7 @@ class consultation_onto(traitemnt_onto):
             date_cons : date de la consultation 
             orientation = l'objet orientation qu'on a créer avant 
 
-        """
-        
+        """       
 
         cons = self.dico["Consultation"]()
 

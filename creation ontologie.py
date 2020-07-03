@@ -110,7 +110,7 @@ with onto:
         domain = [Orientation]
         range = [str]
         pass
-    
+        
     class RDV(Thing): # pour prendre rendez vous chez un medecin 
         pass
     class date_rendez_vous(DataProperty, FunctionalProperty):
@@ -151,7 +151,7 @@ with onto:
         pass
     class habite_wilaya( Patient >> Wilaya):            # je pense qu'on doit juste faire la relation habite qui sera entre patient et wilaya
         pass
-    class wilaya_habite_par( Wilaya >> Patient):
+    class wilaya_habite_par( Wilaya >> Patient):  # C de l'abus de inverse property là -_-
         inverse_property = habite_wilaya
         pass
     class habite_commune( Patient >> Commune):          # prsq daira va heriter de cette relation aussi 
@@ -174,7 +174,6 @@ with onto:
     class a_comme_sympthomes(Maladies >> Sympthomes):
         inverse_property = est_sympthomes_maladie
         pass
-
     class commune_de(Commune >> Wilaya):
         pass
     class a_commune(Wilaya >> Commune):
@@ -186,14 +185,11 @@ with onto:
         inverse_property = prend_RDV
         pass
     class orienter_vers_hopital(Orientation >> Hopital):#peut etre ajouter une relation qui lie directement le patient vers l'hopital?
-        pass 
-    
+        pass    
     class hopital_orientation(Hopital >> Orientation):
         inverse_property = orienter_vers_hopital
         pass
-
-    class redige_fiche( Medecin >> Fiche):               #si une fiche est un papier regroupant le nom du medecin et le nom du patient  (un seul) alors je n'en vois pas l"inteet
-                                            #si une fiche contient les information des medecin de ces patient ect... alors oui ,l'idee est interessante
+    class redige_fiche( Medecin >> Fiche):               #si une fiche est un papier regroupant le nom du medecin et le nom du patient  (un seul) alors je n'en vois pas l"inteet                                            #si une fiche contient les information des medecin de ces patient ect... alors oui ,l'idee est interessante
         pass
     class est_rediger_par(Fiche >> Medecin):
         inverse_property = redige_fiche
@@ -203,7 +199,6 @@ with onto:
     class consult_effectuer_par(Consultation >> Medecin):
         inverse_property = effectue_consultation
         pass
-
     class est_oriente( Consultation >> Orientation): # le reesultat de la consultation            
         pass
     class cause_orientation(Orientation >> Consultation):
