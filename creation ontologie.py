@@ -83,7 +83,7 @@ with onto:
         range = [str]
         pass
 
-    class Traitement(Thing):   # les traitement que prend le patient actuellement 
+    class Traitements(Thing):   # les Traitements que prend le patient actuellement 
         pass
 
     class Medecin(Personne):
@@ -144,9 +144,9 @@ with onto:
     class maladie_touche_patient( Maladies >> Patient):
         inverse_property = a_maladie
         pass
-    class prend_traitement ( Patient >> Traitement):
+    class prend_traitement ( Patient >> Traitements):
         pass
-    class traitement_pris_par(Traitement >> Patient):
+    class traitement_pris_par(Traitements >> Patient):
         inverse_property = prend_traitement
         pass
     class habite_wilaya( Patient >> Wilaya):            # je pense qu'on doit juste faire la relation habite qui sera entre patient et wilaya

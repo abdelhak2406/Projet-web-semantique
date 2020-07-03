@@ -21,7 +21,7 @@ class medecin_onto(traitemnt_onto):
             consultation: objet consulatation 
         """
         m = self.dico["Medecin"]()
-        m.id_medecin = id
+        m.id_medecin = str(id)
         
         m.nom = nom
         m.prenom = prenom
@@ -43,11 +43,92 @@ class patient_onto(traitemnt_onto):
 
     def __init__(self):
         super().__init__()
+    def ajout_relations(self,liste,typee,pat,relation):
+        """
+        liste : contient les sympthomes ou les maladies ou les traitement 
+        typee : quel est la classe mere : sympthomes maladies , traitements
+        pat : l'objet patient
+        relation : la relation qu'il faudrait creer
+        """
+        liste1 = liste.split(",")
+        for i in liste1: 
+            i = re.sub(r" |-", "_", i)#remplace tout les espaces et - avec _ 
+            res = self.onto.search(iri="*"+i.lower()+"*")
+            if(res ==[]):#objet non instancier
+                if(not self.is_in_ontology(i.lower())):#regarder si classes n'existe pas on la crEe  
+                    self.ajout_classe(nom_classe=i.title(),herite_de=self.dico[typee])
+                symp = self.dico[i.title()]() #creer objet 
+                #creer la relation 
+                print("dans le if patient ",pat)
+                relation.append(symp)
+            else:#objet instancier
+                print("else patient: ",pat)
+                relation.append(res[0])
+    def ajout_sympthomes(self,liste_symp,pat):
+        liste1 = liste_symp.split(",")
+        for i in liste1:
+            i = re.sub(r" |-", "_", i).lower()
+            res = self.onto.search(iri="*sympthomes/"+i)
+            if res== []:
+                #créer l'objet sympthome
+                symp = self.dico["Sympthomes"]()
+                symp.iri = self.mon_iri+"sympthomes/"+i.lower()
+                print("le sympthome ",symp.iri)
+                pat.a_sympthomes.append(symp)
+            else:#l'objet existe
+                pat.a_sympthomes.append(res[0])
+            
+
+    def ajout_maladies(self,liste_mala,pat):
+        liste1 = liste_mala.split(",")
+        for i in liste1:
+            i = re.sub(r" |-", "_", i)
+            res = self.onto.search(iri="*maladies/"+i)
+            if res== []:
+                #créer l'objet sympthome
+                mala = self.dico["Maladies"]()
+                mala.iri = self.mon_iri+"maladies/"+i.lower()
+                pat.a_maladie.append(mala)
+            else:#l'objet existe
+                pat.a_maladie.append(res[0])
+    def ajout_traitements(self,liste_trait,pat):
+        liste1 = liste_trait.split(",")
+        for i in liste1:
+            i = re.sub(r" |-", "_", i)
+            res = self.onto.search(iri="*traitements/"+i)
+            if res== []:
+                #créer l'objet sympthome
+                trait = self.dico["Traitements"]()
+                trait.iri = self.mon_iri+"traitements/"+i.lower()
+                pat.prend_traitement.append(trait)
+            else:#l'objet existe
+                pat.prend_traitement.append(res[0])
+
+    def ajout_wilaya(self,wilaya,pat):
+        wil_code = adresses_onto().get_code_wilaya(wilaya)
+        wil = self.onto.search(iri='*'+wil_code)[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utiliser
+        #print("type wil ",type(wil)) 
+        pat.habite_wilaya.append(wil)
+    
+    def ajout_commune(self,commune,pat):
+        com_code = adresses_onto().get_code_commune(commune=commune)
+        com = self.onto.search(iri='*'+com_code)[0]
+        pat.habite_commune.append(com)
 
     def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements, consultation=None):
 
-        p =  self.dico["Patient"]()
-        p.id_patient = id
+        ##chercher si l'iri existe
+        res0 =self.onto.search(iri="*"+"patient/"+str(id))
+        if res0 == []:#il n'existe pas
+            print("resultat ",res0)
+            p =  self.dico["Patient"]()
+            p.iri = self.mon_iri + "patient" + str(id) #on le cree
+        else:#il existe(le patient ayant cet id)
+            print("resuultat de la recherche du patient ",res0)
+            print("id patient existant dans la base de donne nous supposons que c'est une autre consultation d'un meme patient")
+            p = res0[0]
+        
+        p.id_patient = str(id)
         #p.nom = nom    pourquio avoir le nom et le prénom?
         #p.prenom = prenom
         p.taille = taille
@@ -56,69 +137,35 @@ class patient_onto(traitemnt_onto):
         p.poid = poid
         p.nb_jrs_depuis_derniere_sortie = nb_jrs_depuis_derniere_sortie
         p.nb_jrs_depuis_premiers_sympthomes = nb_jrs_depuis_premiers_sympthomes
-        #p.iri = self.mon_iri + "patient" + str(id) # faudra mettre str pour l id du patient dans l'ontologie 
-
+    
         if(consultation != None):
             p.concerne.append(consultation)
 
-        liste_sympthomes = symptomes.split(",")
-        for i in liste_sympthomes: 
-            i = re.sub(r" |-", "_", i)#remplace tout les espaces et - avec _ 
-            res = self.onto.search(iri="*"+i.lower()+"*")
-            if(res ==[]):#objet non instancier
-                if(not self.is_in_ontology(i.lower())):#regarder si classes n'existe pas on la crEe  
-                    self.ajout_classe(nom_classe=i.title(),herite_de=self.dico["Sympthomes"])
-                symp = self.dico[i.title()]() #creer objet 
-                #creer la relation 
-                p.a_sympthomes = [symp]
-            else:#objet instancier
-                p.a_sympthomes.append(res[0])
+        self.ajout_sympthomes(symptomes,p)
+
         #-------------------------------------------------------------maladies--------------------------------
-        liste_maladies = maladies.split(",")
-        for i in liste_maladies: 
-            i = re.sub(r" |-", "_", i)#remplace tout les espaces et - avec _ 
-            res = self.onto.search(iri="*"+i.lower()+"*")
-            if(res ==[]):#objet non instancier
-                if(not self.is_in_ontology(i.lower())):#regarder si classes n'existe pas on la crEe  
-                    self.ajout_classe(nom_classe=i.title(),herite_de=self.dico["Maladies"])#nous n`allons pas cherche le type de la maladie
-                mala = self.dico[i.title()]() #creer objet 
-                #creer la relation 
-                p.a_maladie = [mala]
-            else:#objet instancier
-                p.a_maladie.append(res[0])
-        print("les maladies tadadadaaaaaa....\n sont: ")
-        for i in p.a_maladie:
-            print(i.name)
+        self.ajout_maladies(maladies,p)
+
         #-------------------------------------------traitement------------------------------
-        liste_traitements = traitements.split(",")
-        for i in liste_traitements: 
-            i = re.sub(r" |-", "_", i)#remplace tout les espaces et - avec _ 
-            res = self.onto.search(iri="*"+i.lower()+"*")
-            if(res ==[]):#objet non instancier
-                if(not self.is_in_ontology(i.lower())):#regarder si classes n'existe pas on la crEe  
-                    self.ajout_classe(nom_classe=i.title(),herite_de=self.dico["Traitement"])#nous n`allons pas cherche le type de la maladie
-                trait = self.dico[i.title()]() #creer objet 
-                #creer la relation 
-                p.prend_traitement = [trait]
-            else:#objet instancier
-                p.prend_traitement.append(res[0])
-        print("les traitemnt sont ....\n")
-        for i in p.prend_traitement:
-            print(i.name)
-            
+        self.ajout_traitements(traitements,p)
+
         #-------------------------------------------
-        wil_code = adresses_onto().get_code_wilaya(wilaya)
-        wil = self.onto.search(iri='*'+wil_code)[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utiliser
-        #print("type wil ",type(wil)) 
-        p.habite_wilaya.append(wil) 
+        self.ajout_wilaya(wilaya,p)
+        
         #print("habite wilaya :\n",p.habite_wilaya[0].nomWilaya)
-        com_code = adresses_onto().get_code_commune(commune=commune)
-        com = self.onto.search(iri='*'+com_code)[0]
-        p.habite_commune.append(com)
+        
+        self.ajout_commune(commune,p)
+        
         #print("commune : ",p.habite_commune[0].nomCommune)
                
         self.objet_patient = p
-
+    def creer_relations_sympthomes(self,maladie,sympthome):
+        """
+        creer la relation entre maladie et sympthomes est_sympthomes_maladies, le truc c'est que si un malade a plusieurs sympthomes, et bien sa devient vite des données tres fausse!
+        
+        """
+        pass
+        
     def request(self,id):
 
         """

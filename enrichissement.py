@@ -54,6 +54,34 @@ class traitemnt_onto:
                 #mettre a jour le dictionnaire
                 self.dico = self.creation_dictionnaire()
 
+    def ajout_objet(self,nom_classe,nom_objet):
+        """
+        ajoute une instance d'un certaine objet donc pour cela il faudrait verifier si ce dernier existe ou pas dans la base de donne
+        
+        """
+        rs = self.objet_existe(nom_classe,nom_objet)
+        if rs==False :#obj n'existe pas
+            nom_classe = re.sub(r" |-", "_", nom_classe).title()
+            return self.dico[nom_classe]()
+        else:
+            return rs
+        
+
+    def objet_existe(self,nom_classe,nom_oj):
+        """
+        verifie si un objet existe ou pas si existe le renvoie sinon renvoie False
+
+        Args:
+            -nom_classe :  nom de la classe de l'objet qu'on recherche, la raison est que les iri sont faites ainsi :mon_iri#nom_classe/nomobjet ou id_ibjet
+            -nom_oj : nom ou id de l'objet qu'on recherche
+        """
+        nom_classe = re.sub(r" |-", "_", nom_classe).lower()
+        resultat = self.onto.search(iri="*"+nom_classe+"/"+str(nom_oj))
+        if resultat == []:
+            return False
+        else:
+            return resultat[0]
+
     def is_in_ontology(self,class_name):
         class_name = re.sub(r" |-", "_", class_name).title()
         for i in self.onto.classes():
@@ -193,7 +221,7 @@ class adresses_onto(traitemnt_onto):
             code_w = str(wilayas.iloc[i]['code'])
             
             w.nomWilaya = nom_w
-            w.idWilaya = code_w
+            w.idWilaya = int(code_w)
             w.iri =  self.mon_iri + "wilaya" + code_w
 
 
@@ -302,42 +330,33 @@ class orientation_onto(traitemnt_onto):
 class fiche_onto(traitemnt_onto):
 
     objet_fiche = None
-    dictionnaire_fiches=[]  #le dico pour regrouper tt les fiche je c pas ma je le crée dagi nagh hors de cette classe
-
     def __init__(self):	    
         super().__init__()
 
-    def creer_fiche(self, id_p, id_m, age, taille, sexe, poid, wilaya_p, commune_p, symp, malad, trait, nb1, nb2, d, spcl_m, nom_m, prenom_m, orient=None):
+    def creer_fiche(self):
         f = self.dico["Fiche"]
-        info={}
-
-        info['id_patient'] = id_p
-        info['age'] = age
-        info['taille'] = taille
-        info['sexe'] = sexe
-        info['poid'] = poid
-        info['wilaya'] = wilaya_p
-        info['commune'] = commune_p
-        info['symptomes'] = symp
-        info['maladies_chroniques'] = malad
-        info['traitement'] = trait
-        info['nb_jrs_depuis_derniere_sortie'] = nb1
-        info['nb_jrs_depuis_premiers_symptomes'] = nb2
-        info['date_consultation'] = d
-        info['id_medecin'] = id_m
-        info['specialite_medecin'] = spcl_m
-        info['nom_medecin'] = nom_m
-        info['prenom_medecin'] = prenom_m
-        info['type_orientation'] = orient  #t'as pas mis orientation dans l fichier csv
-
-        dictionnaire_fiches.append(info)
+        graph = rdflib.Graph()
+        graph.parse("ontologie.owl",format="turtle")
+        open("graph_turtle.rdf","w")    
+        graph.serialize("graph_turtle.rdf",format="turtle")
         
-        csv_columns = info.keys()
-        with open("fiches.csv", 'w') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
-            writer.writeheader()
-            for i in dictionnaire_fiches:
-                writer.writerow(i)
+
+
+        requete = """ 
+        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
+        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        prefix xml: <http://www.w3.org/XML/1998/namespace> 
+    
+        SELECT ?idpat  ?idmed ?age ?taille ?sexe ?poid ?wilaya_pat ?daira_pat ?sympthomes ?maladies 
+        WHERE{
+        ?patient rdf:type ns1:Patient . 
+        ?patient ns1:id_patient %id.
+        ?patient ns1:a_maladie ?maladie .
+        }
+        """
+
 
         self.fich = f
 
