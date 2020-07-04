@@ -12,8 +12,8 @@ ontolo = pat()
 
 for i,j  in fiche.iterrows():
     ontolo.creer_patient(j["id_patient"],j["sexe"],j["age"],j["poid"],j["taille"],j["wilaya_patient"],j["daira_patient"],j["nb_jrs_depuis_derniere_sortie"],
-    j["nb_jrs_depuis_premiers_sympthomes"],symptomes=j["sympthomes"],maladies=j["Maladie"],traitements=j["traitement"])
-    
+    j["nb_jrs_depuis_premiers_sympthomes"],symptomes=j["sympthomes"],maladies=j["Maladie"],traitements=j["traitement"],gravite_sympthom=j["gravite_sympthomes"])
+    ontolo.save_onto()
     co = consult()
     ori = orient()
     medec = med()

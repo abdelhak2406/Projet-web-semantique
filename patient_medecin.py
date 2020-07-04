@@ -75,7 +75,7 @@ class patient_onto(traitemnt_onto):
                 symp.iri = self.mon_iri+"sympthomes/"+i.lower()
                 print("le sympthome ",symp.iri)
                 pat.a_sympthomes.append(symp)
-            else:#l'objet existe
+            elif res[0] not in pat.a_sympthomes: #pour ne pas avoir de repetition dans les sympthomes
                 pat.a_sympthomes.append(res[0])        
 
     def ajout_maladies(self,liste_mala,pat):
@@ -118,7 +118,7 @@ class patient_onto(traitemnt_onto):
         pass
 
 
-    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements,hopital=None, consultation=None):
+    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements,gravite_sympthom, consultation=None):
 
         ##chercher si l'iri existe
         res0 =self.onto.search(iri="*"+"patient/"+str(id))
@@ -140,7 +140,9 @@ class patient_onto(traitemnt_onto):
         p.poid = poid
         p.nb_jrs_depuis_derniere_sortie = nb_jrs_depuis_derniere_sortie
         p.nb_jrs_depuis_premiers_sympthomes = nb_jrs_depuis_premiers_sympthomes
-    
+        
+        p.gravite_sympthome = gravite_sympthom
+        
         if(consultation != None):
             p.concerne.append(consultation)
 
@@ -163,13 +165,23 @@ class patient_onto(traitemnt_onto):
                
         self.objet_patient = p
 
-    def creer_relations_sympthomes(self,maladie,sympthome):
+        self.creer_relations_sympthomes(maladies)
+                                 
+    def creer_relations_sympthomes(self,maladie):
         """
-        creer la relation entre maladie et sympthomes est_sympthomes_maladies, le truc c'est que si un malade a plusieurs sympthomes, et bien sa devient vite des données tres fausse!
-        
+        creer la relation entre maladie et sympthomes est_sympthomes_maladies, le truc c'est que si un malade a plusieurs sympthomes, 
+        et bien sa devient vite des données tres fausse! donc on ne l'utilise que si il y'a une seul maladie pour etre sur
         """
-        pass
-        
+        liste1 = maladie.split(",")
+        if len(liste1)==1:
+            mal= re.sub(r" |-", "_", liste1[0]).lower()
+            m = self.obtenir_objet(nom_objet=mal,nom_classe="Maladies")
+            print("les sympthomes du patien sont: ",self.objet_patient.a_sympthomes)
+            for i in self.objet_patient.a_sympthomes:
+                i.est_sympthomes_maladie.append(m)
+
+
+
     def request(self,id):
 
         """

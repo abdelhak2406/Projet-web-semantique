@@ -79,7 +79,7 @@ with onto:
         pass
     
     class gravite_sympthome(DataProperty,FunctionalProperty): # severe , grave et moderer 
-        domain = [Sympthomes]
+        domain = [Patient]
         range = [str]
         pass
 
