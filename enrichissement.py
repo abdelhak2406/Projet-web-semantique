@@ -119,38 +119,38 @@ class traitemnt_onto:
             self.ajout_classe(nom,self.dico["Maladies"])
 
         # Parcourir chaque type de maladie
+        #print("--------------------------------------------------------------------------------------\nles maladies dans nomtypes: ")
         for maladie in noms_types:
-            if maladie != "dermatologie" and maladie != "gynecologie" and maladie != "ophtalmologie": #on s'en fou de ceux la?
-                # Création de chaque type de maladie
-                mala = re.sub(r" |-", "_", maladie).title()
-                self.ajout_classe(mala,self.dico["Maladies"])            #enrichissement des types? peut etre a supprimer
+         #enrichissement des types? peut etre a supprimer
+            mala = re.sub(r" |-", "_", maladie).title()
+            #print("pour ",maladie)
+            page_maladie = urlopen(quote_page+maladie)#ouvrir la page d'un type de maladie!
+            soup = BeautifulSoup(page_maladie, 'html.parser')
+            header_maladies = soup.find_all('h3')#recuperer les maladies de ce type (ils sont dans un <a> dans un h3) 
+            #print("----------------------------------------------------------------------------------:")
+            for x in header_maladies: #parcourir pour les ajouter a notre ontologie
+                lien_maladie = [i['href'] for i in x.find_all('a', href=True)] # a cgaqye iteration sa retourne une liste avec 2 fois la meme url                
+                
+                # Filtrer les pages pour n'avoir que des maladies dans l'ontologie
+                nom_maladie = lien_maladie[0].split('/')[-2]
+                condition = ("definition" not in nom_maladie
+                            and "symptomes" not in nom_maladie
+                            and "qu-est-ce" not in nom_maladie
+                            and "allergie" != nom_maladie
+                            and "www." not in nom_maladie)
+                            
+                if condition:
 
-                page_maladie = urlopen(quote_page+maladie)#ouvrir la page d'un type de maladie!
-                soup = BeautifulSoup(page_maladie, 'html.parser')
-                header_maladies = soup.find_all('h3')#recuperer les maladies de ce type (ils sont dans un <a> dans un h3) 
-                print("maladie: ",maladie)
-                for x in header_maladies: #parcourir pour les ajouter a notre ontologie
-                    lien_maladie = [i['href'] for i in x.find_all('a', href=True)] # a cgaqye iteration sa retourne une liste avec 2 fois la meme url                
-
-                    # Filtrer les pages pour n'avoir que des maladies dans l'ontologie
-                    condition = ("myopathies" not in lien_maladie[0] 
-                                and "definition" not in lien_maladie[0]
-                                and "symptomes" not in lien_maladie[0]
-                                and "qu-est-ce" not in lien_maladie[0]
-                                and "gastro-enterite" not in lien_maladie[0]
-                                and "galactosemie" not in lien_maladie[0]
-                                and "maladie-hartnup" not in lien_maladie[0]
-                                and "accident-vasculaire-cerebral" not in lien_maladie[0]
-                                and "cancer-poumon" not in lien_maladie[0]
-                                and "embolie-pulmonaire" not in lien_maladie[0]
-                                and "myasthenie" not in lien_maladie[0]
-                                and "dysfonction-erectile" not in lien_maladie[0]
-                                and "maladies" in lien_maladie[0])
-                    if condition:
-                        nom_maladie = lien_maladie[0].split('/')[-2].title()
-                        nom_maladie = re.sub(r" |-", "_", nom_maladie)
-                        liste_maladies.append(nom_maladie)
-                        self.ajout_classe(nom_maladie,self.dico[mala])
+                    nom_maladie = re.sub(r" |-", "_", nom_maladie).lower()
+                    #print(nom_maladie)
+                    if not self.objet_existe(nom_classe=mala,nom_oj=nom_maladie):
+                        m = self.dico[mala]()
+                        try:
+                            m.iri=self.mon_iri+"maladies/"+nom_maladie
+                        except:
+                            print("\n",self.mon_iri+"maladies/"+nom_maladie, "existe déja! dans la base de donnee nous ne l'avons donc pas instatier\n")
+                    liste_maladies.append(nom_maladie)
+                    #self.ajout_classe(nom_maladie,self.dico[mala])
 
     def save_onto(self):
         self.onto.save(self.onto_name, format="ntriples")
@@ -364,7 +364,7 @@ if __name__ == "__main__":
     ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()
     ontolo.save_onto()
-    adresse = adresses_onto()
-    adresse.creer_Wilaya("Localisation_csv/wilayas.csv")
-    adresse.creer_Commune("Localisation_csv/communes.csv")
-    adresse.save_onto()
+    #adresse = adresses_onto()
+    #adresse.creer_Wilaya("Localisation_csv/wilayas.csv")
+    #adresse.creer_Commune("Localisation_csv/communes.csv")
+    #adresse.save_onto()
