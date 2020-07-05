@@ -105,10 +105,10 @@ class patient_onto(traitemnt_onto):
 
     def ajout_wilaya(self,wilaya,pat):
         wil_code = adresses_onto().get_code_wilaya(wilaya)
-        wil = self.onto.search(iri='*'+wil_code)[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utiliser
+        wil = self.onto.search(iri='*wilaya'+wil_code)[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utiliser
+        print("wil  ",wil)
         #print("type wil ",type(wil)) 
-        pat.habite_wilaya.append(wil)
-    
+        pat.habite_wilaya= [wil]
     def ajout_commune(self,commune,pat):
         com_code = adresses_onto().get_code_commune(commune=commune)
         com = self.onto.search(iri='*'+com_code)[0]
