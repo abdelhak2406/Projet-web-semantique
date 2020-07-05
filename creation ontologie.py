@@ -50,7 +50,10 @@ with onto:
         
     class Maladies(Thing):
         pass
-
+    class nom_maladie(DataProperty,FunctionalProperty):
+        domain = [Maladies]
+        range = [str]
+        pass
     class Adresse(Thing):
         pass
     
@@ -76,6 +79,10 @@ with onto:
         pass
 
     class Sympthomes(Thing):  
+        pass
+    class nom_sympthome(DataProperty,FunctionalProperty):
+        domain = [Sympthomes]
+        range = [str]
         pass
     
     class gravite_sympthome(DataProperty,FunctionalProperty): # severe , grave et moderer 

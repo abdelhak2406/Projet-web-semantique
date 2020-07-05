@@ -132,24 +132,25 @@ class traitemnt_onto:
                 lien_maladie = [i['href'] for i in x.find_all('a', href=True)] # a cgaqye iteration sa retourne une liste avec 2 fois la meme url                
                 
                 # Filtrer les pages pour n'avoir que des maladies dans l'ontologie
-                nom_maladie = lien_maladie[0].split('/')[-2]
-                condition = ("definition" not in nom_maladie
-                            and "symptomes" not in nom_maladie
-                            and "qu-est-ce" not in nom_maladie
-                            and "allergie" != nom_maladie
-                            and "www." not in nom_maladie)
+                nom_mala = lien_maladie[0].split('/')[-2]
+                condition = ("definition" not in nom_mala
+                            and "symptomes" not in nom_mala
+                            and "qu-est-ce" not in nom_mala
+                            and "allergie" != nom_mala
+                            and "www." not in nom_mala)
                             
                 if condition:
 
-                    nom_maladie = re.sub(r" |-", "_", nom_maladie).lower()
-                    #print(nom_maladie)
-                    if not self.objet_existe(nom_classe=mala,nom_oj=nom_maladie):
+                    nom_mala = re.sub(r" |-", "_", nom_mala).lower()
+                    #print(nom_mala)
+                    if not self.objet_existe(nom_classe=mala,nom_oj=nom_mala):
                         m = self.dico[mala]()
                         try:
-                            m.iri=self.mon_iri+"maladies/"+nom_maladie
+                            m.iri=self.mon_iri+"maladies/"+nom_mala
+                            m.nom_maladie = str(nom_mala)
                         except:
-                            print("\n",self.mon_iri+"maladies/"+nom_maladie, "existe déja! dans la base de donnee nous ne l'avons donc pas instatier\n")
-                    liste_maladies.append(nom_maladie)
+                            print("\n",self.mon_iri+"maladies/"+nom_mala, "existe déja! dans la base de donnee nous ne l'avons donc pas instatier\n")
+                    liste_maladies.append(nom_mala)
                     #self.ajout_classe(nom_maladie,self.dico[mala])
 
     def save_onto(self):

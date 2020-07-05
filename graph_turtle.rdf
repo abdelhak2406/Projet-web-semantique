@@ -5,987 +5,6 @@
 
 <https://projetWebsem.org/ontologie.owl> a ns2:Ontology .
 
-ns1:Acanthosis_Nigricans a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Acromegalie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Aerophagie a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Agnosie a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Albinisme a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Alcaptonurie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Algie_Vasculaire a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Allergie_Acariens a ns2:Class ;
-    rdfs:subClassOf ns1:Allergie .
-
-ns1:Allergie_Chats a ns2:Class ;
-    rdfs:subClassOf ns1:Allergie .
-
-ns1:Allergie_Pollen a ns2:Class ;
-    rdfs:subClassOf ns1:Allergie .
-
-ns1:Allergie_Proteines_Lait_Vache a ns2:Class ;
-    rdfs:subClassOf ns1:Allergie .
-
-ns1:Allergie_Soleil a ns2:Class ;
-    rdfs:subClassOf ns1:Allergie .
-
-ns1:Allergies_Alimentaires a ns2:Class ;
-    rdfs:subClassOf ns1:Allergie .
-
-ns1:Amibiase a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Amylose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Amyotrophie_Spinale_Type_1 a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Anemie a ns2:Class ;
-    rdfs:subClassOf ns1:Hematologie .
-
-ns1:Anemie_Blackfan_Diamond a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Anemie_Fanconi a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Anesthesie a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Angine a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Angine_De_Poitrine a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Angine_Erythemateuse a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Angine_Erythemato_Pultacee a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Aniridie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Ankylose a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Aphasie a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Aphyxie_Respirer_Urgence a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Appendicite_Aigue a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Apraxie a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Arterite_Membres_Inferieurs a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Arthrite_Juvenile a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Arthrogrypose_Congenitale_Multiple a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Arthrose a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Arthrose_Hanche a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Arythmie a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Ascaridiose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Asthenospermie a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Atherosclerose a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Atrophie_Multi_Systematisee a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Bec_De_Perroquet_Osteophytose a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Begaiement a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Bilan_Allergologique a ns2:Class ;
-    rdfs:subClassOf ns1:Allergie .
-
-ns1:Botulisme a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Bpco a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Bradycardie a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Cancer_Colorectal a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_De_Loesophage a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Du_Larynx a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Estomac a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Foie a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Gorge a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Intestin_Grele a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Ovaire a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Pancreas a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Plevre a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Prostate a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Rein a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Sein a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Testicule a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Thyroide a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Vessie a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancer_Voies_Aerodigestives_Superieures a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancers_Bouche a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancers_Cutanes a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Cancers_Lymphatiques a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Caracteristiques_Toux a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Cardiopathies_Congenitales a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Carence_En_Fer a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Cavernome_Cerebral a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Chikungunya a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Chimiotherapie a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Choc_Anaphylactique a ns2:Class ;
-    rdfs:subClassOf ns1:Allergie .
-
-ns1:Cholera a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Choree_De_Huntington a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Cirrhose_Du_Foie a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Coagulation_Troubles_De_La_Coagulation a ns2:Class ;
-    rdfs:subClassOf ns1:Hematologie .
-
-ns1:Colique_Hepatique_Calcul_Biliaire a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Coliques_Nephretiques a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Coma a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Conduites_Suicidaires a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Constipation_Adulte a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Coqueluche a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Coronaropathie a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Coronavirus a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Cryptococcose a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Cyanose a ns2:Class ;
-    rdfs:subClassOf ns1:Hematologie .
-
-ns1:Cystite_Aigue a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Dechirure_Musculaire a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Deficit_Immunitaire_Combine_Severe a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Demence_A_Corps_Lewy a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Depression_Anxiete a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Dermatologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Diabete a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Diabete_Conseils_Pratiques a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Diabetes_Mody a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Dialyse a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Diarrhee a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Diphterie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Dipsomanie a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Discopathie a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Dissection_Aortique a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Douleur_Cancer a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Drepanocytose a ns2:Class ;
-    rdfs:subClassOf ns1:Hematologie .
-
-ns1:Dysarthrie a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Dysbiose a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Dyskinesie_Ciliaire_Primitive a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Dysmorphophobie a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Dysplasie_Ectodermique a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Dysplasie_Fibreuse a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Dystonie a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Dystrophie_Neuroaxonale_Infantile a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Elongation_Musculaire a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Emphyseme_Pulmonaire a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Encephalopathie_Glycinique a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Encephalopathie_Hepatique a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Endocardite_Infectieuse a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Entorse a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Epicondylite a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Epidermolyse_Bulleuse a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Epilepsies a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Fibrillation_Atriale a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Fibrose_Pulmonaire_Idiopathique a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Fievres_Typhoide_Paratyphoide a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Fructosemie a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Gale a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Generalites_Coeur a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Giardiase a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Gliome_Tronc_Cerebral a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Glycogenoses a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Gonalgie a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Gonorrhee a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Goutte a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Grippe_Saisonniere a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Gynecologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Hallux_Valgus a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Hemochromatose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Hemophilie a ns2:Class ;
-    rdfs:subClassOf ns1:Hematologie .
-
-ns1:Hemorroides a ns2:Class ;
-    rdfs:subClassOf ns1:Phlebologie .
-
-ns1:Hepatite_A a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Hepatite_B a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Hepatite_C a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Hepatite_E a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Hepatomegalie a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Hernie_Discale a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Hernie_Inguinale a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Histiocytose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Hypercholesterolemie a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Hypermnesie a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Hypertension_Arterielle a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Hypertension_Pulmonaire a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Hyperthyroidie a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Hypertrichose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Hypocondrie a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Hypophosphatasie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Hypotension_Arterielle a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Hypotension_Orthostatique a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Hypothyroidie a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Ichtyose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Immunotherapie a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Infarctus_Du_Myocarde a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Infarctus_Pulmonaire a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Infections_Nosocomiales a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Infections_Respiratoires_Aigues a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Infections_Sexuellement_Transmissibles a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Infections_Staphylocoques a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Infections_Streptocoques a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Insuffisance_Cardiaque a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Insuffisance_Renale_Chronique a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Insuffisance_Veineuse a ns2:Class ;
-    rdfs:subClassOf ns1:Phlebologie .
-
-ns1:Intolerance_Au_Lactose a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Intolerance_Gluten a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Jambes_Lourdes a ns2:Class ;
-    rdfs:subClassOf ns1:Phlebologie .
-
-ns1:Laryngite a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Legionellose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Leishmaniose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Lepre a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Leptospirose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Leucodystrophies a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Lipodystrophie_Traitement_Antiretroviral_Sida a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Listeriose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Lombalgie a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Lumbago a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Lymphoedeme a ns2:Class ;
-    rdfs:subClassOf ns1:Phlebologie .
-
-ns1:Lymphogranulomatose_Venerienne a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Lymphome_Hodgkinien a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Maladie_Alzheimer a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Maladie_Behcet a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_Creutzfeldt_Jakob a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_De_Charcot a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_De_Crohn a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Maladie_De_Dupuytren a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_De_Fabry a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_De_Lafora a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_De_Vaquez a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_De_Wilson a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_Forestier a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_Gaucher a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_Joubert a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_Lyme a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Maladie_Os_De_Verre a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Maladie_Parkinson a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Maladie_Raynaud a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Maladie_Sommeil a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Maladie_Wegener a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Meningites_Meningocoques a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Mesotheliome_Pleural_Malin_Mpm a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Migraine a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Migraine_Ophtalmique a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Mononucleose_Infectieuse a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Mucoviscidose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Myelome_Multiple a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Myocardite a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Myopathie_De_Becker a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Nanisme a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Neuropathie_Peripherique a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Neutropenie a ns2:Class ;
-    rdfs:subClassOf ns1:Hematologie .
-
-ns1:Nodule_Thyroidien a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Obesite a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Ophtalmologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Osteoporose a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Otites a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Oxyurose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Paludisme a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Pancreatite a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Paralysie_Faciale a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Peste a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Phenylcetonurie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Phimosis a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Phlebite a ns2:Class ;
-    rdfs:subClassOf ns1:Phlebologie .
-
-ns1:Phlebite_Pelvienne a ns2:Class ;
-    rdfs:subClassOf ns1:Phlebologie .
-
-ns1:Pleuresie a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Pneumocystose a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Pneumonie a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Pneumopathie a ns2:Class ;
-    rdfs:subClassOf ns1:Pneumologie .
-
-ns1:Poliomyelite_Maladie_Infectieuse a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Pollakiurie a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Polyarthrite_Rhumatoide a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Polypes_Intestinaux a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Prostate a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Proteinurie a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Pyelonephrite_Aigue a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Radiodermites a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Rage a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Rectite a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Rectocolite_Hemorragique a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Rectorragie a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Reflux_Gastro_Oesophagien a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Retention_Eau a ns2:Class ;
-    rdfs:subClassOf ns1:Phlebologie .
-
-ns1:Rhinite_Allergique_Asthme a ns2:Class ;
-    rdfs:subClassOf ns1:Allergie .
-
-ns1:Rhinopharyngite a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Rhumatisme_Psoriasique a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Salmonellose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Sarcoidose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Sarcome_Ewing a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Saturnisme_Intoxication_Au_Plomb a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Schizophrenie a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Sciatique a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Sclerodermie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Sclerose_En_Plaques a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Scoliose a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Septicemie a ns2:Class ;
-    rdfs:subClassOf ns1:Hematologie .
-
-ns1:Shigellose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Sinusite a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Situs_Inversus a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Splenomegalie a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Spondylarthrite_Ankylosante a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Sras a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Steato_Hepatite_Non_Alcoolique a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Stress a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Syndrome_Adams_Strokes a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Alstrom a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Angelman a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Bardet_Biedl a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Buerger a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Chromosome22_Anneau a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Colon_Irritable a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Syndrome_Cri_Du_Chat a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Barth a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Cohen a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Cotard a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Syndrome_De_Dravet a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Syndrome_De_Fatigue_Chronique_Sfc a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Syndrome_De_Gorlin a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Guillain_Barre a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Hutchinson_Gilford a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Marfan a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Noonan a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Rett a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Stockholm a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Syndrome_De_Turner a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_De_Williams a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Dehlers_Danlos a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Du_Canal_Carpien a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Syndrome_Enfermement a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Syndrome_Gilles_De_La_Tourette a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Gougerot_Sjogren a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Kabuki a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Lowe a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Metabolique a ns2:Class ;
-    rdfs:subClassOf ns1:Metabolisme .
-
-ns1:Syndrome_Plummer_Vinson a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_Sanfilippo a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syndrome_X_Fragile a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Syphilis a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Tachycardie a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Teniasis a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Tetanos a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Thalassemies a ns2:Class ;
-    rdfs:subClassOf ns1:Hematologie .
-
-ns1:Thrombopenie a ns2:Class ;
-    rdfs:subClassOf ns1:Hematologie .
-
-ns1:Toxoplasmose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Parasitaires .
-
-ns1:Traumatismes_Craniens a ns2:Class ;
-    rdfs:subClassOf ns1:Neurologie .
-
-ns1:Troubles_Bipolaires a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Troubles_Digestifs a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Troubles_Musculo_Squelettiques_Tms a ns2:Class ;
-    rdfs:subClassOf ns1:Rhumatologie .
-
-ns1:Troubles_Obsessionnels_Compulsifs a ns2:Class ;
-    rdfs:subClassOf ns1:Psychiatrie .
-
-ns1:Tuberculose a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Tumeur_Kyste a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Tumeurs_Cerveau a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Ulcere_De_Jambe a ns2:Class ;
-    rdfs:subClassOf ns1:Phlebologie .
-
-ns1:Ulcere_Gastroduodenal a ns2:Class ;
-    rdfs:subClassOf ns1:Hepato_Gastro .
-
-ns1:Uretrite a ns2:Class ;
-    rdfs:subClassOf ns1:Urologie_Nephro .
-
-ns1:Valvulopathies a ns2:Class ;
-    rdfs:subClassOf ns1:Cardiologie .
-
-ns1:Varice a ns2:Class ;
-    rdfs:subClassOf ns1:Phlebologie .
-
-ns1:Virus_Zika a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
-ns1:Vitiligo a ns2:Class ;
-    rdfs:subClassOf ns1:Cancer .
-
-ns1:Xeroderma_Pigmentosum a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Rares .
-
-ns1:Zona a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies_Infectieuses .
-
 ns1:age a ns2:DatatypeProperty,
         ns2:FunctionalProperty ;
     rdfs:domain ns1:Personne ;
@@ -2515,11 +1534,6 @@ ns1:commune09028 a ns2:NamedIndividual,
         ns1:Commune ;
     ns1:commune_de ns1:wilaya9 ;
     ns1:nomCommune "Ain_Romana"^^xsd:string .
-
-ns1:commune09029 a ns2:NamedIndividual,
-        ns1:Commune ;
-    ns1:commune_de ns1:wilaya9 ;
-    ns1:nomCommune "Djebabra"^^xsd:string .
 
 ns1:commune10001 a ns2:NamedIndividual,
         ns1:Commune ;
@@ -8695,6 +7709,9 @@ ns1:date_rendez_vous a ns2:DatatypeProperty,
     rdfs:domain ns1:RDV ;
     rdfs:range xsd:date .
 
+ns1:dermatologie25 a ns2:NamedIndividual,
+        ns1:Dermatologie .
+
 ns1:gravite_sympthome a ns2:DatatypeProperty,
         ns2:FunctionalProperty ;
     rdfs:domain ns1:Patient ;
@@ -8715,14 +7732,1717 @@ ns1:id_patient a ns2:DatatypeProperty,
     rdfs:domain ns1:Patient ;
     rdfs:range xsd:string .
 
+<https://projetWebsem.org/ontologie.owl#maladies/acanthosis_nigricans> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "acanthosis_nigricans"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/accident_vasculaire_cerebral> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "accident_vasculaire_cerebral"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/acne_adultes> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "acne_adultes"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/acromegalie> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "acromegalie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/addiction> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "addiction"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/aerophagie> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "aerophagie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/agnosie> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "agnosie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/albinisme> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "albinisme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/alcaptonurie> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "alcaptonurie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/algie_vasculaire> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "algie_vasculaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/allergie_acariens> a ns2:NamedIndividual,
+        ns1:Allergie ;
+    ns1:nom_maladie "allergie_acariens"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/allergie_chats> a ns2:NamedIndividual,
+        ns1:Allergie ;
+    ns1:nom_maladie "allergie_chats"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/allergie_pollen> a ns2:NamedIndividual,
+        ns1:Allergie ;
+    ns1:nom_maladie "allergie_pollen"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/allergie_proteines_lait_vache> a ns2:NamedIndividual,
+        ns1:Allergie ;
+    ns1:nom_maladie "allergie_proteines_lait_vache"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/allergie_soleil> a ns2:NamedIndividual,
+        ns1:Allergie ;
+    ns1:nom_maladie "allergie_soleil"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/allergies_alimentaires> a ns2:NamedIndividual,
+        ns1:Allergie ;
+    ns1:nom_maladie "allergies_alimentaires"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/alopecie> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "alopecie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/alopecie_androgenique> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "alopecie_androgenique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/amblyopie> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "amblyopie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/amenorrhee> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "amenorrhee"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/amibiase> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "amibiase"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/ampoule> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "ampoule"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/amylose> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "amylose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/amyotrophie_spinale_type_1> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "amyotrophie_spinale_type_1"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/anemie> a ns2:NamedIndividual,
+        ns1:Hematologie ;
+    ns1:nom_maladie "anemie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/anemie_blackfan_diamond> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "anemie_blackfan_diamond"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/anemie_fanconi> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "anemie_fanconi"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/anesthesie> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "anesthesie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/angine> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "angine"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/angine_de_poitrine> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "angine_de_poitrine"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/angine_erythemateuse> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "angine_erythemateuse"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/angine_erythemato_pultacee> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "angine_erythemato_pultacee"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/aniridie> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "aniridie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/ankylose> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "ankylose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/aphasie> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "aphasie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/aphyxie_respirer_urgence> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "aphyxie_respirer_urgence"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/appendicite_aigue> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "appendicite_aigue"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/apraxie> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "apraxie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/arterite_membres_inferieurs> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "arterite_membres_inferieurs"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/arthrite_juvenile> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "arthrite_juvenile"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/arthrogrypose_congenitale_multiple> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "arthrogrypose_congenitale_multiple"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/arthrose> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "arthrose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/arthrose_hanche> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "arthrose_hanche"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/arythmie> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "arythmie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/ascaridiose> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "ascaridiose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/asthenospermie> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "asthenospermie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/astigmatisme> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "astigmatisme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/atherosclerose> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "atherosclerose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/atrophie_multi_systematisee> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "atrophie_multi_systematisee"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/autisme> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "autisme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/bec_de_perroquet_osteophytose> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "bec_de_perroquet_osteophytose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/begaiement> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "begaiement"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/bilan_allergologique> a ns2:NamedIndividual,
+        ns1:Allergie ;
+    ns1:nom_maladie "bilan_allergologique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/botulisme> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "botulisme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/bpco> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "bpco"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/bradycardie> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "bradycardie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/brulure> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "brulure"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/burn_out> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "burn_out"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_colorectal> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_colorectal"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_de_loesophage> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_de_loesophage"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_du_larynx> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_du_larynx"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_estomac> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_estomac"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_foie> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_foie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_gorge> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_gorge"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_intestin_grele> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_intestin_grele"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_ovaire> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_ovaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_pancreas> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_pancreas"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_plevre> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_plevre"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_poumon> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_poumon"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_prostate> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_prostate"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_rein> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_rein"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_sein> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_sein"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_testicule> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_testicule"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_thyroide> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_thyroide"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_vessie> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_vessie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancer_voies_aerodigestives_superieures> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancer_voies_aerodigestives_superieures"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancers_bouche> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancers_bouche"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancers_cutanes> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancers_cutanes"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cancers_lymphatiques> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "cancers_lymphatiques"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/caracteristiques_toux> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "caracteristiques_toux"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cardiomyopathies> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "cardiomyopathies"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cardiopathies_congenitales> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "cardiopathies_congenitales"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/carence_en_fer> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "carence_en_fer"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cataracte> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "cataracte"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cavernome_cerebral> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "cavernome_cerebral"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cervicalgie> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "cervicalgie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/chalazion> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "chalazion"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/chikungunya> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "chikungunya"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/chimiotherapie> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "chimiotherapie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/choc_anaphylactique> a ns2:NamedIndividual,
+        ns1:Allergie ;
+    ns1:nom_maladie "choc_anaphylactique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cholera> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "cholera"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/choree_de_huntington> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "choree_de_huntington"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/choroideremie> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "choroideremie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cicatrisation> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "cicatrisation"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cirrhose_du_foie> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "cirrhose_du_foie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/coagulation_troubles_de_la_coagulation> a ns2:NamedIndividual,
+        ns1:Hematologie ;
+    ns1:nom_maladie "coagulation_troubles_de_la_coagulation"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/colique_hepatique_calcul_biliaire> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "colique_hepatique_calcul_biliaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/coliques_nephretiques> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "coliques_nephretiques"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/coma> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "coma"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/conduites_suicidaires> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "conduites_suicidaires"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/conjonctivite> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "conjonctivite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/constipation_adulte> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "constipation_adulte"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/contraception> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "contraception"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/coqueluche> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "coqueluche"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cor_au_pied> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "cor_au_pied"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/coronaropathie> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "coronaropathie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/coup_soleil> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "coup_soleil"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/crevasses_engelures> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "crevasses_engelures"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cryptococcose> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "cryptococcose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/curietherapie> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "curietherapie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cyanose> a ns2:NamedIndividual,
+        ns1:Hematologie ;
+    ns1:nom_maladie "cyanose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cycle_menstruel> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "cycle_menstruel"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/cystite_aigue> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "cystite_aigue"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dartre> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "dartre"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dechirure_musculaire> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "dechirure_musculaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/decollement_de_retine> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "decollement_de_retine"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/deficit_immunitaire_combine_severe> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "deficit_immunitaire_combine_severe"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/demence_a_corps_lewy> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "demence_a_corps_lewy"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/depression_anxiete> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "depression_anxiete"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/depression_post_natale_depression_post_partum> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "depression_post_natale_depression_post_partum"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/descente_organes_prolapsus> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "descente_organes_prolapsus"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/diabete> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "diabete"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/diabete_conseils_pratiques> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "diabete_conseils_pratiques"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/diabetes_mody> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "diabetes_mody"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dialyse> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "dialyse"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/diarrhee> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "diarrhee"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/diphterie> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "diphterie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dipsomanie> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "dipsomanie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/discopathie> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "discopathie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dissection_aortique> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "dissection_aortique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dmla> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "dmla"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/douleur_cancer> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "douleur_cancer"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/douleur_en_sante_mentale> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "douleur_en_sante_mentale"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/drepanocytose> a ns2:NamedIndividual,
+        ns1:Hematologie ;
+    ns1:nom_maladie "drepanocytose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dysarthrie> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "dysarthrie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dysbiose> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "dysbiose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dysfonction_erectile> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "dysfonction_erectile"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dyskinesie_ciliaire_primitive> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "dyskinesie_ciliaire_primitive"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dysmenorrhees> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "dysmenorrhees"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dysmorphophobie> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "dysmorphophobie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dysplasie_ectodermique> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "dysplasie_ectodermique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dysplasie_fibreuse> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "dysplasie_fibreuse"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dystonie> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "dystonie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/dystrophie_neuroaxonale_infantile> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "dystrophie_neuroaxonale_infantile"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/ecchymoses_hemorragies> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "ecchymoses_hemorragies"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/eczema_atopique> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "eczema_atopique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/elongation_musculaire> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "elongation_musculaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/embolie_pulmonaire> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "embolie_pulmonaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/emphyseme_pulmonaire> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "emphyseme_pulmonaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/encephalopathie_glycinique> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "encephalopathie_glycinique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/encephalopathie_hepatique> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "encephalopathie_hepatique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/endocardite_infectieuse> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "endocardite_infectieuse"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/endometriose> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "endometriose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/entorse> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "entorse"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/enuresie> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "enuresie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/epicondylite> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "epicondylite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/epidermolyse_bulleuse> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "epidermolyse_bulleuse"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/epilepsies> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "epilepsies"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/fausse_couche> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "fausse_couche"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/fibrillation_atriale> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "fibrillation_atriale"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/fibrome_uterin> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "fibrome_uterin"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/fibrose_pulmonaire_idiopathique> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "fibrose_pulmonaire_idiopathique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/fievres_typhoide_paratyphoide> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "fievres_typhoide_paratyphoide"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/fructosemie> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "fructosemie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/furoncle> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "furoncle"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/galactosemie> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "galactosemie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/gale> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "gale"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/gastro_enterite> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "gastro_enterite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/generalites_coeur> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "generalites_coeur"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/giardiase> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "giardiase"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/glaucome> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "glaucome"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/gliome_tronc_cerebral> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "gliome_tronc_cerebral"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/glycogenoses> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "glycogenoses"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/gonalgie> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "gonalgie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/gonorrhee> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "gonorrhee"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/goutte> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "goutte"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/grippe_saisonniere> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "grippe_saisonniere"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hallux_valgus> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "hallux_valgus"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hematome_cutane> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "hematome_cutane"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hemochromatose> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "hemochromatose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hemophilie> a ns2:NamedIndividual,
+        ns1:Hematologie ;
+    ns1:nom_maladie "hemophilie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hemorroides> a ns2:NamedIndividual,
+        ns1:Phlebologie ;
+    ns1:nom_maladie "hemorroides"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hepatite_a> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "hepatite_a"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hepatite_b> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "hepatite_b"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hepatite_c> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "hepatite_c"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hepatite_e> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "hepatite_e"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hepatomegalie> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "hepatomegalie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hernie_discale> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "hernie_discale"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hernie_inguinale> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "hernie_inguinale"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/herpes> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "herpes"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hirsutisme> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "hirsutisme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/histiocytose> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "histiocytose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hormones_feminines> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "hormones_feminines"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypercholesterolemie> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "hypercholesterolemie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypermetropie> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "hypermetropie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypermnesie> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "hypermnesie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypertension_arterielle> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "hypertension_arterielle"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypertension_pulmonaire> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "hypertension_pulmonaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hyperthyroidie> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "hyperthyroidie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypertrichose> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "hypertrichose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypocondrie> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "hypocondrie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypophosphatasie> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "hypophosphatasie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypotension_arterielle> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "hypotension_arterielle"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypotension_orthostatique> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "hypotension_orthostatique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/hypothyroidie> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "hypothyroidie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/ichtyose> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "ichtyose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/immunotherapie> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "immunotherapie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/infarctus_du_myocarde> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "infarctus_du_myocarde"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/infarctus_pulmonaire> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "infarctus_pulmonaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/infections_nosocomiales> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "infections_nosocomiales"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/infections_respiratoires_aigues> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "infections_respiratoires_aigues"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/infections_sexuellement_transmissibles> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "infections_sexuellement_transmissibles"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/infections_staphylocoques> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "infections_staphylocoques"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/infections_streptocoques> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "infections_streptocoques"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/infections_vaginales_benignes> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "infections_vaginales_benignes"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/insuffisance_cardiaque> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "insuffisance_cardiaque"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/insuffisance_ovarienne_traitement> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "insuffisance_ovarienne_traitement"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/insuffisance_renale_chronique> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "insuffisance_renale_chronique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/insuffisance_veineuse> a ns2:NamedIndividual,
+        ns1:Phlebologie ;
+    ns1:nom_maladie "insuffisance_veineuse"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/intolerance_au_lactose> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "intolerance_au_lactose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/intolerance_gluten> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "intolerance_gluten"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/jambes_lourdes> a ns2:NamedIndividual,
+        ns1:Phlebologie ;
+    ns1:nom_maladie "jambes_lourdes"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/keratacone> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "keratacone"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/kyste_ovarien> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "kyste_ovarien"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/laryngite> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "laryngite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/legionellose> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "legionellose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/leishmaniose> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "leishmaniose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/lepre> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "lepre"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/leptospirose> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "leptospirose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/leucodystrophies> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "leucodystrophies"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/lipodystrophie_traitement_antiretroviral_sida> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "lipodystrophie_traitement_antiretroviral_sida"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/listeriose> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "listeriose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/lombalgie> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "lombalgie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/lumbago> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "lumbago"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/lymphoedeme> a ns2:NamedIndividual,
+        ns1:Phlebologie ;
+    ns1:nom_maladie "lymphoedeme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/lymphogranulomatose_venerienne> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "lymphogranulomatose_venerienne"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/lymphome_hodgkinien> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "lymphome_hodgkinien"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_alzheimer> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "maladie_alzheimer"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_behcet> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_behcet"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_creutzfeldt_jakob> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_creutzfeldt_jakob"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_de_charcot> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_de_charcot"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_de_crohn> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "maladie_de_crohn"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_de_de_vivo> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_de_de_vivo"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_de_dupuytren> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_de_dupuytren"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_de_fabry> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_de_fabry"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_de_lafora> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_de_lafora"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_de_vaquez> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_de_vaquez"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_de_verneuil> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "maladie_de_verneuil"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_de_wilson> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_de_wilson"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_forestier> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_forestier"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_gaucher> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_gaucher"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_hartnup> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_hartnup"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_joubert> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_joubert"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_lyme> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "maladie_lyme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_os_de_verre> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_os_de_verre"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_parkinson> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "maladie_parkinson"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_raynaud> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "maladie_raynaud"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_sommeil> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "maladie_sommeil"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/maladie_wegener> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "maladie_wegener"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/meningites_meningocoques> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "meningites_meningocoques"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/menopause> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "menopause"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/mesotheliome_pleural_malin_mpm> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "mesotheliome_pleural_malin_mpm"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/migraine> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "migraine"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/migraine_ophtalmique> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "migraine_ophtalmique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/mononucleose_infectieuse> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "mononucleose_infectieuse"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/mucoviscidose> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "mucoviscidose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/myasthenie> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "myasthenie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/mycose_cutanee> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "mycose_cutanee"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/mycose_pieds> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "mycose_pieds"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/mycose_vaginale> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "mycose_vaginale"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/myelome_multiple> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "myelome_multiple"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/myocardite> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "myocardite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/myopathie_de_becker> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "myopathie_de_becker"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/myopathies_1_2> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "myopathies_1_2"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/myopathies_2_2> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "myopathies_2_2"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/myopie> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "myopie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/nanisme> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "nanisme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/neuropathie_peripherique> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "neuropathie_peripherique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/neutropenie> a ns2:NamedIndividual,
+        ns1:Hematologie ;
+    ns1:nom_maladie "neutropenie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/nodule_thyroidien> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "nodule_thyroidien"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/obesite> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "obesite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/obstruction_des_trompes> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "obstruction_des_trompes"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/oedeme_quincke> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "oedeme_quincke"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/orgelet> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "orgelet"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/osteoporose> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "osteoporose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/otites> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "otites"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/oxyurose> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "oxyurose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/paludisme> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "paludisme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/panaris> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "panaris"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pancreatite> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "pancreatite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/paralysie_faciale> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "paralysie_faciale"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pelade> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "pelade"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pelviperitonite> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "pelviperitonite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/peste> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "peste"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/phenylcetonurie> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "phenylcetonurie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/phimosis> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "phimosis"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/phlebite> a ns2:NamedIndividual,
+        ns1:Phlebologie ;
+    ns1:nom_maladie "phlebite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/phlebite_pelvienne> a ns2:NamedIndividual,
+        ns1:Phlebologie ;
+    ns1:nom_maladie "phlebite_pelvienne"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/photophobie> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "photophobie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pityriasis_versicolor> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "pityriasis_versicolor"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pleuresie> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "pleuresie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pneumocystose> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "pneumocystose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pneumonie> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "pneumonie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pneumopathie> a ns2:NamedIndividual,
+        ns1:Pneumologie ;
+    ns1:nom_maladie "pneumopathie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/poliomyelite_maladie_infectieuse> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "poliomyelite_maladie_infectieuse"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pollakiurie> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "pollakiurie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/polyarthrite_rhumatoide> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "polyarthrite_rhumatoide"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/polypes_intestinaux> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "polypes_intestinaux"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/presbytie> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "presbytie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/prostate> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "prostate"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/proteinurie> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "proteinurie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/psoriasis> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "psoriasis"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/pyelonephrite_aigue> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "pyelonephrite_aigue"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/radiodermites> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "radiodermites"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rage> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "rage"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rectite> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "rectite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rectocolite_hemorragique> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "rectocolite_hemorragique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rectorragie> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "rectorragie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/reflux_gastro_oesophagien> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "reflux_gastro_oesophagien"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/retention_eau> a ns2:NamedIndividual,
+        ns1:Phlebologie ;
+    ns1:nom_maladie "retention_eau"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rhinite_allergique_asthme> a ns2:NamedIndividual,
+        ns1:Allergie ;
+    ns1:nom_maladie "rhinite_allergique_asthme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rhinopharyngite> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "rhinopharyngite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rhumatisme_psoriasique> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "rhumatisme_psoriasique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rosacee_rougeurs> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "rosacee_rougeurs"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rupture_anevrisme> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "rupture_anevrisme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/salmonellose> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "salmonellose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/salpingite> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "salpingite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/sarcoidose> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "sarcoidose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/sarcome_ewing> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "sarcome_ewing"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/saturnisme_intoxication_au_plomb> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "saturnisme_intoxication_au_plomb"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/schizophrenie> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "schizophrenie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/sciatique> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "sciatique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/sclerodermie> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "sclerodermie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/sclerose_en_plaques> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "sclerose_en_plaques"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/scoliose> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "scoliose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/septicemie> a ns2:NamedIndividual,
+        ns1:Hematologie ;
+    ns1:nom_maladie "septicemie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/shigellose> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "shigellose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/sinusite> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "sinusite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/situs_inversus> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "situs_inversus"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/splenomegalie> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "splenomegalie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/spondylarthrite_ankylosante> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "spondylarthrite_ankylosante"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/sras> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "sras"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/steato_hepatite_non_alcoolique> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "steato_hepatite_non_alcoolique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/strabisme> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "strabisme"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/stress> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "stress"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/stress_post_traumatique> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "stress_post_traumatique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_adams_strokes> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_adams_strokes"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_alstrom> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_alstrom"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_angelman> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_angelman"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_bardet_biedl> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_bardet_biedl"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_buerger> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_buerger"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_chromosome22_anneau> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_chromosome22_anneau"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_colon_irritable> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "syndrome_colon_irritable"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_cri_du_chat> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_cri_du_chat"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_barth> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_barth"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_cohen> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_cohen"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_cotard> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "syndrome_de_cotard"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_dravet> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "syndrome_de_dravet"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_fatigue_chronique_sfc> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "syndrome_de_fatigue_chronique_sfc"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_gorlin> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_gorlin"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_guillain_barre> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_guillain_barre"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_hutchinson_gilford> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_hutchinson_gilford"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_marfan> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_marfan"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_noonan> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_noonan"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_rett> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_rett"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_stockholm> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "syndrome_de_stockholm"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_turner> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_turner"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_de_williams> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_de_williams"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_dehlers_danlos> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_dehlers_danlos"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_du_canal_carpien> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "syndrome_du_canal_carpien"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_enfermement> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "syndrome_enfermement"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_gilles_de_la_tourette> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_gilles_de_la_tourette"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_gougerot_sjogren> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_gougerot_sjogren"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_kabuki> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_kabuki"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_lowe> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_lowe"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_metabolique> a ns2:NamedIndividual,
+        ns1:Metabolisme ;
+    ns1:nom_maladie "syndrome_metabolique"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_ovaires_polykystiques_sopk> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "syndrome_ovaires_polykystiques_sopk"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_plummer_vinson> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_plummer_vinson"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_premenstruel> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "syndrome_premenstruel"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_sanfilippo> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_sanfilippo"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_x_fragile> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "syndrome_x_fragile"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syndrome_yeux_secs> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "syndrome_yeux_secs"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/syphilis> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "syphilis"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/tachycardie> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "tachycardie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/teniasis> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "teniasis"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/tetanos> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "tetanos"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/thalassemies> a ns2:NamedIndividual,
+        ns1:Hematologie ;
+    ns1:nom_maladie "thalassemies"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/thrombopenie> a ns2:NamedIndividual,
+        ns1:Hematologie ;
+    ns1:nom_maladie "thrombopenie"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/toxoplasmose> a ns2:NamedIndividual,
+        ns1:Maladies_Parasitaires ;
+    ns1:nom_maladie "toxoplasmose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/traumatismes_craniens> a ns2:NamedIndividual,
+        ns1:Neurologie ;
+    ns1:nom_maladie "traumatismes_craniens"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/trichomonase> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "trichomonase"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/troubles_alimentaires> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "troubles_alimentaires"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/troubles_bipolaires> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "troubles_bipolaires"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/troubles_digestifs> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "troubles_digestifs"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/troubles_musculo_squelettiques_tms> a ns2:NamedIndividual,
+        ns1:Rhumatologie ;
+    ns1:nom_maladie "troubles_musculo_squelettiques_tms"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/troubles_obsessionnels_compulsifs> a ns2:NamedIndividual,
+        ns1:Psychiatrie ;
+    ns1:nom_maladie "troubles_obsessionnels_compulsifs"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/tuberculose> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "tuberculose"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/tumeur_kyste> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "tumeur_kyste"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/tumeurs_cerveau> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "tumeurs_cerveau"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/ulcere_de_jambe> a ns2:NamedIndividual,
+        ns1:Phlebologie ;
+    ns1:nom_maladie "ulcere_de_jambe"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/ulcere_gastroduodenal> a ns2:NamedIndividual,
+        ns1:Hepato_Gastro ;
+    ns1:nom_maladie "ulcere_gastroduodenal"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/uretrite> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "uretrite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/urticaire> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "urticaire"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/uveite> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "uveite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/vaginite> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "vaginite"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/vaginose_bacterienne> a ns2:NamedIndividual,
+        ns1:Gynecologie ;
+    ns1:nom_maladie "vaginose_bacterienne"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/valvulopathies> a ns2:NamedIndividual,
+        ns1:Cardiologie ;
+    ns1:nom_maladie "valvulopathies"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/varice> a ns2:NamedIndividual,
+        ns1:Phlebologie ;
+    ns1:nom_maladie "varice"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/varicocele> a ns2:NamedIndividual,
+        ns1:Urologie_Nephro ;
+    ns1:nom_maladie "varicocele"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/vergetures> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "vergetures"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/verrues> a ns2:NamedIndividual,
+        ns1:Dermatologie ;
+    ns1:nom_maladie "verrues"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/virus_zika> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "virus_zika"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/vitiligo> a ns2:NamedIndividual,
+        ns1:Cancer ;
+    ns1:nom_maladie "vitiligo"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/xeroderma_pigmentosum> a ns2:NamedIndividual,
+        ns1:Maladies_Rares ;
+    ns1:nom_maladie "xeroderma_pigmentosum"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/zona> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "zona"^^xsd:string .
+
+ns1:maladies_infectieuses11 a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses .
+
 <https://projetWebsem.org/ontologie.owl#medecin/0> a ns2:NamedIndividual,
         ns1:Medecin ;
     ns1:effectue_consultation ns1:consultation1,
+        ns1:consultation10,
+        ns1:consultation11,
+        ns1:consultation12,
+        ns1:consultation13,
+        ns1:consultation14,
+        ns1:consultation15,
+        ns1:consultation16,
+        ns1:consultation17,
+        ns1:consultation18,
+        ns1:consultation19,
         ns1:consultation2,
+        ns1:consultation20,
+        ns1:consultation21,
+        ns1:consultation22,
+        ns1:consultation23,
+        ns1:consultation24,
+        ns1:consultation25,
+        ns1:consultation26,
+        ns1:consultation27,
+        ns1:consultation28,
+        ns1:consultation29,
+        ns1:consultation30,
+        ns1:consultation31,
+        ns1:consultation32,
+        ns1:consultation33,
+        ns1:consultation36,
+        ns1:consultation37,
         ns1:consultation4,
+        ns1:consultation40,
+        ns1:consultation41,
+        ns1:consultation44,
+        ns1:consultation45,
+        ns1:consultation48,
+        ns1:consultation49,
         ns1:consultation5,
+        ns1:consultation52,
+        ns1:consultation53,
+        ns1:consultation56,
+        ns1:consultation57,
+        ns1:consultation6,
+        ns1:consultation60,
+        ns1:consultation61,
         ns1:consultation7,
-        ns1:consultation8 ;
+        ns1:consultation8,
+        ns1:consultation9 ;
     ns1:id_medecin "0"^^xsd:string ;
     ns1:medecin_spcl "cardiologue"^^xsd:string,
         "généraliste"^^xsd:string ;
@@ -8730,11 +9450,33 @@ ns1:id_patient a ns2:DatatypeProperty,
     ns1:prenom "louis"^^xsd:string ;
     ns1:sexe "Homme"^^xsd:string .
 
+<https://projetWebsem.org/ontologie.owl#medecin/132> a ns2:NamedIndividual,
+        ns1:Medecin ;
+    ns1:effectue_consultation ns1:consultation35,
+        ns1:consultation39,
+        ns1:consultation43,
+        ns1:consultation47,
+        ns1:consultation51,
+        ns1:consultation55,
+        ns1:consultation59,
+        ns1:consultation63 ;
+    ns1:id_medecin "132"^^xsd:string ;
+    ns1:medecin_spcl "generaliste"^^xsd:string ;
+    ns1:nom "racim"^^xsd:string ;
+    ns1:prenom "righi"^^xsd:string ;
+    ns1:sexe "Homme"^^xsd:string .
+
 <https://projetWebsem.org/ontologie.owl#medecin/2> a ns2:NamedIndividual,
         ns1:Medecin ;
     ns1:effectue_consultation ns1:consultation3,
-        ns1:consultation6,
-        ns1:consultation9 ;
+        ns1:consultation34,
+        ns1:consultation38,
+        ns1:consultation42,
+        ns1:consultation46,
+        ns1:consultation50,
+        ns1:consultation54,
+        ns1:consultation58,
+        ns1:consultation62 ;
     ns1:id_medecin "2"^^xsd:string ;
     ns1:medecin_spcl "virologue"^^xsd:string ;
     ns1:nom "shopper"^^xsd:string ;
@@ -8745,6 +9487,15 @@ ns1:medecin_spcl a ns2:DatatypeProperty ;
     rdfs:domain ns1:Medecin ;
     rdfs:range xsd:string .
 
+ns1:metabolisme11 a ns2:NamedIndividual,
+        ns1:Metabolisme .
+
+ns1:metabolisme12 a ns2:NamedIndividual,
+        ns1:Metabolisme .
+
+ns1:metabolisme13 a ns2:NamedIndividual,
+        ns1:Metabolisme .
+
 ns1:nb_jrs_depuis_derniere_sortie a ns2:DatatypeProperty,
         ns2:FunctionalProperty ;
     rdfs:domain ns1:Patient ;
@@ -8754,6 +9505,12 @@ ns1:nb_jrs_depuis_premiers_sympthomes a ns2:DatatypeProperty,
         ns2:FunctionalProperty ;
     rdfs:domain ns1:Patient ;
     rdfs:range xsd:integer .
+
+ns1:neurologie1 a ns2:NamedIndividual,
+        ns1:Neurologie .
+
+ns1:neurologie23 a ns2:NamedIndividual,
+        ns1:Neurologie .
 
 ns1:nom a ns2:DatatypeProperty,
         ns2:FunctionalProperty ;
@@ -8770,6 +9527,25 @@ ns1:nomWilaya a ns2:DatatypeProperty,
     rdfs:domain ns1:Wilaya ;
     rdfs:range xsd:string .
 
+ns1:nom_maladie a ns2:DatatypeProperty,
+        ns2:FunctionalProperty ;
+    rdfs:domain ns1:Maladies ;
+    rdfs:range xsd:string .
+
+ns1:nom_sympthome a ns2:DatatypeProperty,
+        ns2:FunctionalProperty ;
+    rdfs:domain ns1:Sympthomes ;
+    rdfs:range xsd:string .
+
+ns1:ophtalmologie3 a ns2:NamedIndividual,
+        ns1:Ophtalmologie .
+
+ns1:pneumologie3 a ns2:NamedIndividual,
+        ns1:Pneumologie .
+
+ns1:pneumologie5 a ns2:NamedIndividual,
+        ns1:Pneumologie .
+
 ns1:poid a ns2:DatatypeProperty,
         ns2:FunctionalProperty ;
     rdfs:domain ns1:Personne ;
@@ -8779,6 +9555,9 @@ ns1:prenom a ns2:DatatypeProperty,
         ns2:FunctionalProperty ;
     rdfs:domain ns1:Personne ;
     rdfs:range xsd:string .
+
+ns1:rhumatologie18 a ns2:NamedIndividual,
+        ns1:Rhumatologie .
 
 ns1:sexe a ns2:DatatypeProperty,
         ns2:FunctionalProperty ;
@@ -8794,6 +9573,9 @@ ns1:type_orientation a ns2:DatatypeProperty,
         ns2:FunctionalProperty ;
     rdfs:domain ns1:Orientation ;
     rdfs:range xsd:string .
+
+ns1:urologie_nephro7 a ns2:NamedIndividual,
+        ns1:Urologie_Nephro .
 
 ns1:wilaya_hopitale a ns2:ObjectProperty ;
     rdfs:domain ns1:Hopital ;
@@ -8837,6 +9619,11 @@ ns1:commune06017 a ns2:NamedIndividual,
     ns1:commune_de ns1:wilaya6 ;
     ns1:nomCommune "Ighil_Ali"^^xsd:string .
 
+ns1:commune09029 a ns2:NamedIndividual,
+        ns1:Commune ;
+    ns1:commune_de ns1:wilaya9 ;
+    ns1:nomCommune "Djebabra"^^xsd:string .
+
 ns1:commune29043 a ns2:NamedIndividual,
         ns1:Commune ;
     ns1:commune_de ns1:wilaya29 ;
@@ -8863,11 +9650,131 @@ ns1:consultation1 a ns2:NamedIndividual,
     ns1:date_consultation "1999-06-24"^^xsd:date ;
     ns1:est_oriente ns1:orientation1 .
 
+ns1:consultation10 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation10 .
+
+ns1:consultation11 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation11 .
+
+ns1:consultation12 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation12 .
+
+ns1:consultation13 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation13 .
+
+ns1:consultation14 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation14 .
+
+ns1:consultation15 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation15 .
+
+ns1:consultation16 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation16 .
+
+ns1:consultation17 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation17 .
+
+ns1:consultation18 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation18 .
+
+ns1:consultation19 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation19 .
+
 ns1:consultation2 a ns2:NamedIndividual,
         ns1:Consultation ;
     ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
     ns1:date_consultation "2020-05-26"^^xsd:date ;
     ns1:est_oriente ns1:orientation2 .
+
+ns1:consultation20 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation20 .
+
+ns1:consultation21 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation21 .
+
+ns1:consultation22 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation22 .
+
+ns1:consultation23 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation23 .
+
+ns1:consultation24 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation24 .
+
+ns1:consultation25 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation25 .
+
+ns1:consultation26 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation26 .
+
+ns1:consultation27 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation27 .
+
+ns1:consultation28 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation28 .
+
+ns1:consultation29 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation29 .
 
 ns1:consultation3 a ns2:NamedIndividual,
         ns1:Consultation ;
@@ -8875,11 +9782,131 @@ ns1:consultation3 a ns2:NamedIndividual,
     ns1:date_consultation "2021-10-08"^^xsd:date ;
     ns1:est_oriente ns1:orientation3 .
 
+ns1:consultation30 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation30 .
+
+ns1:consultation31 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation31 .
+
+ns1:consultation32 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation32 .
+
+ns1:consultation33 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation33 .
+
+ns1:consultation34 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
+    ns1:est_oriente ns1:orientation34 .
+
+ns1:consultation35 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
+    ns1:est_oriente ns1:orientation35 .
+
+ns1:consultation36 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation36 .
+
+ns1:consultation37 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation37 .
+
+ns1:consultation38 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
+    ns1:est_oriente ns1:orientation38 .
+
+ns1:consultation39 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
+    ns1:est_oriente ns1:orientation39 .
+
 ns1:consultation4 a ns2:NamedIndividual,
         ns1:Consultation ;
     ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
     ns1:date_consultation "1999-06-24"^^xsd:date ;
     ns1:est_oriente ns1:orientation4 .
+
+ns1:consultation40 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation40 .
+
+ns1:consultation41 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation41 .
+
+ns1:consultation42 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
+    ns1:est_oriente ns1:orientation42 .
+
+ns1:consultation43 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
+    ns1:est_oriente ns1:orientation43 .
+
+ns1:consultation44 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation44 .
+
+ns1:consultation45 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation45 .
+
+ns1:consultation46 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
+    ns1:est_oriente ns1:orientation46 .
+
+ns1:consultation47 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
+    ns1:est_oriente ns1:orientation47 .
+
+ns1:consultation48 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation48 .
+
+ns1:consultation49 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation49 .
 
 ns1:consultation5 a ns2:NamedIndividual,
         ns1:Consultation ;
@@ -8887,28 +9914,112 @@ ns1:consultation5 a ns2:NamedIndividual,
     ns1:date_consultation "2020-05-26"^^xsd:date ;
     ns1:est_oriente ns1:orientation5 .
 
-ns1:consultation6 a ns2:NamedIndividual,
+ns1:consultation50 a ns2:NamedIndividual,
         ns1:Consultation ;
     ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
     ns1:date_consultation "2021-10-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation6 .
+    ns1:est_oriente ns1:orientation50 .
 
-ns1:consultation7 a ns2:NamedIndividual,
+ns1:consultation51 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
+    ns1:est_oriente ns1:orientation51 .
+
+ns1:consultation52 a ns2:NamedIndividual,
         ns1:Consultation ;
     ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
     ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation52 .
+
+ns1:consultation53 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation53 .
+
+ns1:consultation54 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
+    ns1:est_oriente ns1:orientation54 .
+
+ns1:consultation55 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
+    ns1:est_oriente ns1:orientation55 .
+
+ns1:consultation56 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation56 .
+
+ns1:consultation57 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation57 .
+
+ns1:consultation58 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
+    ns1:est_oriente ns1:orientation58 .
+
+ns1:consultation59 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
+    ns1:est_oriente ns1:orientation59 .
+
+ns1:consultation6 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation6 .
+
+ns1:consultation60 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:est_oriente ns1:orientation60 .
+
+ns1:consultation61 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:est_oriente ns1:orientation61 .
+
+ns1:consultation62 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
+    ns1:est_oriente ns1:orientation62 .
+
+ns1:consultation63 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
+    ns1:est_oriente ns1:orientation63 .
+
+ns1:consultation7 a ns2:NamedIndividual,
+        ns1:Consultation ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
     ns1:est_oriente ns1:orientation7 .
 
 ns1:consultation8 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
     ns1:est_oriente ns1:orientation8 .
 
 ns1:consultation9 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
-    ns1:date_consultation "2021-10-08"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
     ns1:est_oriente ns1:orientation9 .
 
 ns1:consultation_concerne a ns2:ObjectProperty ;
@@ -8966,7 +10077,65 @@ ns1:maladie_touche_patient a ns2:ObjectProperty ;
     rdfs:range ns1:Patient ;
     ns2:inverseOf ns1:a_maladie .
 
+ns1:metabolisme6 a ns2:NamedIndividual,
+        ns1:Metabolisme,
+        ns1:Wilaya .
+
+ns1:neurologie24 a ns2:NamedIndividual,
+        ns1:Neurologie,
+        ns1:Wilaya .
+
 ns1:orientation1 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation10 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation11 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation12 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation13 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation14 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation15 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation16 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation17 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation18 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation19 a ns2:NamedIndividual,
         ns1:Orientation ;
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
@@ -8976,7 +10145,107 @@ ns1:orientation2 a ns2:NamedIndividual,
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
 
+ns1:orientation20 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation21 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation22 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation23 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation24 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation25 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation26 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation27 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation28 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation29 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
 ns1:orientation3 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation30 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation31 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation32 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation33 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation34 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation35 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation36 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation37 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation38 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation39 a ns2:NamedIndividual,
         ns1:Orientation ;
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
@@ -8986,12 +10255,132 @@ ns1:orientation4 a ns2:NamedIndividual,
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
 
+ns1:orientation40 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation41 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation42 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation43 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation44 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation45 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation46 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation47 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation48 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation49 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
 ns1:orientation5 a ns2:NamedIndividual,
         ns1:Orientation ;
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
 
+ns1:orientation50 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation51 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation52 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation53 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation54 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation55 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation56 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation57 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation58 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation59 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
 ns1:orientation6 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation60 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation61 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation62 a ns2:NamedIndividual,
+        ns1:Orientation ;
+    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+
+ns1:orientation63 a ns2:NamedIndividual,
         ns1:Orientation ;
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
@@ -9048,15 +10437,23 @@ ns1:sympthome_touche_patient a ns2:ObjectProperty ;
 
 <https://projetWebsem.org/ontologie.owl#sympthomes/fiévre> a ns2:NamedIndividual,
         ns1:Sympthomes ;
-    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/rhume> .
+    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/rhume> ;
+    ns1:nom_sympthome "fiévre"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#sympthomes/mal> a ns2:NamedIndividual,
+        ns1:Sympthomes ;
+    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/coronavirus> ;
+    ns1:nom_sympthome "mal"^^xsd:string .
 
 <https://projetWebsem.org/ontologie.owl#sympthomes/morve> a ns2:NamedIndividual,
         ns1:Sympthomes ;
-    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/rhume> .
+    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/rhume> ;
+    ns1:nom_sympthome "morve"^^xsd:string .
 
 <https://projetWebsem.org/ontologie.owl#sympthomes/toux_seche> a ns2:NamedIndividual,
         ns1:Sympthomes ;
-    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/rhume> .
+    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/rhume> ;
+    ns1:nom_sympthome "toux_seche"^^xsd:string .
 
 ns1:traitement_pris_par a ns2:ObjectProperty ;
     rdfs:domain ns1:Traitements ;
@@ -9072,6 +10469,9 @@ ns1:traitement_pris_par a ns2:ObjectProperty ;
 <https://projetWebsem.org/ontologie.owl#traitements/piqure_de_rat> a ns2:NamedIndividual,
         ns1:Traitements .
 
+<https://projetWebsem.org/ontologie.owl#traitements/respirateur> a ns2:NamedIndividual,
+        ns1:Traitements .
+
 ns1:wilaya_habite_par a ns2:ObjectProperty ;
     rdfs:domain ns1:Wilaya ;
     rdfs:range ns1:Patient ;
@@ -9082,23 +10482,27 @@ ns1:Fiche a ns2:Class ;
 
 <https://projetWebsem.org/ontologie.owl#sympthomes/contraction> a ns2:NamedIndividual,
         ns1:Sympthomes ;
-    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/covid19>,
-        <https://projetWebsem.org/ontologie.owl#maladies/enceinte> .
+    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/coronavirus>,
+        <https://projetWebsem.org/ontologie.owl#maladies/enceinte> ;
+    ns1:nom_sympthome "contraction"^^xsd:string .
 
 <https://projetWebsem.org/ontologie.owl#sympthomes/difficulté_respiration> a ns2:NamedIndividual,
         ns1:Sympthomes ;
-    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/covid19>,
-        <https://projetWebsem.org/ontologie.owl#maladies/enceinte> .
+    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/coronavirus>,
+        <https://projetWebsem.org/ontologie.owl#maladies/enceinte> ;
+    ns1:nom_sympthome "difficulté_respiration"^^xsd:string .
 
 <https://projetWebsem.org/ontologie.owl#sympthomes/fievre> a ns2:NamedIndividual,
         ns1:Sympthomes ;
-    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/covid19>,
-        <https://projetWebsem.org/ontologie.owl#maladies/enceinte> .
+    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/coronavirus>,
+        <https://projetWebsem.org/ontologie.owl#maladies/enceinte> ;
+    ns1:nom_sympthome "fievre"^^xsd:string .
 
 <https://projetWebsem.org/ontologie.owl#sympthomes/mal_articulations> a ns2:NamedIndividual,
         ns1:Sympthomes ;
-    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/covid19>,
-        <https://projetWebsem.org/ontologie.owl#maladies/enceinte> .
+    ns1:est_sympthomes_maladie <https://projetWebsem.org/ontologie.owl#maladies/coronavirus>,
+        <https://projetWebsem.org/ontologie.owl#maladies/enceinte> ;
+    ns1:nom_sympthome "mal_articulations"^^xsd:string .
 
 ns1:wilaya37 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -9107,6 +10511,166 @@ ns1:wilaya37 a ns2:NamedIndividual,
 
 ns1:RDV a ns2:Class ;
     rdfs:subClassOf ns2:Thing .
+
+<https://projetWebsem.org/ontologie.owl#maladies/rhume> a ns2:NamedIndividual,
+        ns1:Maladies ;
+    ns1:nom_maladie "rhume"^^xsd:string .
+
+<https://projetWebsem.org/ontologie.owl#maladies/enceinte> a ns2:NamedIndividual,
+        ns1:Maladies ;
+    ns1:nom_maladie "enceinte"^^xsd:string .
+
+ns1:Traitements a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
+ns1:wilaya33 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 33 ;
+    ns1:nomWilaya "Illizi"^^xsd:string .
+
+ns1:Hopital a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
+<https://projetWebsem.org/ontologie.owl#maladies/coronavirus> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "coronavirus"^^xsd:string .
+
+ns1:Personne a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
+<https://projetWebsem.org/ontologie.owl#patient/1> a ns2:NamedIndividual,
+        ns1:Patient ;
+    ns1:a_maladie <https://projetWebsem.org/ontologie.owl#maladies/coronavirus> ;
+    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/mal> ;
+    ns1:age 132 ;
+    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:gravite_sympthome "grave"^^xsd:string ;
+    ns1:habite_commune ns1:commune09029 ;
+    ns1:habite_wilaya ns1:wilaya9 ;
+    ns1:id_patient "1"^^xsd:string ;
+    ns1:nb_jrs_depuis_derniere_sortie 12 ;
+    ns1:nb_jrs_depuis_premiers_sympthomes 2 ;
+    ns1:poid 1 ;
+    ns1:prend_traitement <https://projetWebsem.org/ontologie.owl#traitements/respirateur> ;
+    ns1:sexe "2132"^^xsd:string ;
+    ns1:taille 13 .
+
+ns1:Allergie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Hematologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Medecin a ns2:Class ;
+    rdfs:subClassOf ns1:Personne .
+
+ns1:Phlebologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+<https://projetWebsem.org/ontologie.owl#patient/5> a ns2:NamedIndividual,
+        ns1:Patient ;
+    ns1:a_maladie <https://projetWebsem.org/ontologie.owl#maladies/coronavirus> ;
+    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/contraction>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/difficulté_respiration>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/fievre>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/mal_articulations> ;
+    ns1:age 25 ;
+    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:gravite_sympthome "moyen"^^xsd:string ;
+    ns1:habite_commune ns1:commune04020 ;
+    ns1:habite_wilaya ns1:wilaya4 ;
+    ns1:id_patient "5"^^xsd:string ;
+    ns1:nb_jrs_depuis_derniere_sortie 5 ;
+    ns1:nb_jrs_depuis_premiers_sympthomes 6 ;
+    ns1:poid 60 ;
+    ns1:prend_traitement <https://projetWebsem.org/ontologie.owl#traitements/piqure_de_rat> ;
+    ns1:sexe "femme"^^xsd:string ;
+    ns1:taille 155 .
+
+ns1:Maladies_Parasitaires a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:wilaya11 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 11 ;
+    ns1:nomWilaya "Tamanrasset"^^xsd:string .
+
+ns1:wilaya23 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 23 ;
+    ns1:nomWilaya "Annaba"^^xsd:string .
+
+ns1:wilaya25 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 25 ;
+    ns1:nomWilaya "Constantine"^^xsd:string .
+
+ns1:wilaya45 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 45 ;
+    ns1:nomWilaya "Naâma"^^xsd:string .
+
+ns1:Sympthomes a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
+ns1:wilaya47 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 47 ;
+    ns1:nomWilaya "Ghardaïa"^^xsd:string .
+
+ns1:Pneumologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Urologie_Nephro a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:wilaya20 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 20 ;
+    ns1:nomWilaya "Saïda"^^xsd:string .
+
+ns1:Psychiatrie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Metabolisme a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Ophtalmologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:wilaya30 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 30 ;
+    ns1:nomWilaya "Ouargla"^^xsd:string .
+
+ns1:wilaya40 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 40 ;
+    ns1:nomWilaya "Khenchela"^^xsd:string .
+
+ns1:wilaya8 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 8 ;
+    ns1:nomWilaya "Béchar"^^xsd:string .
+
+ns1:Gynecologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Patient a ns2:Class ;
+    rdfs:subClassOf ns1:Personne .
+
+ns1:wilaya32 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 32 ;
+    ns1:nomWilaya "El_Bayadh"^^xsd:string .
+
+ns1:wilaya38 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 38 ;
+    ns1:nomWilaya "Tissemsilt"^^xsd:string .
+
+ns1:Hepato_Gastro a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
 
 <https://projetWebsem.org/ontologie.owl#patient/0> a ns2:NamedIndividual,
         ns1:Patient ;
@@ -9147,158 +10711,6 @@ ns1:RDV a ns2:Class ;
     ns1:sexe "femme"^^xsd:string ;
     ns1:taille 170 .
 
-<https://projetWebsem.org/ontologie.owl#patient/5> a ns2:NamedIndividual,
-        ns1:Patient ;
-    ns1:a_maladie <https://projetWebsem.org/ontologie.owl#maladies/covid19> ;
-    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/contraction>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/difficulté_respiration>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/fievre>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/mal_articulations> ;
-    ns1:age 25 ;
-    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:gravite_sympthome "moyen"^^xsd:string ;
-    ns1:habite_commune ns1:commune04020 ;
-    ns1:habite_wilaya ns1:wilaya4 ;
-    ns1:id_patient "5"^^xsd:string ;
-    ns1:nb_jrs_depuis_derniere_sortie 5 ;
-    ns1:nb_jrs_depuis_premiers_sympthomes 6 ;
-    ns1:poid 60 ;
-    ns1:prend_traitement <https://projetWebsem.org/ontologie.owl#traitements/piqure_de_rat> ;
-    ns1:sexe "femme"^^xsd:string ;
-    ns1:taille 155 .
-
-<https://projetWebsem.org/ontologie.owl#maladies/rhume> a ns2:NamedIndividual,
-        ns1:Maladies .
-
-ns1:Traitements a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-<https://projetWebsem.org/ontologie.owl#maladies/covid19> a ns2:NamedIndividual,
-        ns1:Maladies .
-
-<https://projetWebsem.org/ontologie.owl#maladies/enceinte> a ns2:NamedIndividual,
-        ns1:Maladies .
-
-ns1:wilaya33 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 33 ;
-    ns1:nomWilaya "Illizi"^^xsd:string .
-
-ns1:Hopital a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-ns1:Medecin a ns2:Class ;
-    rdfs:subClassOf ns1:Personne .
-
-ns1:Personne a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-ns1:Allergie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Hematologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Phlebologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Maladies_Parasitaires a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:wilaya11 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 11 ;
-    ns1:nomWilaya "Tamanrasset"^^xsd:string .
-
-ns1:Psychiatrie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Sympthomes a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-ns1:Urologie_Nephro a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-<https://projetWebsem.org/ontologie.owl#hopital/toghza> a ns2:NamedIndividual,
-        ns1:Hopital ;
-    ns1:wilaya_hopitale ns1:wilaya10,
-        ns1:wilaya4,
-        ns1:wilaya6 .
-
-ns1:wilaya23 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 23 ;
-    ns1:nomWilaya "Annaba"^^xsd:string .
-
-ns1:wilaya25 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 25 ;
-    ns1:nomWilaya "Constantine"^^xsd:string .
-
-ns1:wilaya45 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 45 ;
-    ns1:nomWilaya "Naâma"^^xsd:string .
-
-ns1:Pneumologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:wilaya47 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 47 ;
-    ns1:nomWilaya "Ghardaïa"^^xsd:string .
-
-ns1:Metabolisme a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Consultation a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-ns1:Orientation a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-ns1:wilaya20 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 20 ;
-    ns1:nomWilaya "Saïda"^^xsd:string .
-
-ns1:Cardiologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Hepato_Gastro a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Patient a ns2:Class ;
-    rdfs:subClassOf ns1:Personne .
-
-ns1:wilaya30 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 30 ;
-    ns1:nomWilaya "Ouargla"^^xsd:string .
-
-ns1:wilaya40 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 40 ;
-    ns1:nomWilaya "Khenchela"^^xsd:string .
-
-ns1:wilaya8 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 8 ;
-    ns1:nomWilaya "Béchar"^^xsd:string .
-
-ns1:wilaya32 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 32 ;
-    ns1:nomWilaya "El_Bayadh"^^xsd:string .
-
-ns1:wilaya38 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 38 ;
-    ns1:nomWilaya "Tissemsilt"^^xsd:string .
-
-ns1:Rhumatologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
 ns1:wilaya3 a ns2:NamedIndividual,
         ns1:Wilaya ;
     ns1:idWilaya 3 ;
@@ -9312,13 +10724,11 @@ ns1:wilaya36 a ns2:NamedIndividual,
 ns1:Maladies a ns2:Class ;
     rdfs:subClassOf ns2:Thing .
 
-ns1:Neurologie a ns2:Class ;
+ns1:Cardiologie a ns2:Class ;
     rdfs:subClassOf ns1:Maladies .
 
-ns1:wilaya9 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 9 ;
-    ns1:nomWilaya "Blida"^^xsd:string .
+ns1:Rhumatologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
 
 ns1:wilaya31 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -9329,6 +10739,11 @@ ns1:wilaya41 a ns2:NamedIndividual,
         ns1:Wilaya ;
     ns1:idWilaya 41 ;
     ns1:nomWilaya "Souk_Ahras"^^xsd:string .
+
+ns1:wilaya9 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 9 ;
+    ns1:nomWilaya "Blida"^^xsd:string .
 
 ns1:wilaya1 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -9355,13 +10770,16 @@ ns1:wilaya46 a ns2:NamedIndividual,
     ns1:idWilaya 46 ;
     ns1:nomWilaya "Aïn_Témouchent"^^xsd:string .
 
+ns1:Dermatologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Neurologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
 ns1:wilaya39 a ns2:NamedIndividual,
         ns1:Wilaya ;
     ns1:idWilaya 39 ;
     ns1:nomWilaya "El_Oued"^^xsd:string .
-
-ns1:Cancer a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
 
 ns1:wilaya4 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -9382,6 +10800,9 @@ ns1:wilaya43 a ns2:NamedIndividual,
         ns1:Wilaya ;
     ns1:idWilaya 43 ;
     ns1:nomWilaya "Mila"^^xsd:string .
+
+ns1:Cancer a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
 
 ns1:wilaya7 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -9461,13 +10882,13 @@ ns1:wilaya6 a ns2:NamedIndividual,
     ns1:idWilaya 6 ;
     ns1:nomWilaya "Béjaïa"^^xsd:string .
 
-ns1:Wilaya a ns2:Class ;
-    rdfs:subClassOf ns1:Adresse .
-
 ns1:wilaya16 a ns2:NamedIndividual,
         ns1:Wilaya ;
     ns1:idWilaya 16 ;
     ns1:nomWilaya "Alger"^^xsd:string .
+
+ns1:Wilaya a ns2:Class ;
+    rdfs:subClassOf ns1:Adresse .
 
 ns1:wilaya19 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -9484,10 +10905,23 @@ ns1:wilaya26 a ns2:NamedIndividual,
     ns1:idWilaya 26 ;
     ns1:nomWilaya "Médéa"^^xsd:string .
 
+<https://projetWebsem.org/ontologie.owl#hopital/toghza> a ns2:NamedIndividual,
+        ns1:Hopital ;
+    ns1:wilaya_hopitale ns1:metabolisme6,
+        ns1:neurologie24,
+        ns1:wilaya10,
+        ns1:wilaya9 .
+
 ns1:wilaya15 a ns2:NamedIndividual,
         ns1:Wilaya ;
     ns1:idWilaya 15 ;
     ns1:nomWilaya "Tizi_Ouzou"^^xsd:string .
+
+ns1:Consultation a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
+ns1:Orientation a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
 
 ns1:Maladies_Rares a ns2:Class ;
     rdfs:subClassOf ns1:Maladies .
