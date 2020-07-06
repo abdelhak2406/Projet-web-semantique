@@ -3,7 +3,7 @@ import pandas as pd
 from patient_medecin import patient_onto as pat
 from patient_medecin import medecin_onto as med
 from patient_medecin import consultation_onto as consult
-from enrichissement import orientation_onto as orient
+from orientation import orientation_onto as orient
 from enrichissement import fiche_onto as fich
 
 #lire

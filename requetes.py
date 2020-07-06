@@ -432,8 +432,8 @@ class requests(traitemnt_onto):
         WHERE{
         ?hopital rdf:type ns1:Hopital .
         ?hopital ns1:
-        
-         
+
+
         ?patient ns1:a_maladie ?maladie .
         ?maladie ns1:nom_maladie ?nommal .
         ?patient ns1:habite_wilaya ?wilay .
@@ -452,8 +452,6 @@ class requests(traitemnt_onto):
             for j in i:
                 print(" - ",j)
             print("====")
-
-
 
     def request_15(self,nom_medecin,prenom_medecin):
         """ patient celon medecin ayant fait la consultation"""
