@@ -7864,6 +7864,10 @@ ns1:id_patient a ns2:DatatypeProperty,
         ns1:Maladies_Rares ;
     ns1:nom_maladie "aniridie"^^xsd:string .
 
+<https://projetWebsem.org/ontologie.owl#maladies/anisometropie> a ns2:NamedIndividual,
+        ns1:Ophtalmologie ;
+    ns1:nom_maladie "anisometropie"^^xsd:string .
+
 <https://projetWebsem.org/ontologie.owl#maladies/ankylose> a ns2:NamedIndividual,
         ns1:Rhumatologie ;
     ns1:nom_maladie "ankylose"^^xsd:string .
@@ -9399,89 +9403,46 @@ ns1:maladies_infectieuses11 a ns2:NamedIndividual,
         ns1:Medecin ;
     ns1:effectue_consultation ns1:consultation1,
         ns1:consultation10,
-        ns1:consultation11,
-        ns1:consultation12,
         ns1:consultation13,
         ns1:consultation14,
-        ns1:consultation15,
-        ns1:consultation16,
         ns1:consultation17,
         ns1:consultation18,
-        ns1:consultation19,
         ns1:consultation2,
-        ns1:consultation20,
-        ns1:consultation21,
-        ns1:consultation22,
-        ns1:consultation23,
-        ns1:consultation24,
-        ns1:consultation25,
-        ns1:consultation26,
-        ns1:consultation27,
-        ns1:consultation28,
-        ns1:consultation29,
-        ns1:consultation30,
-        ns1:consultation31,
-        ns1:consultation32,
-        ns1:consultation33,
-        ns1:consultation36,
-        ns1:consultation37,
-        ns1:consultation4,
-        ns1:consultation40,
-        ns1:consultation41,
-        ns1:consultation44,
-        ns1:consultation45,
-        ns1:consultation48,
-        ns1:consultation49,
         ns1:consultation5,
-        ns1:consultation52,
-        ns1:consultation53,
-        ns1:consultation56,
-        ns1:consultation57,
         ns1:consultation6,
-        ns1:consultation60,
-        ns1:consultation61,
-        ns1:consultation7,
-        ns1:consultation8,
         ns1:consultation9 ;
     ns1:id_medecin "0"^^xsd:string ;
     ns1:medecin_spcl "cardiologue"^^xsd:string,
         "généraliste"^^xsd:string ;
     ns1:nom "pasteur"^^xsd:string ;
     ns1:prenom "louis"^^xsd:string ;
-    ns1:sexe "Homme"^^xsd:string .
+    ns1:sexe "homme"^^xsd:string .
 
 <https://projetWebsem.org/ontologie.owl#medecin/132> a ns2:NamedIndividual,
         ns1:Medecin ;
-    ns1:effectue_consultation ns1:consultation35,
-        ns1:consultation39,
-        ns1:consultation43,
-        ns1:consultation47,
-        ns1:consultation51,
-        ns1:consultation55,
-        ns1:consultation59,
-        ns1:consultation63 ;
+    ns1:effectue_consultation ns1:consultation12,
+        ns1:consultation16,
+        ns1:consultation20,
+        ns1:consultation4,
+        ns1:consultation8 ;
     ns1:id_medecin "132"^^xsd:string ;
     ns1:medecin_spcl "generaliste"^^xsd:string ;
     ns1:nom "racim"^^xsd:string ;
     ns1:prenom "righi"^^xsd:string ;
-    ns1:sexe "Homme"^^xsd:string .
+    ns1:sexe "homme"^^xsd:string .
 
 <https://projetWebsem.org/ontologie.owl#medecin/2> a ns2:NamedIndividual,
         ns1:Medecin ;
-    ns1:effectue_consultation ns1:consultation3,
-        ns1:consultation34,
-        ns1:consultation38,
-        ns1:consultation42,
-        ns1:consultation46,
-        ns1:consultation50,
-        ns1:consultation54,
-        ns1:consultation58,
-        ns1:consultation62 ;
+    ns1:effectue_consultation ns1:consultation11,
+        ns1:consultation15,
+        ns1:consultation19,
+        ns1:consultation3,
+        ns1:consultation7 ;
     ns1:id_medecin "2"^^xsd:string ;
     ns1:medecin_spcl "virologue"^^xsd:string ;
     ns1:nom "shopper"^^xsd:string ;
     ns1:prenom "reine"^^xsd:string ;
-    ns1:sexe "Homme"^^xsd:string .
+    ns1:sexe "homme"^^xsd:string .
 
 ns1:medecin_spcl a ns2:DatatypeProperty ;
     rdfs:domain ns1:Medecin ;
@@ -9652,62 +9613,62 @@ ns1:consultation1 a ns2:NamedIndividual,
 
 ns1:consultation10 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
     ns1:est_oriente ns1:orientation10 .
 
 ns1:consultation11 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
     ns1:est_oriente ns1:orientation11 .
 
 ns1:consultation12 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
     ns1:est_oriente ns1:orientation12 .
 
 ns1:consultation13 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
     ns1:est_oriente ns1:orientation13 .
 
 ns1:consultation14 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
     ns1:est_oriente ns1:orientation14 .
 
 ns1:consultation15 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
     ns1:est_oriente ns1:orientation15 .
 
 ns1:consultation16 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
     ns1:est_oriente ns1:orientation16 .
 
 ns1:consultation17 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
     ns1:est_oriente ns1:orientation17 .
 
 ns1:consultation18 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
+    ns1:date_consultation "2020-05-26"^^xsd:date ;
     ns1:est_oriente ns1:orientation18 .
 
 ns1:consultation19 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
     ns1:est_oriente ns1:orientation19 .
 
 ns1:consultation2 a ns2:NamedIndividual,
@@ -9718,63 +9679,9 @@ ns1:consultation2 a ns2:NamedIndividual,
 
 ns1:consultation20 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
     ns1:est_oriente ns1:orientation20 .
-
-ns1:consultation21 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation21 .
-
-ns1:consultation22 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation22 .
-
-ns1:consultation23 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation23 .
-
-ns1:consultation24 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation24 .
-
-ns1:consultation25 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation25 .
-
-ns1:consultation26 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation26 .
-
-ns1:consultation27 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation27 .
-
-ns1:consultation28 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation28 .
-
-ns1:consultation29 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation29 .
 
 ns1:consultation3 a ns2:NamedIndividual,
         ns1:Consultation ;
@@ -9782,244 +9689,40 @@ ns1:consultation3 a ns2:NamedIndividual,
     ns1:date_consultation "2021-10-08"^^xsd:date ;
     ns1:est_oriente ns1:orientation3 .
 
-ns1:consultation30 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation30 .
-
-ns1:consultation31 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation31 .
-
-ns1:consultation32 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation32 .
-
-ns1:consultation33 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation33 .
-
-ns1:consultation34 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
-    ns1:date_consultation "2021-10-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation34 .
-
-ns1:consultation35 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
-    ns1:date_consultation "2021-04-22"^^xsd:date ;
-    ns1:est_oriente ns1:orientation35 .
-
-ns1:consultation36 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation36 .
-
-ns1:consultation37 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation37 .
-
-ns1:consultation38 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
-    ns1:date_consultation "2021-10-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation38 .
-
-ns1:consultation39 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
-    ns1:date_consultation "2021-04-22"^^xsd:date ;
-    ns1:est_oriente ns1:orientation39 .
-
 ns1:consultation4 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
     ns1:est_oriente ns1:orientation4 .
-
-ns1:consultation40 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation40 .
-
-ns1:consultation41 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation41 .
-
-ns1:consultation42 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
-    ns1:date_consultation "2021-10-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation42 .
-
-ns1:consultation43 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
-    ns1:date_consultation "2021-04-22"^^xsd:date ;
-    ns1:est_oriente ns1:orientation43 .
-
-ns1:consultation44 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation44 .
-
-ns1:consultation45 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation45 .
-
-ns1:consultation46 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
-    ns1:date_consultation "2021-10-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation46 .
-
-ns1:consultation47 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
-    ns1:date_consultation "2021-04-22"^^xsd:date ;
-    ns1:est_oriente ns1:orientation47 .
-
-ns1:consultation48 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation48 .
-
-ns1:consultation49 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation49 .
 
 ns1:consultation5 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
     ns1:est_oriente ns1:orientation5 .
-
-ns1:consultation50 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
-    ns1:date_consultation "2021-10-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation50 .
-
-ns1:consultation51 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
-    ns1:date_consultation "2021-04-22"^^xsd:date ;
-    ns1:est_oriente ns1:orientation51 .
-
-ns1:consultation52 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation52 .
-
-ns1:consultation53 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation53 .
-
-ns1:consultation54 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
-    ns1:date_consultation "2021-10-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation54 .
-
-ns1:consultation55 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
-    ns1:date_consultation "2021-04-22"^^xsd:date ;
-    ns1:est_oriente ns1:orientation55 .
-
-ns1:consultation56 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation56 .
-
-ns1:consultation57 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation57 .
-
-ns1:consultation58 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
-    ns1:date_consultation "2021-10-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation58 .
-
-ns1:consultation59 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
-    ns1:date_consultation "2021-04-22"^^xsd:date ;
-    ns1:est_oriente ns1:orientation59 .
 
 ns1:consultation6 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation6 .
-
-ns1:consultation60 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
-    ns1:est_oriente ns1:orientation60 .
-
-ns1:consultation61 a ns2:NamedIndividual,
-        ns1:Consultation ;
     ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
     ns1:date_consultation "2020-05-26"^^xsd:date ;
-    ns1:est_oriente ns1:orientation61 .
-
-ns1:consultation62 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
-    ns1:date_consultation "2021-10-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation62 .
-
-ns1:consultation63 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
-    ns1:date_consultation "2021-04-22"^^xsd:date ;
-    ns1:est_oriente ns1:orientation63 .
+    ns1:est_oriente ns1:orientation6 .
 
 ns1:consultation7 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/5> ;
+    ns1:date_consultation "2021-10-08"^^xsd:date ;
     ns1:est_oriente ns1:orientation7 .
 
 ns1:consultation8 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "1999-06-24"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
+    ns1:date_consultation "2021-04-22"^^xsd:date ;
     ns1:est_oriente ns1:orientation8 .
 
 ns1:consultation9 a ns2:NamedIndividual,
         ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/2> ;
-    ns1:date_consultation "2020-05-26"^^xsd:date ;
+    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
+    ns1:date_consultation "1999-06-24"^^xsd:date ;
     ns1:est_oriente ns1:orientation9 .
 
 ns1:consultation_concerne a ns2:ObjectProperty ;
@@ -10150,102 +9853,7 @@ ns1:orientation20 a ns2:NamedIndividual,
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
 
-ns1:orientation21 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation22 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation23 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation24 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation25 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation26 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation27 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation28 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation29 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
 ns1:orientation3 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation30 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation31 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation32 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation33 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation34 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation35 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation36 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation37 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation38 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation39 a ns2:NamedIndividual,
         ns1:Orientation ;
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
@@ -10255,132 +9863,12 @@ ns1:orientation4 a ns2:NamedIndividual,
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
 
-ns1:orientation40 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation41 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation42 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation43 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation44 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation45 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation46 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation47 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation48 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation49 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
 ns1:orientation5 a ns2:NamedIndividual,
         ns1:Orientation ;
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
 
-ns1:orientation50 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation51 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation52 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation53 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation54 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation55 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation56 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation57 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation58 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation59 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
 ns1:orientation6 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation60 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation61 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation62 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation63 a ns2:NamedIndividual,
         ns1:Orientation ;
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
@@ -10520,29 +10008,30 @@ ns1:RDV a ns2:Class ;
         ns1:Maladies ;
     ns1:nom_maladie "enceinte"^^xsd:string .
 
-ns1:Traitements a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-ns1:wilaya33 a ns2:NamedIndividual,
-        ns1:Wilaya ;
-    ns1:idWilaya 33 ;
-    ns1:nomWilaya "Illizi"^^xsd:string .
-
-ns1:Hopital a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-<https://projetWebsem.org/ontologie.owl#maladies/coronavirus> a ns2:NamedIndividual,
-        ns1:Maladies_Infectieuses ;
-    ns1:nom_maladie "coronavirus"^^xsd:string .
-
-ns1:Personne a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
+<https://projetWebsem.org/ontologie.owl#patient/0> a ns2:NamedIndividual,
+        ns1:Patient ;
+    ns1:a_maladie <https://projetWebsem.org/ontologie.owl#maladies/rhume> ;
+    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/fiévre>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/morve>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/toux_seche> ;
+    ns1:age 18 ;
+    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:gravite_sympthome "grave"^^xsd:string ;
+    ns1:habite_commune ns1:commune29043 ;
+    ns1:habite_wilaya ns1:wilaya10 ;
+    ns1:id_patient "0"^^xsd:string ;
+    ns1:nb_jrs_depuis_derniere_sortie 2 ;
+    ns1:nb_jrs_depuis_premiers_sympthomes 4 ;
+    ns1:poid 65 ;
+    ns1:prend_traitement <https://projetWebsem.org/ontologie.owl#traitements/piqure_de_chien> ;
+    ns1:sexe "homme"^^xsd:string ;
+    ns1:taille 175 .
 
 <https://projetWebsem.org/ontologie.owl#patient/1> a ns2:NamedIndividual,
         ns1:Patient ;
     ns1:a_maladie <https://projetWebsem.org/ontologie.owl#maladies/coronavirus> ;
     ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/mal> ;
-    ns1:age 132 ;
+    ns1:age 15 ;
     ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
     ns1:gravite_sympthome "grave"^^xsd:string ;
     ns1:habite_commune ns1:commune09029 ;
@@ -10552,20 +10041,28 @@ ns1:Personne a ns2:Class ;
     ns1:nb_jrs_depuis_premiers_sympthomes 2 ;
     ns1:poid 1 ;
     ns1:prend_traitement <https://projetWebsem.org/ontologie.owl#traitements/respirateur> ;
-    ns1:sexe "2132"^^xsd:string ;
+    ns1:sexe "femme"^^xsd:string ;
     ns1:taille 13 .
 
-ns1:Allergie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Hematologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
-
-ns1:Medecin a ns2:Class ;
-    rdfs:subClassOf ns1:Personne .
-
-ns1:Phlebologie a ns2:Class ;
-    rdfs:subClassOf ns1:Maladies .
+<https://projetWebsem.org/ontologie.owl#patient/2> a ns2:NamedIndividual,
+        ns1:Patient ;
+    ns1:a_maladie <https://projetWebsem.org/ontologie.owl#maladies/enceinte> ;
+    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/contraction>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/difficulté_respiration>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/fievre>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/mal_articulations> ;
+    ns1:age 21 ;
+    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
+    ns1:gravite_sympthome "faible"^^xsd:string ;
+    ns1:habite_commune ns1:commune06017 ;
+    ns1:habite_wilaya ns1:wilaya6 ;
+    ns1:id_patient "2"^^xsd:string ;
+    ns1:nb_jrs_depuis_derniere_sortie 1 ;
+    ns1:nb_jrs_depuis_premiers_sympthomes 1 ;
+    ns1:poid 60 ;
+    ns1:prend_traitement <https://projetWebsem.org/ontologie.owl#traitements/piqure_de_grenouille> ;
+    ns1:sexe "femme"^^xsd:string ;
+    ns1:taille 170 .
 
 <https://projetWebsem.org/ontologie.owl#patient/5> a ns2:NamedIndividual,
         ns1:Patient ;
@@ -10586,6 +10083,36 @@ ns1:Phlebologie a ns2:Class ;
     ns1:prend_traitement <https://projetWebsem.org/ontologie.owl#traitements/piqure_de_rat> ;
     ns1:sexe "femme"^^xsd:string ;
     ns1:taille 155 .
+
+ns1:Traitements a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
+ns1:wilaya33 a ns2:NamedIndividual,
+        ns1:Wilaya ;
+    ns1:idWilaya 33 ;
+    ns1:nomWilaya "Illizi"^^xsd:string .
+
+ns1:Hopital a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
+<https://projetWebsem.org/ontologie.owl#maladies/coronavirus> a ns2:NamedIndividual,
+        ns1:Maladies_Infectieuses ;
+    ns1:nom_maladie "coronavirus"^^xsd:string .
+
+ns1:Personne a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
+ns1:Allergie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Hematologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
+
+ns1:Medecin a ns2:Class ;
+    rdfs:subClassOf ns1:Personne .
+
+ns1:Phlebologie a ns2:Class ;
+    rdfs:subClassOf ns1:Maladies .
 
 ns1:Maladies_Parasitaires a ns2:Class ;
     rdfs:subClassOf ns1:Maladies .
@@ -10672,44 +10199,12 @@ ns1:wilaya38 a ns2:NamedIndividual,
 ns1:Hepato_Gastro a ns2:Class ;
     rdfs:subClassOf ns1:Maladies .
 
-<https://projetWebsem.org/ontologie.owl#patient/0> a ns2:NamedIndividual,
-        ns1:Patient ;
-    ns1:a_maladie <https://projetWebsem.org/ontologie.owl#maladies/rhume> ;
-    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/fiévre>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/morve>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/toux_seche> ;
-    ns1:age 18 ;
-    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:gravite_sympthome "grave"^^xsd:string ;
-    ns1:habite_commune ns1:commune29043 ;
-    ns1:habite_wilaya ns1:wilaya10 ;
-    ns1:id_patient "0"^^xsd:string ;
-    ns1:nb_jrs_depuis_derniere_sortie 2 ;
-    ns1:nb_jrs_depuis_premiers_sympthomes 4 ;
-    ns1:poid 65 ;
-    ns1:prend_traitement <https://projetWebsem.org/ontologie.owl#traitements/piqure_de_chien> ;
-    ns1:sexe "homme"^^xsd:string ;
-    ns1:taille 175 .
-
-<https://projetWebsem.org/ontologie.owl#patient/2> a ns2:NamedIndividual,
-        ns1:Patient ;
-    ns1:a_maladie <https://projetWebsem.org/ontologie.owl#maladies/enceinte> ;
-    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/contraction>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/difficulté_respiration>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/fievre>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/mal_articulations> ;
-    ns1:age 21 ;
-    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/toghza> ;
-    ns1:gravite_sympthome "faible"^^xsd:string ;
-    ns1:habite_commune ns1:commune06017 ;
-    ns1:habite_wilaya ns1:wilaya6 ;
-    ns1:id_patient "2"^^xsd:string ;
-    ns1:nb_jrs_depuis_derniere_sortie 1 ;
-    ns1:nb_jrs_depuis_premiers_sympthomes 1 ;
-    ns1:poid 60 ;
-    ns1:prend_traitement <https://projetWebsem.org/ontologie.owl#traitements/piqure_de_grenouille> ;
-    ns1:sexe "femme"^^xsd:string ;
-    ns1:taille 170 .
+<https://projetWebsem.org/ontologie.owl#hopital/toghza> a ns2:NamedIndividual,
+        ns1:Hopital ;
+    ns1:wilaya_hopitale ns1:metabolisme6,
+        ns1:neurologie24,
+        ns1:wilaya10,
+        ns1:wilaya9 .
 
 ns1:wilaya3 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -10739,6 +10234,12 @@ ns1:wilaya41 a ns2:NamedIndividual,
         ns1:Wilaya ;
     ns1:idWilaya 41 ;
     ns1:nomWilaya "Souk_Ahras"^^xsd:string .
+
+ns1:Consultation a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
+ns1:Orientation a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
 
 ns1:wilaya9 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -10905,23 +10406,10 @@ ns1:wilaya26 a ns2:NamedIndividual,
     ns1:idWilaya 26 ;
     ns1:nomWilaya "Médéa"^^xsd:string .
 
-<https://projetWebsem.org/ontologie.owl#hopital/toghza> a ns2:NamedIndividual,
-        ns1:Hopital ;
-    ns1:wilaya_hopitale ns1:metabolisme6,
-        ns1:neurologie24,
-        ns1:wilaya10,
-        ns1:wilaya9 .
-
 ns1:wilaya15 a ns2:NamedIndividual,
         ns1:Wilaya ;
     ns1:idWilaya 15 ;
     ns1:nomWilaya "Tizi_Ouzou"^^xsd:string .
-
-ns1:Consultation a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-ns1:Orientation a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
 
 ns1:Maladies_Rares a ns2:Class ;
     rdfs:subClassOf ns1:Maladies .

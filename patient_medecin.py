@@ -24,7 +24,7 @@ class medecin_onto(traitemnt_onto):
         m.id_medecin = str(id)
         m.nom = nom
         m.prenom = prenom
-        m.sexe = sexe
+        m.sexe = sexe.lower()
         m.medecin_spcl.append(specialite) # et si on faisait aussi du scrapping pour les specialités ? nagh smbalec on laisse akka 
        # je pense qu'on devra mettre ici les relation que le medecin fera genre  rediger fiche et tt 
         if fiche != None:
@@ -148,7 +148,7 @@ class patient_onto(traitemnt_onto):
         #p.nom = nom    pourquio avoir le nom et le prénom?
         #p.prenom = prenom
         p.taille = taille
-        p.sexe = sexe
+        p.sexe = sexe.lower()
         p.age = age
         p.poid = poid
         p.nb_jrs_depuis_derniere_sortie = nb_jrs_depuis_derniere_sortie
@@ -195,211 +195,6 @@ class patient_onto(traitemnt_onto):
                 i.est_sympthomes_maladie.append(m)
 
 
-
-    def request(self,id):
-
-        """
-        requete qui permet de trouve les patient et  leurs maladie en fonction de l'id
-        """
-        graph = rdflib.Graph()
-        graph.parse("ontologie.owl",format="turtle")
-        open("graph_turtle.rdf","w")    
-        graph.serialize("graph_turtle.rdf",format="turtle")
-        id = str(id)
-
-        requete = """ 
-        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
-        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
-        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        prefix xml: <http://www.w3.org/XML/1998/namespace> 
-    
-        SELECT ?patient  ?maladie
-        WHERE{
-        ?patient rdf:type ns1:Patient . 
-        ?patient ns1:a_maladie ?maladie0 .
-        ?maladie0 ns1:nom_maladie ?maladie .
-        ?patient ns1:id_patient  ?idp.
-        FILTER regex(?idp,"x0")
-
-        }
-        """.replace("x0",id)
-        result = graph.query(requete)
-        for i in result:
-            print("===")
-            cpt = 0
-            for j in i:
-                print(cpt," - ",j)
-                cpt = cpt + 1
-            print("====")
-    
-    def request_2(self,wilaya,commune,maladie):
-
-        """
-        liste des patient atteint d'une maladie dans une certaine commune d'une wilaya
-        """
-        graph = rdflib.Graph()
-        graph.parse("ontologie.owl",format="turtle")
-        open("graph_turtle.rdf","w")    
-        graph.serialize("graph_turtle.rdf",format="turtle")
-
-        nom_wilaya = re.sub(r" |-", "_", wilaya).title()
-        nom_commune = re.sub(r" |-", "_", commune).title()#nom de la wilaya
-        maladie = re.sub(r" |-", "_",maladie).lower()
-        
-        requete = """
-        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
-        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
-        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        prefix xml: <http://www.w3.org/XML/1998/namespace> 
-
-        SELECT ?patient 
-        WHERE{
-        ?patient rdf:type ns1:Patient . 
-        ?patient ns1:a_maladie ?maladie .
-        ?maladie ns1:nom_maladie ?nommal .
-        ?patient ns1:habite_wilaya ?wilay .
-        ?wilay ns1:nomWilaya ?nomw .
-        ?patient ns1:habite_commune ?comm .
-        ?comm ns1:nomCommune ?nomc .
-        FILTER regex(?nomw,"x0")
-        FILTER regex(?nomc,"x2")
-        FILTER regex(?nommal,"x1")
-        }
-        """
-        substitutions = {"x0":nom_wilaya,"x1":maladie,"x2":nom_commune}
-        requete = self.replace(requete, substitutions)
-        result = graph.query(requete)
-        for i in result:
-            print("===")
-            cpt = 0
-            for j in i:
-                print(cpt," - ",j)
-                cpt = cpt + 1
-            print("====")
-    
-    def request_3(self,wilaya,commune,maladie):
-       
-        """nombre de patient atteint d'une certaine maladie dans une localite"""
-       
-        graph = rdflib.Graph()
-        graph.parse("ontologie.owl",format="turtle")
-        open("graph_turtle.rdf","w")    
-        graph.serialize("graph_turtle.rdf",format="turtle")
-
-        nom_wilaya = re.sub(r" |-", "_", wilaya).title()
-        nom_commune = re.sub(r" |-", "_", commune).title()#nom de la wilaya
-        maladie = re.sub(r" |-", "_",maladie).lower()
-        
-        requete = """ 
-        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
-        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
-        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        prefix xml: <http://www.w3.org/XML/1998/namespace> 
-
-        SELECT  (COUNT(?patient) AS ?triples) 
-        WHERE{
-        ?patient rdf:type ns1:Patient . 
-        ?patient ns1:a_maladie ?maladie .
-        ?maladie ns1:nom_maladie ?nommal .
-        ?patient ns1:habite_wilaya ?wilay .
-        ?wilay ns1:nomWilaya ?nomw .
-        ?patient ns1:habite_commune ?comm .
-        ?comm ns1:nomCommune ?nomc .
-        FILTER regex(?nomw,"x0")
-        FILTER regex(?nomc,"x2")
-        FILTER regex(?nommal,"x1")
-        }
-        """
-        substitutions = {"x0":nom_wilaya,"x1":maladie,"x2":nom_commune}
-        requete = self.replace(requete, substitutions)
-        result = graph.query(requete)
-        for i in result:
-            print("===")
-            for j in i:
-                print(" - ",j)
-
-            print("===")      
-
-    def request_4(self,age,maladie):
-        """ nombre de patient de moins d'un age x ayant une maladie X """
-        graph = rdflib.Graph()
-        graph.parse("ontologie.owl",format="turtle")
-        open("graph_turtle.rdf","w")    
-        graph.serialize("graph_turtle.rdf",format="turtle")
-        
-        nom_maladie =  re.sub(r" |-", "_",maladie).lower()
-
-        requete = """
-        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
-        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
-        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        prefix xml: <http://www.w3.org/XML/1998/namespace> 
-
-        SELECT ?patient 
-        WHERE{
-        ?patient rdf:type ns1:Patient . 
-        ?patient ns1:a_maladie ?maladie .
-        ?maladie ns1:nom_maladie ?nommal .
-        ?patient ns1:age ?agee .
-        FILTER regex (?nommal,"x1")
-        FILTER (?agee < x0)
-        }
-        """
-
-        substitutions = {"x0":str(age),"x1":nom_maladie}
-        requete = self.replace(requete, substitutions)
-        result = graph.query(requete)   
-        for i in result:
-            print("===")
-            cpt = 0
-            for j in i:
-                print(cpt," - ",j)
-                cpt = cpt + 1
-            print("====")
-
-    def request_5(self,maladie):
-        """ 
-        determiner sympthomes pour une certaine maladie
-        """
-        graph = rdflib.Graph()
-        graph.parse("ontologie.owl",format="turtle")
-        open("graph_turtle.rdf","w")    
-        graph.serialize("graph_turtle.rdf",format="turtle")
-        
-        nom_maladie =  re.sub(r" |-", "_",maladie).lower()
-
-        requete = """
-        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
-        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
-        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        prefix xml: <http://www.w3.org/XML/1998/namespace> 
-
-        SELECT ?sympthom 
-        WHERE{
-        ?sympthom0 rdf:type  ns1:Sympthomes .
-        ?maladie rdf:type ns1:Maladies . 
-        ?maladie ns1:nom_maladie ?nommal .
-        ?maladie ns1:a_comme_sympthomes ?sympthom0 .
-        ?sympthom0 ns1:nom_sympthome ?sympthom
-        FILTER regex (?nommal,"x1")
-        }
-        """
-
-        substitutions = {"x1":nom_maladie}
-        requete = self.replace(requete, substitutions)
-        result = graph.query(requete)   
-        for i in result:
-            print("===")
-            cpt = 0
-            for j in i:
-                print(cpt," - ",j)
-                cpt = cpt + 1
-            print("====")
 
 
 class consultation_onto(traitemnt_onto):
