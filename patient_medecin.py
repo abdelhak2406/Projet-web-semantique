@@ -114,6 +114,7 @@ class patient_onto(traitemnt_onto):
                 #créer l'objet sympthome
                 trait = self.dico["Traitements"]()
                 trait.iri = self.mon_iri+"traitements/"+i.lower()
+                trait.nom_traitement = i.lower()
                 pat.prend_traitement.append(trait)
             else:#l'objet existe
                 pat.prend_traitement.append(res[0])
@@ -124,12 +125,11 @@ class patient_onto(traitemnt_onto):
         print("wil  ",wil)
         #print("type wil ",type(wil)) 
         pat.habite_wilaya= [wil]
+    
     def ajout_commune(self,commune,pat):
         com_code = adresses_onto().get_code_commune(commune=commune)
         com = self.onto.search(iri='*'+com_code)[0]
         pat.habite_commune.append(com)
-
-
 
     def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements,gravite_sympthom, consultation=None):
 
@@ -193,7 +193,6 @@ class patient_onto(traitemnt_onto):
             print("les sympthomes du patien sont: ",self.objet_patient.a_sympthomes)
             for i in self.objet_patient.a_sympthomes:
                 i.est_sympthomes_maladie.append(m)
-
 
 
 
