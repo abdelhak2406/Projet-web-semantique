@@ -93,6 +93,11 @@ with onto:
     class Traitements(Thing):   # les Traitements que prend le patient actuellement 
         pass
 
+    class nom_traitement(DataProperty,FunctionalProperty):
+        domain = [Traitements]
+        range = [str]
+        pass
+
     class Medecin(Personne):
         pass
     #pour le lieu de residence du medecin et de l'hopital ou il exerce nous estimons que nous navons pas besoin de le preciser
@@ -125,6 +130,10 @@ with onto:
         range = [datetime.date]
         pass
     class Hopital(Thing):
+        pass
+    class nom_hopital():
+        domain = [Hopital]
+        range =  [str]
         pass
 
     class Fiche(Thing):
