@@ -22,8 +22,8 @@ class medecin_onto(traitemnt_onto):
         """
         m = self.obtenir_objet("Medecin",str(id))
         m.id_medecin = str(id)
-        m.nom = nom
-        m.prenom = prenom
+        m.nom = re.sub(r" |-", "_",nom).lower()
+        m.prenom = re.sub(r" |-", "_",prenom).lower()
         m.sexe = sexe.lower()
         m.medecin_spcl.append(specialite) # et si on faisait aussi du scrapping pour les specialités ? nagh smbalec on laisse akka 
        # je pense qu'on devra mettre ici les relation que le medecin fera genre  rediger fiche et tt 
@@ -154,7 +154,7 @@ class patient_onto(traitemnt_onto):
         p.nb_jrs_depuis_derniere_sortie = nb_jrs_depuis_derniere_sortie
         p.nb_jrs_depuis_premiers_sympthomes = nb_jrs_depuis_premiers_sympthomes
         
-        p.gravite_sympthome = gravite_sympthom
+        p.gravite_sympthome = re.sub(r" |-", "_",gravite_sympthom).lower() 
         
         if(consultation != None):
             p.concerne.append(consultation)

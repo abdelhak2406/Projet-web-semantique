@@ -51,10 +51,10 @@ class orientation_onto(traitemnt_onto):
             h = res    
         self.objet_orientation.orienter_vers_hopital  = [h]
         patient.est_hospitalilser_a = [h]
-        
+        print("\n\n patient hospitallise: ", patient.est_hospitalilser_a[0].nom_hopital )
         pass
 
-    def creer_orientation(self, orient,date_rdv=None,patient=None,hopital=None):
+    def creer_orientation(self, orient,patient=None):
         """args
            orient : type d'orientation :prise en charge domicile ou hopital ou bien prise de rdv
            date_rdv: date de rendez vous dans le cas d'une prise de rendez vous jour/mois/annee
@@ -65,15 +65,18 @@ class orientation_onto(traitemnt_onto):
         
         #patient = self.onto.search(iri=mon_iri + "patient" + str(id_patient))[0]
         #medecin = self.onto.search(iri=mon_iri + "medecin" + str(id_medecin))[0]
+        orient = orient.split(":")
+        orient[0]=  re.sub(r" |-", "_",orient[0]).lower()
         o = self.dico["Orientation"]()
         self.objet_orientation = o
         print()
 
-        if (orient == "prise_en_charge_domicile"):
-            o.type_orientation = orient  
+        if (orient[0] == "prise_en_charge_domicile"):
+            o.type_orientation = orient[0]  
 
-        if (orient == "prise_de_rendez-vous" and date_rdv != None ): 
-            o.type_orientation = orient         
+        if (orient[0] == "prise_de_rendez_vous" and len(orient)>1 ): 
+            o.type_orientation = orient[0]         
+            date_rdv = orient[1]
             r = self.dico["RDV"]()
             #on va créer un objet de type datetime et l'inputer directement ?           
             tabdate=date_rdv.split("/") #la on devrait obtenir un tableau de 3 elements date mois et anee           
@@ -83,13 +86,13 @@ class orientation_onto(traitemnt_onto):
 
             # heu du coup pour la date du rdv et les infos des hopitaux je sais pas trop how to do it 
 
-        if (orient == "prise_en_charge_hopital" and (patient !=None) and hopital !=None):
-            o.type_orientation = orient          
+        if (orient[0] == "prise_en_charge_hopital" and (patient !=None) and len(orient)>1):
+            o.type_orientation = orient[0]          
             #la faut chercher si l'hopital existe ou pas! on suppose que les iri des opitaux contiendrons le nom des hopitaux (hopitalX/nomhopitale)
             
             #on va vérifier si l'hopital existe sinon on le crée , le probléme c'est qu'il faut savoir ou il se situe, 
             #on pourrait supposer que cela dépend tu patient, donc on vas tout simplement avoir en entrée aussi l'adresse du patient, ou plus simple l'objet patient 
             #lui meme 
-            self.ajouter_hopital(hopital=hopital,patient=patient)
+            self.ajouter_hopital(hopital=orient[1],patient=patient)
 
         self.objet_orientation = o

@@ -1,5 +1,5 @@
-"id_patient","id_medecin","age","taille","sexe","poid","wilaya_patient","daira_patient","sympthomes","Maladie","traitement","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",date,specialite_medecin,nom medecin,prenom medecin,gravite_sympthomes
-"0","0","18","175","homme","65","Bouira","Chorfa","fiévre,toux seche,morve","rhume","piqure de chien","2","4",24/06/1999,généraliste,"vegapunk ",noName,grave
-"2","0","21","170","femme","60","Béjaïa","Ighil Ali","contraction,fievre,mal articulations,difficulté respiration","enceinte","piqure de grenouille","1","1",26/05/2020,cardiologue,pasteur,louis,faible
-"5","2","25","155","femme","60","Oum El Bouaghi","Ouled Zouai","contraction,fievre,mal articulations,difficulté respiration","coronavirus","piqure de rat","5","6",08/10/2021,virologue,shopper,reine,moyen
-"1","132","15","13","femme","1","Blida","Djebabra","mal","coronavirus","respirateur","12","2",22/04/2021,generaliste,racim,righi,grave
+"id_patient","id_medecin","age","taille","sexe","poid","wilaya_patient","daira_patient","sympthomes","Maladie","traitement","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",date,specialite_medecin,nom medecin,prenom medecin,gravite_sympthomes,orientation
+"0","0","18","175","homme","65","Bouira","Chorfa","fiévre,toux seche,morve","rhume","piqure de chien","2","4",24/06/1999,généraliste,"vegapunk ",noName,faible,prise_en_charge_domicile:
+"2","1","21","170","femme","60","Béjaïa","Ighil Ali","contraction,fievre,mal articulations,difficulté respiration","enceinte","piqure de grenouille","1","1",26/05/2020,cardiologue,pasteur,louis,moyen,prise_de_rendez_vous:10/07/2020
+"5","2","25","155","femme","60","Oum El Bouaghi","Ouled Zouai","contraction,fievre,mal articulations,difficulté respiration","coronavirus","piqure de rat","5","6",08/10/2021,virologue,shopper,reine,grave,prise_en_charge_hopital:TOghza
+"1","132","15","13","femme","1","Blida","Djebabra","mal","coronavirus","respirateur","12","2",22/04/2021,generaliste,racim,righi,grave,prise_en_charge_hopital:Iazzoughen

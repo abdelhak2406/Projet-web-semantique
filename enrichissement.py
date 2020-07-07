@@ -15,7 +15,7 @@ class traitemnt_onto:
     onto = get_ontology("ontologie.owl").load()
     mon_iri = "https://projetWebsem.org/ontologie.owl#"
     onto_name = "ontologie.owl"
-
+    
     def __init__(self):
         self.dico = self.creation_dictionnaire()
     
@@ -167,6 +167,24 @@ class traitemnt_onto:
         regex = re.compile('|'.join(map(re.escape, substrings)))
         return regex.sub(lambda match: substitutions[match.group(0)], string)
 
+    def ajout_sympthomes_covid(self):
+        symptomes =["fièvre","toux sèche","fatigue","courbatures","congestion nasale","écoulement nasal",
+        "maux de gorge","diarrhée","détresse respiratoire","maux de tête","perte de goût",
+        "perte de l'odorat","Nausées,vomissements"]
+        #coronavirus
+        covid = self.onto.search("*maladies/coronavirus*")[0]
+
+        for i in symptomes:
+            i = re.sub(r" |-", "_", i).lower()
+            res = self.onto.search(iri="*sympthomes/"+i)
+            if res== []:
+                symp = self.dico["Sympthomes"]()
+                symp.iri = self.mon_iri+"sympthomes/"+i.lower()
+                symp.nom_sympthome = i.lower()   
+                covid.est_sympthomes_maladie.append(symp)
+            else: #pour ne pas avoir de repetition dans les sympthome
+                covid.est_sympthomes_maladie.append(res[0])
+            
 class adresses_onto(traitemnt_onto):
 
     path_wilaya = "Localisation_csv/wilayas.csv"
@@ -227,7 +245,6 @@ class adresses_onto(traitemnt_onto):
             w.nomWilaya = nom_w
             w.idWilaya = int(code_w)
             w.iri =  self.mon_iri + "wilaya" + code_w
-
 
     def creer_Commune(self, path):
 
@@ -290,4 +307,6 @@ if __name__ == "__main__":
     adresse = adresses_onto()
     adresse.creer_Wilaya("Localisation_csv/wilayas.csv")
     adresse.creer_Commune("Localisation_csv/communes.csv")
-    adresse.save_onto()
+    ontolo.ajout_sympthomes_covid()
+    ontolo.save_onto()
+

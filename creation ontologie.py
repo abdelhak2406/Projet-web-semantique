@@ -131,7 +131,7 @@ with onto:
         pass
     class Hopital(Thing):
         pass
-    class nom_hopital():
+    class nom_hopital(DataProperty, FunctionalProperty):
         domain = [Hopital]
         range =  [str]
         pass

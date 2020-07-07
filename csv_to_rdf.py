@@ -16,7 +16,7 @@ for i,j  in fiche.iterrows():
     co = consult()
     ori = orient()
     medec = med()
-    ori.creer_orientation(orient="prise_en_charge_hopital",date_rdv=j["date"],hopital="Toghza",patient=ontolo.objet_patient)
+    ori.creer_orientation(orient=j["orientation"],patient=ontolo.objet_patient)
     co.creer_consultation(date_cons=j["date"],patient = ontolo.objet_patient,orientation=ori.objet_orientation)
     medec.creer_medecin(id=j["id_medecin"],sexe="Homme",specialite=j["specialite_medecin"],nom=j["nom medecin"],prenom=j["prenom medecin"],consultation=co.objet_consultation)
 
