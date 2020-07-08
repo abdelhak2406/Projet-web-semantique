@@ -271,6 +271,19 @@ class fiche_onto(traitemnt_onto):
     objet_fiche = None
     def __init__(self):	    
         super().__init__()
+   
+    def traitement_orientation(self,obj_orientation,dico,i):
+        print("nous sommes dans traitement orientation ",obj_orientation[0].type_orientation)
+        if obj_orientation[0].date_rendez_vous=="prise_en_charge_domicile":
+            dico[i]["orientation"]=obj_orientation.type_orientation+":"
+        if obj_orientation[0].type_orientation=="prise_de_rendez_vous":
+            dico[i]["orientation"]=obj_orientation.type_orientation+":"
+            #obj_orientation.date_rendez_vous =
+            #TODO: voir comment se presnte une date et la transformer ainsi jj/mm/aa
+            print("date de rendez-vous: ",obj_orientation.prend_RDV)
+        if  obj_orientation[0].type_orientation=="prise_en_charge_hopital":
+            pass
+
 
     def creer_fiche(self):
         f = self.dico["Fiche"]
@@ -288,27 +301,131 @@ class fiche_onto(traitemnt_onto):
         prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         prefix xml: <http://www.w3.org/XML/1998/namespace> 
     
-        SELECT ?patient ?idpat  ?idmed ?age ?taille ?sexe ?poid ?wilaya_pat ?daira_pat ?sympthomes ?maladies ?njds ?njps ?date ?orientation ?gravite 
+        SELECT ?consult ?patient ?idpat  ?idmed ?age ?taille ?sexe ?poid ?wilaya_pat ?com_pat ?sympthomes ?njds ?njps ?date ?orientation ?gravite 
         WHERE{
         ?consult rdf:type ns1:Consultation .
-        ?consult ns1:consultation_concerne ?patient.
         ?consult ns1:date_consultation ?date .
-        }
-        """
-        resultat = graph.query(requete)
+        ?consult ns1:consultation_concerne ?patient.
+        ?consult ns1:est_oriente ?orientation .
+        ?orientation ns1:type_orientation ?typeorient. 
+        ?patient ns1:a_covid ?cov .
+        ?patient ns1:id_patient ?idpat.
+        ?patient ns1:age ?age .
+        ?patient ns1:taille ?taille .
+        ?patient ns1:sexe ?sexe .
+        ?patient ns1:poid ?poid .
+        ?patient ns1:habite_wilaya ?wilaya.
+        ?wilaya ns1:nomWilaya ?wilaya_pat .
+        ?patient ns1:habite_commune ?commune .
+        ?commune ns1:nomCommune ?com_pat .
+        ?patient ns1:a_sympthomes ?sympt.
+        ?sympt ns1:nom_sympthome ?sympthomes .
+        ?patient ns1:gravite_sympthome ?gravite .
+        ?patient ns1:nb_jrs_depuis_derniere_sortie ?njds.
+        ?patient ns1:nb_jrs_depuis_premiers_sympthomes ?njps.
+
         
+        ?medecin rdf:type ns1:Medecin .
+        ?medecin ns1:effectue_consultation ?consult .
+        ?medecin ns1:id_medecin ?idmed .
+        FILTER regex(?cov,"oui")
+        }
+        """ 
+        dico = {}
+        consultations =[]
+        result = graph.query(requete)
 
+        for i in result:
+            print("===")
+            cpt = 0
+            for j in i:
+                if cpt==0 and j in dico:
+                    break
+                if cpt ==0 and j not in dico :
+                    dico[j]=dict()
+                    k=j
+                if cpt==1:
+                    dico[k]["patient"]=j
 
+                if cpt==2:
+                    dico[k]["id_patient"]=j
+                
+                if cpt==3:
+                    dico[k]["id_medecin"]=j
+               
+                if cpt==4:
+                    dico[k]["age"]=j
+
+                if cpt==5:
+                    dico[k]['taille']=j
+               
+                if cpt==6:
+                    dico[k]["sexe"]=j
+                    
+                if cpt==7:
+                    dico[k]["poid"]=j
+                if cpt==8:
+                    dico[k]["wilaya_patient"]=j
+                if cpt==9:
+                    dico[k]["commune_patient"]=j
+                if cpt==10:
+                    dico[k]["sympthomes"]=j
+                if cpt==11:
+                    dico[k]["njds"]=j
+                if cpt==12:
+                    dico[k]["njps"]=j
+                
+                if cpt==13:
+                    dico[k]["date"]=j
+
+                if cpt==14:
+                    dico[k]['orientation']=j
+
+                if cpt==15:
+                    dico[k]["gravite"]=j
+
+                cpt = cpt + 1
+        #ajouter les infos qui reste!
+        for i in dico:
+            pat = dico[i]["patient"]
+            print(pat)
+            obj_pat = self.onto.search(iri=pat)    
+            print("objpat:", obj_pat)
+            dico[i]["sympthomes"]=""
+            for j in  obj_pat[0].a_sympthomes:
+                dico[i]["sympthomes"] =dico[i]["sympthomes"]+","+j.nom_sympthome
+            dico[i]["maladies"]=""
+            for j in obj_pat[0].a_maladie:##TODO:gerer le cas ou il n'a aucune maladie ou aucune sympthomes ect
+                dico[i]['maladies'] =dico[i]['maladies']+","+j.nom_maladie 
+            dico[i]["traitement"]=""
+            for j in obj_pat[0].prend_traitement:
+                dico[i]['traitement']=dico[i]['traitement']+","+j.nom_traitement
+            print("traitement ",dico[i]["traitement"])
         #self.fich = f
+            ori = dico[i]["orientation"]#orientation
+            obj_orien = self.onto.search(iri=ori) 
+
+            self.traitement_orientation(obj_orien,dico,i)
+
+        #creation de la fiche finale qui est censé etre faite par le ministére
+
+        with open('fiche_sortie.csv', mode='w') as fiche0:
+            patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+            patient_infos.writerow(['id_patient',"wilaya_patient","commune_patient", 'age', "poid", "taille", "sexe", "sympthomes", "maladies","traitement","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes","date","gravite"])
+            patient_infos.writerow([dico[i]["id_patient"], dico[i]["wilaya_patient"],dico[i]["commune_patient"],dico[i]["age"],dico[i]["poid"],dico[i]["taille"],dico[i]["sexe"],dico[i]["sympthomes"],dico[i]["maladies"],dico[i]["traitement"],dico[i]["njds"],dico[i]["njps"],dico[i]["date"],dico[i]["gravite"]
+            ])
+            # wilaya,commune,age, poid,taille, sexe, sympthomes, maladies,traitements,nb_jour_depuis_dernier_sortie,nb_jour_depuis_premier_sympthomes])
+            #TODO: ajouter l'orientation
 
 
 if __name__ == "__main__":
-    ontolo = traitemnt_onto()
+    """ontolo = traitemnt_onto()
     ontolo.enrichir_maladies()
     ontolo.save_onto()
     adresse = adresses_onto()
     adresse.creer_Wilaya("Localisation_csv/wilayas.csv")
     adresse.creer_Commune("Localisation_csv/communes.csv")
     #ontolo.ajout_sympthomes_covid()
-    ontolo.save_onto()
-
+    ontolo.save_onto()"""
+    fiche_onto().creer_fiche()

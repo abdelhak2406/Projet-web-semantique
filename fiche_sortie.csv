@@ -1,0 +1,2 @@
+id_patient,wilaya_patient,commune_patient,age,poid,taille,sexe,sympthomes,maladies,traitement,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,date,gravite
+0,Bouira,Chorfa,21,68,170,homme,",fatigue,stress",,,3,90,2020-07-08,ae

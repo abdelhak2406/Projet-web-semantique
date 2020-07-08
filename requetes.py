@@ -42,53 +42,7 @@ class requests(traitemnt_onto):
             print("====")
     
     def request_1 (self,date):#je pense qu'on devrait pas la faire
-        """ avoir les patient ayant consulter a une certaine date """#la je teste fiche c'est tout
-
-        requete = """ 
-        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
-        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
-        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        prefix xml: <http://www.w3.org/XML/1998/namespace> 
-    
-        SELECT ?patient ?idpat ?consult ?idmed ?age ?taille ?sexe ?poid ?wilaya_pat ?com_pat ?sympthomes ?njds ?njps ?date ?orientation ?gravite 
-        WHERE{
-        ?consult rdf:type ns1:Consultation .
-        ?consult ns1:date_consultation ?date .
-        ?consult ns1:consultation_concerne ?patient.
-        ?consult ns1:est_oriente ?orientation .
-        ?orientation ns1:type_orientation ?typeorient. 
-        ?patient ns1:a_covid ?cov .
-        ?patient ns1:id_patient ?idpat.
-        ?patient ns1:age ?age .
-        ?patient ns1:taille ?taille .
-        ?patient ns1:sexe ?sexe .
-        ?patient ns1:poid ?poid .
-        ?patient ns1:habite_wilaya ?wilaya.
-        ?wilaya ns1:nomWilaya ?wilaya_pat .
-        ?patient ns1:habite_commune ?commune .
-        ?commune ns1:nomCommune ?com_pat .
-        ?patient ns1:a_sympthomes ?sympt.
-        ?sympt ns1:nom_sympthome ?sympthomes .
-        ?patient ns1:gravite_sympthome ?gravite .
-        ?patient ns1:nb_jrs_depuis_derniere_sortie ?njds.
-        ?patient ns1:nb_jrs_depuis_premiers_sympthomes ?njps.
-
-        
-        ?medecin rdf:type ns1:Medecin .
-        ?medecin ns1:effectue_consultation ?consult .
-        ?medecin ns1:id_medecin ?idmed .
-        FILTER regex(?cov,"oui")
-        }
-        """ 
-        result = self.graph.query(requete)
-        for i in result:
-            print("===")
-            cpt = 0
-            for j in i:
-                print(cpt," - ",j)
-                cpt = cpt + 1
-            print("====")
+        """ avoir les patient ayant consulter a une certaine date """
             
     def request_2(self,wilaya,commune,maladie):
 
@@ -215,6 +169,7 @@ class requests(traitemnt_onto):
             print("====")
 
     def request_5(self,maladie): #ne marche pas encore! a besoin du raisonneur
+        #TODO:refaire pour ne pas avior besoin du raisoneur
         """ 
         determiner sympthomes pour une certaine maladie
         """
@@ -421,6 +376,7 @@ class requests(traitemnt_onto):
             print("====")
     
     def request_12(self,traitement):#a besoin du raisonneur !pour qu'elle marche
+        #TODO:transformer pour ne pas avoir beosin du raisonneur
         """ les patient prenant un certain traitement"""
         
         traitement = re.sub(r" |-", "_",traitement).lower()
@@ -571,7 +527,7 @@ class requests(traitemnt_onto):
                 print(" - ",j)
             print("====")
     
-    def request_18(self,date):#to do
+    def request_18(self,date):#TODO:creer puis vérifier 
         """ nombre patient atteint du covid a une certaine date!(utiliser dateconsultation)"""
         pass
 
