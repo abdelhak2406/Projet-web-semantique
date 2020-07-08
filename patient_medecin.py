@@ -13,12 +13,12 @@ class medecin_onto(traitemnt_onto):
     def __init__(self):
         super().__init__()
     
-    def creer_medecin(self,id,sexe,specialite,nom,prenom,consultation,fiche=None):
+    def creer_medecin(self,id,specialite,nom,prenom,consultation,fiche=None):
         """Args
             id: id du medecin 
             nom
             prenom  
-            sexe
+
             specialite : du medecin
             fiche: objet fiche
             consultation: objet consulatation 
@@ -27,7 +27,6 @@ class medecin_onto(traitemnt_onto):
         m.id_medecin = str(id)
         m.nom = re.sub(r" |-", "_",nom).lower()
         m.prenom = re.sub(r" |-", "_",prenom).lower()
-        m.sexe = sexe.lower()
         m.medecin_spcl.append(specialite) # et si on faisait aussi du scrapping pour les specialités ? nagh smbalec on laisse akka 
        # je pense qu'on devra mettre ici les relation que le medecin fera genre  rediger fiche et tt 
         if fiche != None:
@@ -41,8 +40,9 @@ class medecin_onto(traitemnt_onto):
             patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
             patient_infos.writerow(['nom', 'prenom', 'id_patient',"wilaya_patient","commune_patient", 'age', "poid", "taille", "sexe",
-                            "sympthomes", "maladies","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",
-                            "date","nom_medecin","prenom_medecin","id_medecin","atteint covid","orientation","gravite"])
+                            "sympthomes", "maladies","traitement","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",
+                            "date","nom_medecin","prenom_medecin","id_medecin","atteint covid","orientation","gravite","specialite_medecin"])
+    
     def creation_fiche_final(self,fiche_preliminaire):
         """
         fiche_preliminaire: contient les infos que le patient a saisie! on la parcours donc et pour chaque colonne qu'il reste on remplie! 
@@ -59,6 +59,12 @@ class medecin_onto(traitemnt_onto):
             df.iloc[i]["sexe"]," \nsympthomes:",df.iloc[i]["sympthomes"] ,"\nmaladies: ",df.iloc[i]["maladies"],'\nnb_jrs_depuis_derniere_sortie: '
             ,df.iloc[i]["nb_jrs_depuis_derniere_sortie"],
             "\nnb_jrs_depuis_premiers_sympthomes: ",df.iloc[i]["nb_jrs_depuis_premiers_sympthomes"])
+
+            try:
+                print("traitements: ",df.iloc[i]["traitement"])
+            except:
+                pass
+
             print("-----------------------------------------------------------------------------------------------------------------------------\n")
 
             print("------------------------------------------veuille remplir le reste des information-------------------------------------------\n")
@@ -66,7 +72,8 @@ class medecin_onto(traitemnt_onto):
             #infos medecin
             nom = input("saisir votre nom: ")
             prenom = input("saisir votre prenom: ")
-            id = input("donner votre id")
+            id = input("donner votre id: ")
+            specialite = input("precisez votre specialite: ")
             cov=input("ce patient est_il atteint du covid celon vous!\n\ty:oui\n\tn:non\n")
             if cov=="y":
                 cov="oui"
@@ -89,12 +96,16 @@ class medecin_onto(traitemnt_onto):
                 patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
                 """patient_infos.writerow(['nom', 'prenom', 'id_patient',"wilaya_patient","commune_patient", 'age', "poid", "taille", "sexe",
-                "sympthomes", "maladies","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",
-                "date","nom_medecin","prenom_medecin","id_medecin","atteint covid","orientation","gravite"])
+                "sympthomes", "maladies","traitement",nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",
+                "date","nom_medecin","prenom_medecin","id_medecin","atteint covid","orientation","gravite","specialite_medecin"])
                 """
-                patient_infos.writerow([df.iloc[i]["nom"], df.iloc[i]["prenom"], df.iloc[i]["id_patient"], df.iloc[i]["wilaya_patient"], df.iloc[i]["commune_patient"], df.iloc[i] ["age"],  df.iloc[i]['poid'], df.iloc[i]["taille"],  df.iloc[i]["sexe"],  df.iloc[i]["sympthomes"],  df.iloc[i]["maladies"],df.iloc[i]["nb_jrs_depuis_derniere_sortie"],
-                df.iloc[i]["nb_jrs_depuis_premiers_sympthomes"],
-                dat,nom,prenom,id,cov,orientation,gravite])
+                try:
+                    patient_infos.writerow([df.iloc[i]["nom"], df.iloc[i]["prenom"], df.iloc[i]["id_patient"], df.iloc[i]["wilaya_patient"], df.iloc[i]["commune_patient"], df.iloc[i] ["age"],  df.iloc[i]['poid'], df.iloc[i]["taille"],  df.iloc[i]["sexe"],  df.iloc[i]["sympthomes"], 
+                    df.iloc[i]["maladies"],df.iloc[i]["traitement"],df.iloc[i]["nb_jrs_depuis_derniere_sortie"],df.iloc[i]["nb_jrs_depuis_premiers_sympthomes"],
+                    dat,nom,prenom,id,cov,orientation,gravite,specialite])
+                except:
+                    print("valleur de traitement:")
+                    print(df.iloc[i]["traitement"])
             print("-----------------------------------------------------------------------------------------------------------------------------")
             #supression infos de la fiche 
 
@@ -173,7 +184,13 @@ class patient_onto(traitemnt_onto):
                 pat.a_maladie.append(res[0])
     
     def ajout_traitements(self,liste_trait,pat):
-        liste1 = liste_trait.split(",")
+        liste1 =[]
+        try:
+            liste1 = liste_trait.split(",")
+        except:
+            if not isinstance(liste_trait, float):
+                liste1.append(liste_trait) #cas ou il n'ya q'un seul sympthome
+        
         for i in liste1:
             i = re.sub(r" |-", "_", i)
             res = self.onto.search(iri="*traitements/"+i)
@@ -198,7 +215,7 @@ class patient_onto(traitemnt_onto):
         com = self.onto.search(iri='*'+com_code)[0]
         pat.habite_commune.append(com)
 
-    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements,gravite_sympthom, consultation=None):
+    def creer_patient(self,id,sexe,age,poid,taille,wilaya,commune,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,symptomes,maladies,traitements,gravite_sympthom,acovid,nom,prenom, consultation=None):
 
         ##chercher si l'iri existe
         res0 =self.onto.search(iri="*"+"patient/"+str(id))
@@ -220,9 +237,11 @@ class patient_onto(traitemnt_onto):
         p.poid = poid
         p.nb_jrs_depuis_derniere_sortie = nb_jrs_depuis_derniere_sortie
         p.nb_jrs_depuis_premiers_sympthomes = nb_jrs_depuis_premiers_sympthomes
-        
+        p.a_covid = acovid.lower()
         p.gravite_sympthome = re.sub(r" |-", "_",gravite_sympthom).lower() 
-        
+        p.nom =re.sub(r" |-", "_",nom).lower()
+        p.prenom  =re.sub(r" |-", "_",prenom).lower() 
+
         if(consultation != None):
             p.concerne.append(consultation)
 
@@ -252,7 +271,14 @@ class patient_onto(traitemnt_onto):
         creer la relation entre maladie et sympthomes est_sympthomes_maladies, le truc c'est que si un malade a plusieurs sympthomes, 
         et bien sa devient vite des données tres fausse! donc on ne l'utilise que si il y'a une seul maladie pour etre sur
         """
-        liste1 = maladie.split(",")
+        liste1 =[]
+        try:
+            liste1 = maladie.split(",")
+        except:
+            if not isinstance(maladie, float):
+                liste1.append(maladie) #cas ou il n'ya q'un seul sympthome
+
+        
         if len(liste1)==1:
             mal= re.sub(r" |-", "_", liste1[0]).lower()
             m = self.obtenir_objet(nom_objet=mal,nom_classe="Maladies")
@@ -266,7 +292,7 @@ class patient_onto(traitemnt_onto):
         ajouter : si vrai alors on ajoute a la fiche actuelle
         si faux alors on créer depuis le debut
         """
-        print("veiller donner vos informations")
+        print("------------------------------------------veiller donner vos informations------------------------------------------")
         nom = input("Nom: ")
         prenom = input("Prenom: ")
         id =  input("id: ")
@@ -286,8 +312,8 @@ class patient_onto(traitemnt_onto):
             traitements= input("donner la liste des traitement que vous suivez actuellement:\n ")
         else:
             traitements=""
-        nb_jour_depuis_dernier_sortie =  input("nombre de jour depuis derniére sortie")
-        nb_jour_depuis_premier_sympthomes = input ("nombre de jour depuis premier sympthomes")
+        nb_jour_depuis_dernier_sortie =  input("nombre de jour depuis derniére sortie: ")
+        nb_jour_depuis_premier_sympthomes = input ("nombre de jour depuis premier sympthomes: ")
         commune = input("Commune: ")
         wilaya =  input('Wilaya: ')
 
@@ -296,15 +322,15 @@ class patient_onto(traitemnt_onto):
             with open('fiche_preliminaire.csv', mode='w') as fiche0:
                 patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-                patient_infos.writerow(['nom', 'prenom', 'id_patient',"wilaya_patient","commune_patient", 'age', "poid", "taille", "sexe", "sympthomes", "maladies","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes"])
-                patient_infos.writerow([nom, prenom, id,wilaya,commune,age, poid,taille, sexe, sympthomes, maladies,nb_jour_depuis_dernier_sortie,nb_jour_depuis_premier_sympthomes])
+                patient_infos.writerow(['nom', 'prenom', 'id_patient',"wilaya_patient","commune_patient", 'age', "poid", "taille", "sexe", "sympthomes", "maladies","traitement","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes"])
+                patient_infos.writerow([nom, prenom, id,wilaya,commune,age, poid,taille, sexe, sympthomes, maladies,traitements,nb_jour_depuis_dernier_sortie,nb_jour_depuis_premier_sympthomes])
         else:
              with open('fiche_preliminaire.csv', mode='a+') as fiche00:
                 patient_infos1 = csv.writer(fiche00, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-                patient_infos1.writerow([nom, prenom, id,wilaya,commune,age, poid,taille, sexe, sympthomes, maladies,nb_jour_depuis_dernier_sortie,nb_jour_depuis_premier_sympthomes])
+                patient_infos1.writerow([nom, prenom, id,wilaya,commune,age, poid,taille, sexe, sympthomes, maladies,traitements,nb_jour_depuis_dernier_sortie,nb_jour_depuis_premier_sympthomes])
 
-
+        print("-----------------------------------------------------------------------------------------------------------------------------")
 
 
 
@@ -335,6 +361,9 @@ class consultation_onto(traitemnt_onto):
         self.objet_consultation = cons
 
 if __name__ == '__main__':
-    #o = patient_onto().saisie_infos(True)
+    #patient_onto().saisie_infos(False)
+    #for i in range(2):
+    #    patient_onto().saisie_infos(True)
+    
     medecin_onto().crreation_header_fiche_final()
     medecin_onto().creation_fiche_final(fiche_preliminaire="fiche_preliminaire.csv")

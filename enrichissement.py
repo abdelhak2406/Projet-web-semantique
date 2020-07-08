@@ -288,16 +288,18 @@ class fiche_onto(traitemnt_onto):
         prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         prefix xml: <http://www.w3.org/XML/1998/namespace> 
     
-        SELECT ?idpat  ?idmed ?age ?taille ?sexe ?poid ?wilaya_pat ?daira_pat ?sympthomes ?maladies 
+        SELECT ?patient ?idpat  ?idmed ?age ?taille ?sexe ?poid ?wilaya_pat ?daira_pat ?sympthomes ?maladies ?njds ?njps ?date ?orientation ?gravite 
         WHERE{
-        ?patient rdf:type ns1:Patient . 
-        ?patient ns1:id_patient %id.
-        ?patient ns1:a_maladie ?maladie .
+        ?consult rdf:type ns1:Consultation .
+        ?consult ns1:consultation_concerne ?patient.
+        ?consult ns1:date_consultation ?date .
         }
         """
+        resultat = graph.query(requete)
+        
 
 
-        self.fich = f
+        #self.fich = f
 
 
 if __name__ == "__main__":

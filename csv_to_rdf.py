@@ -7,18 +7,18 @@ from orientation import orientation_onto as orient
 from enrichissement import fiche_onto as fich
 
 #lire
-fiche =  pd.read_csv("csv_reference.csv")
+fiche =  pd.read_csv("fiche_final.csv")
 ontolo = pat()
 for i,j  in fiche.iterrows():
-    ontolo.creer_patient(j["id_patient"],j["sexe"],j["age"],j["poid"],j["taille"],j["wilaya_patient"],j["daira_patient"],j["nb_jrs_depuis_derniere_sortie"],
-    j["nb_jrs_depuis_premiers_sympthomes"],symptomes=j["sympthomes"],maladies=j["Maladie"],traitements=j["traitement"],gravite_sympthom=j["gravite_sympthomes"])
+    ontolo.creer_patient(j["id_patient"],j["sexe"],j["age"],j["poid"],j["taille"],j["wilaya_patient"],j["commune_patient"],j["nb_jrs_depuis_derniere_sortie"],
+    j["nb_jrs_depuis_premiers_sympthomes"],symptomes=j["sympthomes"],maladies=j["maladies"],traitements=j["traitement"],gravite_sympthom=j["gravite"],acovid=j["atteint covid"],nom=j["nom"],prenom=j["prenom"])
     ontolo.save_onto()
     co = consult()
     ori = orient()
     medec = med()
     ori.creer_orientation(orient=j["orientation"],patient=ontolo.objet_patient)
     co.creer_consultation(date_cons=j["date"],patient = ontolo.objet_patient,orientation=ori.objet_orientation)
-    medec.creer_medecin(id=j["id_medecin"],sexe="Homme",specialite=j["specialite_medecin"],nom=j["nom medecin"],prenom=j["prenom medecin"],consultation=co.objet_consultation)
+    medec.creer_medecin(id=j["id_medecin"],specialite=j["specialite_medecin"],nom=j["nom_medecin"],prenom=j["prenom_medecin"],consultation=co.objet_consultation)
 
 
 with ontolo.onto:

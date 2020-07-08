@@ -54,6 +54,10 @@ with onto:
         domain = [Maladies]
         range = [str]
         pass
+    class a_covid(DataProperty,FunctionalProperty):
+        domain = [Patient]
+        range = [str]  #ce sera des oui ou des non et pas un True False 
+        pass
     class Adresse(Thing):
         pass
     
