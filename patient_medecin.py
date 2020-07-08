@@ -3,6 +3,9 @@ from enrichissement import traitemnt_onto
 import re
 import rdflib
 import datetime
+import csv
+import pandas as pd
+from datetime import date
 class medecin_onto(traitemnt_onto):
 
     objet_medecin  = None
@@ -14,7 +17,7 @@ class medecin_onto(traitemnt_onto):
         """Args
             id: id du medecin 
             nom
-            prenom 
+            prenom  
             sexe
             specialite : du medecin
             fiche: objet fiche
@@ -33,6 +36,70 @@ class medecin_onto(traitemnt_onto):
         m.effectue_consultation.append(consultation)
 
         self.objet_medecin = m
+    def crreation_header_fiche_final(self):
+        with open('fiche_final.csv', mode='w') as fiche0:
+            patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+            patient_infos.writerow(['nom', 'prenom', 'id_patient',"wilaya_patient","commune_patient", 'age', "poid", "taille", "sexe",
+                            "sympthomes", "maladies","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",
+                            "date","nom_medecin","prenom_medecin","id_medecin","atteint covid","orientation","gravite"])
+    def creation_fiche_final(self,fiche_preliminaire):
+        """
+        fiche_preliminaire: contient les infos que le patient a saisie! on la parcours donc et pour chaque colonne qu'il reste on remplie! 
+        donc il faut affiché le contenu de 
+        """
+        #parcourir la fiche préliminaire
+        df = pd.read_csv(fiche_preliminaire)
+
+        for i in range(len(df)):
+            print("-----------------------------------------------------------------------------------------------------------------------------\n")
+            print("------------------------------------------voici les infos saisie par le patient---------------------------------------------\n")
+            print("-----------------------------------------------------------------------------------------------------------------------------\n")
+            print("age: ",df.iloc[i]["age"],"\npoid: ",df.iloc[i]["poid"],"\ntaille: ",df.iloc[i]["taille"],"\nsexe: ", 
+            df.iloc[i]["sexe"]," \nsympthomes:",df.iloc[i]["sympthomes"] ,"\nmaladies: ",df.iloc[i]["maladies"],'\nnb_jrs_depuis_derniere_sortie: '
+            ,df.iloc[i]["nb_jrs_depuis_derniere_sortie"],
+            "\nnb_jrs_depuis_premiers_sympthomes: ",df.iloc[i]["nb_jrs_depuis_premiers_sympthomes"])
+            print("-----------------------------------------------------------------------------------------------------------------------------\n")
+
+            print("------------------------------------------veuille remplir le reste des information-------------------------------------------\n")
+            
+            #infos medecin
+            nom = input("saisir votre nom: ")
+            prenom = input("saisir votre prenom: ")
+            id = input("donner votre id")
+            cov=input("ce patient est_il atteint du covid celon vous!\n\ty:oui\n\tn:non\n")
+            if cov=="y":
+                cov="oui"
+            else:
+                cov="non"
+            gravite = input("gravite sympthomes: ")
+            ori = input("quel est l'orientation a suivre?\n1-prise en charge domicile\n2-prise_rendez-vous\n3-prise en charge hopital\n")
+            if ori=='1':
+                orientation='prise_en_charge_domicile:'
+            elif ori=='2':
+                rdv = input("saisir la date de rendez vous jj/mm/aa: ")
+                orientation ="prise_de_rendez_vous:"+rdv
+            else:
+                hop =input("saisir l'hopital de prise en charge: ")
+                orientation = "prise_en_charge_hopital:"+hop
+            date0 = date.today()
+            dat=str(date0.day)+"/"+str(date0.month)+"/"+str(date0.year)
+            #remplissage nouvelle fiche
+            with open('fiche_final.csv', mode='a+') as fiche0:
+                patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+                """patient_infos.writerow(['nom', 'prenom', 'id_patient',"wilaya_patient","commune_patient", 'age', "poid", "taille", "sexe",
+                "sympthomes", "maladies","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",
+                "date","nom_medecin","prenom_medecin","id_medecin","atteint covid","orientation","gravite"])
+                """
+                patient_infos.writerow([df.iloc[i]["nom"], df.iloc[i]["prenom"], df.iloc[i]["id_patient"], df.iloc[i]["wilaya_patient"], df.iloc[i]["commune_patient"], df.iloc[i] ["age"],  df.iloc[i]['poid'], df.iloc[i]["taille"],  df.iloc[i]["sexe"],  df.iloc[i]["sympthomes"],  df.iloc[i]["maladies"],df.iloc[i]["nb_jrs_depuis_derniere_sortie"],
+                df.iloc[i]["nb_jrs_depuis_premiers_sympthomes"],
+                dat,nom,prenom,id,cov,orientation,gravite])
+            print("-----------------------------------------------------------------------------------------------------------------------------")
+            #supression infos de la fiche 
+
+            #poser la question pour continuer ou pas
+
 
 
 class patient_onto(traitemnt_onto):
@@ -194,6 +261,51 @@ class patient_onto(traitemnt_onto):
             for i in self.objet_patient.a_sympthomes:
                 i.est_sympthomes_maladie.append(m)
 
+    def saisie_infos(self,ajouter):
+        """
+        ajouter : si vrai alors on ajoute a la fiche actuelle
+        si faux alors on créer depuis le debut
+        """
+        print("veiller donner vos informations")
+        nom = input("Nom: ")
+        prenom = input("Prenom: ")
+        id =  input("id: ")
+        age =  input("age: ")
+        poid = input("poid: ")
+        taille =  input("taille: ")
+        sexe = input("sexe: ")
+
+        sympthomes = input("veillez saisir vos sympthomes avec une virgule entre chaque sympthomes:\n") 
+        question = input("avez vous des maladies chroniques ou autres ?\n\ty: oui\n\tn:non\n ")
+        if(question =="y"):  
+            maladies = input("veillez saisir vos maladies avec une virgule entre chaque maladies si vous en avez plusieurs:\n")
+        else :
+            maladies=""
+        question = input("prenez vous des traitements?\n\ty: oui\n\tn:non\n ")
+        if question =="y":
+            traitements= input("donner la liste des traitement que vous suivez actuellement:\n ")
+        else:
+            traitements=""
+        nb_jour_depuis_dernier_sortie =  input("nombre de jour depuis derniére sortie")
+        nb_jour_depuis_premier_sympthomes = input ("nombre de jour depuis premier sympthomes")
+        commune = input("Commune: ")
+        wilaya =  input('Wilaya: ')
+
+        #creation de la fiche préliminaire a partir de sa!
+        if not ajouter: 
+            with open('fiche_preliminaire.csv', mode='w') as fiche0:
+                patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+                patient_infos.writerow(['nom', 'prenom', 'id_patient',"wilaya_patient","commune_patient", 'age', "poid", "taille", "sexe", "sympthomes", "maladies","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes"])
+                patient_infos.writerow([nom, prenom, id,wilaya,commune,age, poid,taille, sexe, sympthomes, maladies,nb_jour_depuis_dernier_sortie,nb_jour_depuis_premier_sympthomes])
+        else:
+             with open('fiche_preliminaire.csv', mode='a+') as fiche00:
+                patient_infos1 = csv.writer(fiche00, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+                patient_infos1.writerow([nom, prenom, id,wilaya,commune,age, poid,taille, sexe, sympthomes, maladies,nb_jour_depuis_dernier_sortie,nb_jour_depuis_premier_sympthomes])
+
+
+
 
 
 class consultation_onto(traitemnt_onto):
@@ -221,3 +333,8 @@ class consultation_onto(traitemnt_onto):
         
         #je sais pas ce qu'elle retourne cette fonction prsq j besoin de l iri de l'orientation
         self.objet_consultation = cons
+
+if __name__ == '__main__':
+    #o = patient_onto().saisie_infos(True)
+    medecin_onto().crreation_header_fiche_final()
+    medecin_onto().creation_fiche_final(fiche_preliminaire="fiche_preliminaire.csv")

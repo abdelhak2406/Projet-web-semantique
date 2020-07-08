@@ -8,7 +8,7 @@ class requests(traitemnt_onto):
         open("graph_turtle.rdf","w")    
         self.graph.serialize("graph_turtle.rdf",format="turtle")
         
-    def request_0(self,id):
+    def request_0(self,id): 
 
         """
         requete qui permet de trouve les patient et  leurs maladie en fonction de l'id
@@ -41,9 +41,9 @@ class requests(traitemnt_onto):
                 cpt = cpt + 1
             print("====")
     
-    def request_1 (self,date):
+    def request_1 (self,date):#je pense qu'on devrait pas la faire
         """ avoir les patient ayant consulter a une certaine date """
-        pass
+        pass        
     
     def request_2(self,wilaya,commune,maladie):
 
@@ -169,7 +169,7 @@ class requests(traitemnt_onto):
                 cpt = cpt + 1
             print("====")
 
-    def request_5(self,maladie): #ne marche pas encore!
+    def request_5(self,maladie): #ne marche pas encore! a besoin du raisonneur
         """ 
         determiner sympthomes pour une certaine maladie
         """
@@ -341,7 +341,7 @@ class requests(traitemnt_onto):
             print("====")
     
     def request_11(self,maladie,sex,wilaya):
-        """nombre de personne d'un certain sex ayant la maladie dans une wilaya"""
+        """nombre de personne d'un certain sex ayant une maladie dans une wilaya"""
         maladie = re.sub(r" |-", "_",maladie).lower()
         sex = sex.lower()
         nom_wilaya = re.sub(r" |-", "_", wilaya).title()
@@ -412,7 +412,7 @@ class requests(traitemnt_onto):
                 cpt = cpt + 1
             print("====")
 
-    def request_13(self):
+    def request_13(self):#pense pas qu'elle soit utile mais bon 
         """ suspecter d'avoir le coronavirus  id wilaya commune"""
         pass
 
@@ -450,7 +450,6 @@ class requests(traitemnt_onto):
                 print(" - ",j)
             print("====")
     
-
     def request_15(self,nom_medecin,prenom_medecin):
         """ patient selon medecin ayant fait la consultation"""
         nom_medecin = re.sub(r" |-", "_",nom_medecin).lower()
@@ -489,7 +488,7 @@ class requests(traitemnt_onto):
                 print(" - ",j)
             print("====")
 
-    def request_16(self):
+    def request_16(self):#check la documentation je pense
         """ wilaya la plus touche par le virus? """
         pass
 
@@ -527,7 +526,7 @@ class requests(traitemnt_onto):
                 print(" - ",j)
             print("====")
     
-    def request_18(self,date):
+    def request_18(self,date):#to do
         """ nombre patient atteint du covid a une certaine date!(utiliser dateconsultation)"""
         pass
 
@@ -555,14 +554,51 @@ class requests(traitemnt_onto):
                 print(" - ",j)
             print("====")
     
-    def request_21(self):
+    def request_21(self):#to do 
         """ antécédant patient ayant le covid 19"""
-        pass
+        
+        requete = """
+        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
+        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        prefix xml: <http://www.w3.org/XML/1998/namespace> 
+
+        SELECT  ?id ?commune ?wilaya 
+        WHERE{
+        ?patient rdf:type ns1:Patient .
+        ?patient ns1:a_maladie ?maladie .
+        ?maladie ns1:nom_maladie ?nommal .
+        ?patient ns1:
+
+        ?medecin rdf:type ns1:Medecin .
+        ?medecin ns1:nom ?nommed .
+        ?medecin ns1:prenom ?prenommed .
+        ?medecin ns1:effectue_consultation ?consult.
+        ?consult ns1:consultation_concerne ?patient .
+
+        ?patient ns1:habite_wilaya ?wil .
+        ?wil ns1:nomWilaya ?wilaya .
+        ?patient ns1:habite_commune ?com .
+        ?com ns1:nomCommune ?commune .
+        ?patient ns1:id_patient ?id .
+        FILTER  regex(?nommed,"x0")
+        FILTER  regex(?prenommed,"x1")
+        }
+        """
+        substitutions = {"x0":nom_medecin,"x1":prenom_medecin}
+        requete = self.replace(requete, substitutions)
+        result = self.graph.query(requete)
+        for i in result:
+            print("====")
+            for j in i:
+                print(" - ",j)
+            print("====")
 
 if __name__ == '__main__':
     req =  requests()
     #req.request_11(maladie="coronavirus",sex="femme",wilaya="Blida")
-    #req.request_12("piqure de rat")
+    req.request_12("piqure de rat")
     #req.request_14("toghza")
     #req.request_15(nom_medecin="vegapunk",prenom_medecin="noName")
-    req.request_19()
+    #req.request_19()

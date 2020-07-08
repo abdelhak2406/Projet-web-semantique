@@ -307,6 +307,6 @@ if __name__ == "__main__":
     adresse = adresses_onto()
     adresse.creer_Wilaya("Localisation_csv/wilayas.csv")
     adresse.creer_Commune("Localisation_csv/communes.csv")
-    ontolo.ajout_sympthomes_covid()
+    #ontolo.ajout_sympthomes_covid()
     ontolo.save_onto()
 

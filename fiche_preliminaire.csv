@@ -1,0 +1,4 @@
+nom,prenom,id_patient,wilaya_patient,commune_patient,age,poid,taille,sexe,sympthomes,maladies,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes
+ze,fazef,aze,zf,zef,faze,faz,ef,azef,aze,,zef,zaf
+ezf,zef,zef,zf,zf,zef,zef,zef,ef,zef,,fz,zf
+abdeelhajk,aissat,2,bouira,chorfa,21,68,170,homme,"fievre,vomissement","sucre,mal au dos",2,3
