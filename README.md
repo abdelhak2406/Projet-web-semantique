@@ -24,5 +24,5 @@ pip install owlready2
 ```
 
 # How to use
-bonne question 
+executer main.py
 
