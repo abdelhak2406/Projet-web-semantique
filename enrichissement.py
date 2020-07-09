@@ -424,9 +424,11 @@ class fiche_onto(traitemnt_onto):
             obj_orien = self.onto.search(iri=ori) 
 
             self.traitement_orientation(obj_orien,dico,i,obj_pat[0])
-            print("\n\norientation: ", dico[i]["orientation"])
+            
         #creation de la fiche finale qui est censé etre faite par le ministére
-
+            d= str(dico[i]["date"]).split("-")
+            dico[i]["date"] = d[2]+"/"+d[1]+"/"+d[0]
+            print("date: ",dico[i]["date"])
             with open('fiche_sortie.csv', mode='a+') as fiche0:
                 patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
