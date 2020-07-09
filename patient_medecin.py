@@ -267,7 +267,7 @@ class patient_onto(traitemnt_onto):
         p.id_patient = str(id)
         #p.nom = nom    pourquio avoir le nom et le prénom?
         #p.prenom = prenom
-        p.taille = taille
+        p.taille = float(taille)
         p.sexe = sexe.lower()
         p.age = age
         p.poid = poid
