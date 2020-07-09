@@ -1,14 +1,17 @@
 from patient_medecin import patient_onto,medecin_onto
 from requetes import requests
+from enrichissement import fiche_onto
+from csv_to_rdf import supprimer_ligne,csvToRdf
 def menu0():
     print("------------------------------------------Bienvenu dans notre appllication de prise de consultation a distance------------------------------------------")
     print("|\n|---------------------------------------------Que voullez vous faire?----------------------------------------------------------------|\n|")
-    print("|\t1-je suis un patient et je desire saisir mes information afin de faire une consultation\t\t\t\t\t\t\t|") 
-    print("|\t2-je suis medecin et je desire effectue une ou plusieures consulation\t\t\t\t\t\t\t\t|") 
+    print("|\t1-je suis un patient et je desire saisir mes information afin de faire une consultation|") 
+    print("|\t2-je suis medecin et je desire effectue une ou plusieures consulation\|") 
     print("|\t3-Requetes sparql\t\t\t\t\t\t\t\t\t|")
-    print("|\t4-quittez")
+    print("|\t4-creation de la fichesortie")
+    print("|\t5-quittez")
     choi = input('saisissez votre choix:\n')
-    if (int(choi)>4) or (int(choi)<1) :
+    if (int(choi)>5) or (int(choi)<1) :
         print('erreur resaisir votre choic')
         menu0()
         
@@ -56,7 +59,8 @@ if __name__ == "__main__":
         if choix=='2':
             medecin_onto().creation_fiche_final()
             print("merci de votre visite")
-            break
+            csvToRdf()
+            continue
         if choix=='3':
             choix2= menu_requetes()
             req= requests()
@@ -147,8 +151,11 @@ if __name__ == "__main__":
             if choix2=='17':
                 req.request_19()
                 continue
-
-        if choix=="4":
+        
+        if choix=="4":#TODO:tester
+            fiche_onto().creer_fiche()
+            print('vous trouverez la fiche créer dans le repertoire courant sous le nom: fiche_sortie.csv')
+        if choix=="5":
             err=True
         else:
             print("ERREUR! veuillez refaire votre choix!:\n")
