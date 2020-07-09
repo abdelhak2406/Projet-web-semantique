@@ -12,7 +12,7 @@ class requests(traitemnt_onto):
     def request_0(self,id): 
         #TODO:faire marcher:
         """
-        requete qui permet de trouve les patient et  leurs maladie en fonction de l'id
+        liste patient  et leurs maladies (chroniques) en fonction de l'id
         """
         id = str(id)
 
@@ -23,16 +23,20 @@ class requests(traitemnt_onto):
         prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         prefix xml: <http://www.w3.org/XML/1998/namespace> 
     
-        SELECT ?patient  ?maladie ?id
+        SELECT ?nom ?prenom  ?maladie ?id
         WHERE{
         ?patient rdf:type ns1:Patient . 
         ?patient ns1:id_patient  ?id .
         ?patient ns1:a_maladie ?maladie0 .
         ?maladie0 ns1:nom_maladie ?maladie .
-       
+        ?patient ns1:nom ?nom .
+        ?patient ns1:prenom ?prenom .
+        FILTER regex(?id,"x1")
         }
         """
-        print(requete)
+        substitutions = {"x0":id}
+        requete = self.replace(requete, substitutions)  
+        print("liste patient  et leurs maladies (chroniques) en fonction de l'id")
         resultats=["patient","maladie","id"]
         result = self.graph.query(requete)
         for i in result:
@@ -96,7 +100,7 @@ class requests(traitemnt_onto):
 
     def request_3(self,wilaya,commune,maladie):
        
-        """nombre de patient atteint d'une certaine maladie dans une localite(commune,wilaya)"""
+        """nombre de patient atteint d'une maladie dans une localite(commune,wilaya)"""
        
         graph = rdflib.Graph()
         graph.parse("ontologie.owl",format="turtle")
@@ -140,7 +144,7 @@ class requests(traitemnt_onto):
             print("===")      
 
     def request_4(self,age,maladie):
-        """ nombre de patient de moins d'un age x ayant une maladie X """
+        """ nombre de patient de moins d'un age ayant une certaine maladie """
         graph = rdflib.Graph()
         graph.parse("ontologie.owl",format="turtle")
         open("graph_turtle.rdf","w")    
@@ -597,7 +601,7 @@ class requests(traitemnt_onto):
         pass
 
     def request_14(self,hopital):
-        """ patient admis dans un certain hopital(nom de l'hopital) avec l'adresse de l'hopital son nom et l'adrese du patient """
+        """ nombre patient admis dans un certain hopital(nom de l'hopital) """
 
         hopital = re.sub(r" |-", "_",hopital).lower()
 
@@ -608,22 +612,18 @@ class requests(traitemnt_onto):
         prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         prefix xml: <http://www.w3.org/XML/1998/namespace> 
 
-        SELECT  ?id ?commune ?wilaya 
+        SELECT (COUNT(?patient) AS ?triples) 
         WHERE{
         ?patient rdf:type ns1:Patient .
         ?patient ns1:est_hospitalilser_a ?hopital.
         ?hopital ns1:nom_hopital ?hop .
-        ?patient ns1:habite_wilaya ?wil .
-        ?wil ns1:nomWilaya ?wilaya .
-        ?patient ns1:habite_commune ?com .
-        ?com ns1:nomCommune ?commune .
-        ?patient ns1:id_patient ?id .
         FILTER  regex(?hop,"x0")
         }
         """
         substitutions = {"x0":hopital}
         requete = self.replace(requete, substitutions)
         result = self.graph.query(requete)
+        print("nombre patient admis dans l'hopital: ",hopital)
         for i in result:
             print("====")
             for j in i:
@@ -631,7 +631,7 @@ class requests(traitemnt_onto):
             print("====")
     
     def request_15(self,nom_medecin,prenom_medecin):
-        """ patient selon medecin ayant fait la consultation"""
+        """ liste patient selon medecin ayant fait la consultation(nom et prenom du medecin)"""
         nom_medecin = re.sub(r" |-", "_",nom_medecin).lower()
         prenom_medecin= re.sub(r" |-", "_",prenom_medecin).lower()
 
@@ -642,7 +642,7 @@ class requests(traitemnt_onto):
         prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         prefix xml: <http://www.w3.org/XML/1998/namespace> 
 
-        SELECT  ?id ?commune ?wilaya 
+        SELECT  ?nom ?prenom ?id ?commune ?wilaya 
         WHERE{
         ?medecin rdf:type ns1:Medecin .
         ?medecin ns1:nom ?nommed .
@@ -655,9 +655,14 @@ class requests(traitemnt_onto):
         ?patient ns1:habite_commune ?com .
         ?com ns1:nomCommune ?commune .
         ?patient ns1:id_patient ?id .
+        
+        ?patient ns1:nom ?nom .
+        ?patient ns1:prenom ?prenom .
+        
         FILTER  regex(?nommed,"x0")
         FILTER  regex(?prenommed,"x1")
         }
+        GROUP BY ?patient
         """
         substitutions = {"x0":nom_medecin,"x1":prenom_medecin}
         requete = self.replace(requete, substitutions)
@@ -668,12 +673,12 @@ class requests(traitemnt_onto):
                 print(" - ",j)
             print("====")
 
-    def request_16(self):#check la documentation je pense
+    def request_16(self):#TODO:essyer de faire sinon on s'en fou
         """ wilaya la plus touche par le virus? """
         pass
 
     def request_17(self,gravite):
-        """ obtenir id et adresse patient celon gravité """
+        """ liste patient celon gravite_sympthomes (faible moyen grand) """
         gravite = re.sub(r" |-", "_",gravite).lower()
 
 
@@ -684,63 +689,39 @@ class requests(traitemnt_onto):
         prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         prefix xml: <http://www.w3.org/XML/1998/namespace> 
 
-        SELECT  ?id ?commune ?wilaya 
+        SELECT  ?nom ?prenom ?id ?commune ?wilaya 
         WHERE{
         ?patient rdf:type ns1:Patient .
         ?patient ns1:gravite_sympthome ?grav .
 
+        ?patient ns1:a_covid ?cov .
         ?patient ns1:habite_wilaya ?wil .
         ?wil ns1:nomWilaya ?wilaya .
         ?patient ns1:habite_commune ?com .
         ?com ns1:nomCommune ?commune .
         ?patient ns1:id_patient ?id .
+        
+        ?patient ns1:nom ?nom .
+        ?patient ns1:prenom ?prenom .        
+        
         FILTER  regex(?grav,"x0")
+        FILTER regex(?cov,"oui")
+        
         }
         """
         substitutions = {"x0":gravite}
         requete = self.replace(requete, substitutions)
         result = self.graph.query(requete)
+        l=["nom", "prenom","id","commune","wilaya"]
+        print("les patient ayant des sympthomes ",gravite,"sont: ")
         for i in result:
             print("====")
-            for j in i:
-                print(" - ",j)
-            print("====")
-    
-    def request_18(self,dat):#TODO:creer puis vérifier ;done
-        """ nombre patient atteint du covid a une certaine date!(utiliser dateconsultation)"""
-        dat=dat.split("/")
-        da= str(date(day=int(dat[0]),month= int(dat[1]),year=int(dat[2])))
-
-        requete = """
-        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
-        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
-        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        prefix xml: <http://www.w3.org/XML/1998/namespace> 
-
-        SELECT  (COUNT(?patient) AS ?triples) 
-        WHERE{
-        ?consult rdf:type ns1:Consultation .
-        ?consult ns1:date_consultation "%da"^^xsd:date .
-
-        ?consult ns1:consultation_concerne ?patient.
-        ?patient ns1:a_covid ?cov .
-        
-        FILTER regex(?cov,"oui")
-        
-        }
-        """
-        substitutions = {"%da":da}
-        requete = self.replace(requete, substitutions)
-        result = self.graph.query(requete)
-        for i in result:
             cpt=0
             for j in i:
-                
-                print("nombre de patient atteint du covid le ",da,": ",j)
+                print(l[cpt]," : ",j)
                 cpt+=1
-            print("====")        
-
+            print("====")
+    
     def request_19(self):
         """nombre de patient se trouvant dans un hoptal """
 
@@ -758,6 +739,7 @@ class requests(traitemnt_onto):
         ?patient ns1:est_hospitalilser_a ?hopital.
         }
         """
+        print("nombre de patient hospitaliser depuis le debut de l'epidemie")
         result = self.graph.query(requete)
         for i in result:
             print("====")
@@ -765,46 +747,6 @@ class requests(traitemnt_onto):
                 print(" - ",j)
             print("====")
     
-    def request_21(self):#TODO:transformer avec la relation a_covid: 
-        """ antécédant patient ayant le covid 19"""
-        
-        requete = """
-        prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
-        prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
-        prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        prefix xml: <http://www.w3.org/XML/1998/namespace> 
-
-        SELECT  ?id ?commune ?wilaya 
-        WHERE{
-        ?patient rdf:type ns1:Patient .
-        ?patient ns1:a_maladie ?maladie .
-        ?maladie ns1:nom_maladie ?nommal .
-        ?patient ns1:
-
-        ?medecin rdf:type ns1:Medecin .
-        ?medecin ns1:nom ?nommed .
-        ?medecin ns1:prenom ?prenommed .
-        ?medecin ns1:effectue_consultation ?consult.
-        ?consult ns1:consultation_concerne ?patient .
-
-        ?patient ns1:habite_wilaya ?wil .
-        ?wil ns1:nomWilaya ?wilaya .
-        ?patient ns1:habite_commune ?com .
-        ?com ns1:nomCommune ?commune .
-        ?patient ns1:id_patient ?id .
-        FILTER  regex(?nommed,"x0")
-        FILTER  regex(?prenommed,"x1")
-        }
-        """
-        substitutions = {"x0":nom_medecin,"x1":prenom_medecin}
-        requete = self.replace(requete, substitutions)
-        result = self.graph.query(requete)
-        for i in result:
-            print("====")
-            for j in i:
-                print(" - ",j)
-            print("====")
 
 if __name__ == '__main__':
     req =  requests()
@@ -815,7 +757,7 @@ if __name__ == '__main__':
     #req.request_19()
     #req.request_1("132131")
     #req.request_18("08/07/2020")
-    #req.request_0(0)
+    req.request_0(0)
     #req.request_3(wilaya="bouira",commune="Chorfa",maladie="varice")
     #req.request_4(age="22",maladie="varice")
     #req.request_22(age="22",maladie="varice")
@@ -826,5 +768,8 @@ if __name__ == '__main__':
     #req.request_9()
     #req.request_24("08/07/2020")
     #req.request_10("homme","varice")
-    req.request_11(maladie="varice",sex="homme",wilaya="bouira")
+    #req.request_11(maladie="varice",sex="homme",wilaya="bouira")
+    #req.request_14("faz")
+    #req.request_15(nom_medecin="zef",prenom_medecin="aze")
+    #req.request_17("ae")
     

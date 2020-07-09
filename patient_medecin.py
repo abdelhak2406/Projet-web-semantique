@@ -43,7 +43,7 @@ class medecin_onto(traitemnt_onto):
                             "sympthomes", "maladies","traitement","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",
                             "date","nom_medecin","prenom_medecin","id_medecin","atteint covid","orientation","gravite","specialite_medecin"])
     
-    def supprimer_ligne(self,lignes,fiche="fiche_preliminaire.csv"):#TODO:essyer d'abord sur collab puis ici
+    def supprimer_ligne(self,lignes,fiche="fiche_preliminaire.csv"):
         """
         lignes liste ,numero de toutes les lignes qui doivent etre supprimer de 
         -fiche 
@@ -61,7 +61,7 @@ class medecin_onto(traitemnt_onto):
             for i in liste:
                 writer.writerow(i)
                 
-    def creation_fiche_final(self,fiche_preliminaire="fiche_preliminaire.csv"):#TODO:choix de faire une nouvelle consultation
+    def creation_fiche_final(self,fiche_preliminaire="fiche_preliminaire.csv"):
         """
         fiche_preliminaire: contient les infos que le patient a saisie! on la parcours donc et pour chaque colonne qu'il reste on remplie! 
         donc il faut affiché le contenu de 
@@ -98,7 +98,14 @@ class medecin_onto(traitemnt_onto):
                 cov="oui"
             else:
                 cov="non"
-            gravite = input("gravite sympthomes: ")
+            grav = input("gravite sympthomes:\n1-faible\n2-moyen\n3-grave")
+            if grav=='1':
+                gravite="faible"
+            elif grav=="2":
+                gravite="moyen"
+            else:
+                gravite="grave"
+                
             ori = input("quel est l'orientation a suivre?\n1-prise en charge domicile\n2-prise_rendez-vous\n3-prise en charge hopital\n")
             if ori=='1':
                 orientation='prise_en_charge_domicile:'
@@ -127,6 +134,7 @@ class medecin_onto(traitemnt_onto):
                     print(df.iloc[i]["traitement"])
             listes_consultation.append(i+1)
             reponse=input("voullez vous effectuez une autre consultation?\n1-oui\n2-non\n\t")
+            #TODO:cas ou il n'y a plus de consultation
             print("le i : ",i)
             if reponse=="2":
                 break

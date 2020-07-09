@@ -1,3 +1,3 @@
 id_patient,wilaya_patient,commune_patient,age,poid,taille,sexe,sympthomes,maladies,traitement,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,date,gravite,orientation,id_medecin
-3,Bouira,Chorfa,21,70,170,homme,",fievre,vomissement",,,0,5,2020-07-08,faze,prise_en_charge_hopital:faz,zfe
-0,Bouira,Chorfa,21,68,170,homme,",fatigue,stress",,,3,90,2020-07-08,ae,prise_de_rendez_vous:21/05/2021,faze
+0,Bouira,Chorfa,21,68,170,homme,",fatigue,stress",,,3,90,08/07/2020,ae,prise_de_rendez_vous:21/05/2021,faze
+3,Bouira,Chorfa,21,70,170,homme,",fievre,vomissement",,,0,5,08/07/2020,faze,prise_en_charge_hopital:faz,zfe
