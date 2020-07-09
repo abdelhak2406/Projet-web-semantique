@@ -10,8 +10,8 @@ from enrichissement import fiche_onto as fich
 fiche =  pd.read_csv("fiche_final.csv")
 ontolo = pat()
 for i,j  in fiche.iterrows():
-    ontolo.creer_patient(j["id_patient"],j["sexe"],j["age"],j["poid"],j["taille"],j["wilaya_patient"],j["commune_patient"],j["nb_jrs_depuis_derniere_sortie"],
-    j["nb_jrs_depuis_premiers_sympthomes"],symptomes=j["sympthomes"],maladies=j["maladies"],traitements=j["traitement"],gravite_sympthom=j["gravite"],acovid=j["atteint covid"],nom=j["nom"],prenom=j["prenom"])
+    ontolo.creer_patient(j["id_patient"],j["sexe"],j["age"],j["poid"],taille=j["taille"],wilaya=j["wilaya_patient"],commune=j["commune_patient"],nb_jrs_depuis_derniere_sortie=j["nb_jrs_depuis_derniere_sortie"],
+    nb_jrs_depuis_premiers_sympthomes=j["nb_jrs_depuis_premiers_sympthomes"],symptomes=j["sympthomes"],maladies=j["maladies"],traitements=j["traitement"],gravite_sympthom=j["gravite"],acovid=j["atteint covid"],nom=j["nom"],prenom=j["prenom"])
     ontolo.save_onto()
     co = consult()
     ori = orient()

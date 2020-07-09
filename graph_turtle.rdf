@@ -9424,8 +9424,7 @@ ns1:maladies_infectieuses11 a ns2:NamedIndividual,
 
 <https://projetWebsem.org/ontologie.owl#medecin/fa> a ns2:NamedIndividual,
         ns1:Medecin ;
-    ns1:effectue_consultation ns1:consultation2,
-        ns1:consultation5 ;
+    ns1:effectue_consultation ns1:consultation2 ;
     ns1:id_medecin "fa"^^xsd:string ;
     ns1:medecin_spcl "zef"^^xsd:string ;
     ns1:nom "zef"^^xsd:string ;
@@ -9433,8 +9432,7 @@ ns1:maladies_infectieuses11 a ns2:NamedIndividual,
 
 <https://projetWebsem.org/ontologie.owl#medecin/faze> a ns2:NamedIndividual,
         ns1:Medecin ;
-    ns1:effectue_consultation ns1:consultation1,
-        ns1:consultation4 ;
+    ns1:effectue_consultation ns1:consultation1 ;
     ns1:id_medecin "faze"^^xsd:string ;
     ns1:medecin_spcl "fa"^^xsd:string ;
     ns1:nom "ef"^^xsd:string ;
@@ -9442,8 +9440,7 @@ ns1:maladies_infectieuses11 a ns2:NamedIndividual,
 
 <https://projetWebsem.org/ontologie.owl#medecin/zfe> a ns2:NamedIndividual,
         ns1:Medecin ;
-    ns1:effectue_consultation ns1:consultation3,
-        ns1:consultation6 ;
+    ns1:effectue_consultation ns1:consultation3 ;
     ns1:id_medecin "zfe"^^xsd:string ;
     ns1:medecin_spcl "af"^^xsd:string ;
     ns1:nom "faz"^^xsd:string ;
@@ -9629,24 +9626,6 @@ ns1:consultation3 a ns2:NamedIndividual,
     ns1:date_consultation "2020-07-08"^^xsd:date ;
     ns1:est_oriente ns1:orientation3 .
 
-ns1:consultation4 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/0> ;
-    ns1:date_consultation "2020-07-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation4 .
-
-ns1:consultation5 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/1> ;
-    ns1:date_consultation "2020-07-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation5 .
-
-ns1:consultation6 a ns2:NamedIndividual,
-        ns1:Consultation ;
-    ns1:consultation_concerne <https://projetWebsem.org/ontologie.owl#patient/3> ;
-    ns1:date_consultation "2020-07-08"^^xsd:date ;
-    ns1:est_oriente ns1:orientation6 .
-
 ns1:consultation_concerne a ns2:ObjectProperty ;
     rdfs:domain ns1:Consultation ;
     rdfs:range ns1:Patient ;
@@ -9704,8 +9683,8 @@ ns1:maladie_touche_patient a ns2:ObjectProperty ;
 
 ns1:orientation1 a ns2:NamedIndividual,
         ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/fa> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
+    ns1:prend_RDV ns1:rdv1 ;
+    ns1:type_orientation "prise_de_rendez_vous"^^xsd:string .
 
 ns1:orientation2 a ns2:NamedIndividual,
         ns1:Orientation ;
@@ -9717,25 +9696,66 @@ ns1:orientation3 a ns2:NamedIndividual,
     ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/faz> ;
     ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
 
-ns1:orientation4 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/fa> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation5 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/f> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
-ns1:orientation6 a ns2:NamedIndividual,
-        ns1:Orientation ;
-    ns1:orienter_vers_hopital <https://projetWebsem.org/ontologie.owl#hopital/faz> ;
-    ns1:type_orientation "prise_en_charge_hopital"^^xsd:string .
-
 ns1:orienter_vers_hopital a ns2:ObjectProperty ;
     rdfs:domain ns1:Orientation ;
     rdfs:range ns1:Hopital ;
     ns2:inverseOf ns1:hopital_orientation .
+
+<https://projetWebsem.org/ontologie.owl#patient/0> a ns2:NamedIndividual,
+        ns1:Patient ;
+    ns1:a_covid "oui"^^xsd:string ;
+    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/fatigue>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/stress> ;
+    ns1:age 21 ;
+    ns1:gravite_sympthome "ae"^^xsd:string ;
+    ns1:habite_commune ns1:commune29043 ;
+    ns1:habite_wilaya ns1:wilaya10 ;
+    ns1:id_patient "0"^^xsd:string ;
+    ns1:nb_jrs_depuis_derniere_sortie 3 ;
+    ns1:nb_jrs_depuis_premiers_sympthomes 90 ;
+    ns1:nom "aissat"^^xsd:string ;
+    ns1:poid 68 ;
+    ns1:prenom "abdelhak"^^xsd:string ;
+    ns1:sexe "homme"^^xsd:string ;
+    ns1:taille 170 .
+
+<https://projetWebsem.org/ontologie.owl#patient/1> a ns2:NamedIndividual,
+        ns1:Patient ;
+    ns1:a_covid "non"^^xsd:string ;
+    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/fatigue>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/fievre> ;
+    ns1:age 21 ;
+    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/f> ;
+    ns1:gravite_sympthome "fazef"^^xsd:string ;
+    ns1:habite_commune ns1:commune06027 ;
+    ns1:habite_wilaya ns1:wilaya10 ;
+    ns1:id_patient "1"^^xsd:string ;
+    ns1:nb_jrs_depuis_derniere_sortie 1 ;
+    ns1:nb_jrs_depuis_premiers_sympthomes 3 ;
+    ns1:nom "racim"^^xsd:string ;
+    ns1:poid 65 ;
+    ns1:prenom "righi"^^xsd:string ;
+    ns1:sexe "homme"^^xsd:string ;
+    ns1:taille 170 .
+
+<https://projetWebsem.org/ontologie.owl#patient/3> a ns2:NamedIndividual,
+        ns1:Patient ;
+    ns1:a_covid "oui"^^xsd:string ;
+    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/fievre>,
+        <https://projetWebsem.org/ontologie.owl#sympthomes/vomissement> ;
+    ns1:age 21 ;
+    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/faz> ;
+    ns1:gravite_sympthome "faze"^^xsd:string ;
+    ns1:habite_commune ns1:commune29043 ;
+    ns1:habite_wilaya ns1:wilaya10 ;
+    ns1:id_patient "3"^^xsd:string ;
+    ns1:nb_jrs_depuis_derniere_sortie 0 ;
+    ns1:nb_jrs_depuis_premiers_sympthomes 5 ;
+    ns1:nom "aksel"^^xsd:string ;
+    ns1:poid 70 ;
+    ns1:prenom "kada"^^xsd:string ;
+    ns1:sexe "homme"^^xsd:string ;
+    ns1:taille 170 .
 
 ns1:prend_RDV a ns2:ObjectProperty ;
     rdfs:domain ns1:Orientation ;
@@ -9751,6 +9771,10 @@ ns1:prend_traitement a ns2:ObjectProperty ;
     rdfs:domain ns1:Patient ;
     rdfs:range ns1:Traitements ;
     ns2:inverseOf ns1:traitement_pris_par .
+
+ns1:rdv1 a ns2:NamedIndividual,
+        ns1:RDV ;
+    ns1:date_rendez_vous "2021-05-21"^^xsd:date .
 
 ns1:rdv_pris a ns2:ObjectProperty ;
     rdfs:domain ns1:RDV ;
@@ -9793,62 +9817,15 @@ ns1:commune29043 a ns2:NamedIndividual,
     ns1:commune_de ns1:wilaya29 ;
     ns1:nomCommune "Chorfa"^^xsd:string .
 
-<https://projetWebsem.org/ontologie.owl#patient/0> a ns2:NamedIndividual,
-        ns1:Patient ;
-    ns1:a_covid "oui"^^xsd:string ;
-    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/fatigue>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/stress> ;
-    ns1:age 21 ;
-    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/fa> ;
-    ns1:gravite_sympthome "ae"^^xsd:string ;
-    ns1:habite_commune ns1:commune29043 ;
-    ns1:habite_wilaya ns1:wilaya10 ;
-    ns1:id_patient "0"^^xsd:string ;
-    ns1:nb_jrs_depuis_derniere_sortie 3 ;
-    ns1:nb_jrs_depuis_premiers_sympthomes 90 ;
-    ns1:nom "aissat"^^xsd:string ;
-    ns1:poid 68 ;
-    ns1:prenom "abdelhak"^^xsd:string ;
-    ns1:sexe "homme"^^xsd:string ;
-    ns1:taille 170 .
+<https://projetWebsem.org/ontologie.owl#hopital/f> a ns2:NamedIndividual,
+        ns1:Hopital ;
+    ns1:nom_hopital "f"^^xsd:string ;
+    ns1:wilaya_hopitale ns1:wilaya10 .
 
-<https://projetWebsem.org/ontologie.owl#patient/1> a ns2:NamedIndividual,
-        ns1:Patient ;
-    ns1:a_covid "non"^^xsd:string ;
-    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/fatigue>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/fievre> ;
-    ns1:age 21 ;
-    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/f> ;
-    ns1:gravite_sympthome "fazef"^^xsd:string ;
-    ns1:habite_commune ns1:commune06027 ;
-    ns1:habite_wilaya ns1:wilaya10 ;
-    ns1:id_patient "1"^^xsd:string ;
-    ns1:nb_jrs_depuis_derniere_sortie 1 ;
-    ns1:nb_jrs_depuis_premiers_sympthomes 3 ;
-    ns1:nom "racim"^^xsd:string ;
-    ns1:poid 65 ;
-    ns1:prenom "righi"^^xsd:string ;
-    ns1:sexe "homme"^^xsd:string ;
-    ns1:taille 170 .
-
-<https://projetWebsem.org/ontologie.owl#patient/3> a ns2:NamedIndividual,
-        ns1:Patient ;
-    ns1:a_covid "non"^^xsd:string ;
-    ns1:a_sympthomes <https://projetWebsem.org/ontologie.owl#sympthomes/fievre>,
-        <https://projetWebsem.org/ontologie.owl#sympthomes/vomissement> ;
-    ns1:age 21 ;
-    ns1:est_hospitalilser_a <https://projetWebsem.org/ontologie.owl#hopital/faz> ;
-    ns1:gravite_sympthome "faze"^^xsd:string ;
-    ns1:habite_commune ns1:commune29043 ;
-    ns1:habite_wilaya ns1:wilaya10 ;
-    ns1:id_patient "3"^^xsd:string ;
-    ns1:nb_jrs_depuis_derniere_sortie 0 ;
-    ns1:nb_jrs_depuis_premiers_sympthomes 5 ;
-    ns1:nom "aksel"^^xsd:string ;
-    ns1:poid 70 ;
-    ns1:prenom "kada"^^xsd:string ;
-    ns1:sexe "homme"^^xsd:string ;
-    ns1:taille 170 .
+<https://projetWebsem.org/ontologie.owl#hopital/faz> a ns2:NamedIndividual,
+        ns1:Hopital ;
+    ns1:nom_hopital "faz"^^xsd:string ;
+    ns1:wilaya_hopitale ns1:wilaya10 .
 
 <https://projetWebsem.org/ontologie.owl#sympthomes/fatigue> a ns2:NamedIndividual,
         ns1:Sympthomes ;
@@ -9863,26 +9840,11 @@ ns1:wilaya37 a ns2:NamedIndividual,
     ns1:idWilaya 37 ;
     ns1:nomWilaya "Tindouf"^^xsd:string .
 
-ns1:RDV a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
 ns1:Traitements a ns2:Class ;
     rdfs:subClassOf ns2:Thing .
 
-<https://projetWebsem.org/ontologie.owl#hopital/f> a ns2:NamedIndividual,
-        ns1:Hopital ;
-    ns1:nom_hopital "f"^^xsd:string ;
-    ns1:wilaya_hopitale ns1:wilaya10 .
-
-<https://projetWebsem.org/ontologie.owl#hopital/fa> a ns2:NamedIndividual,
-        ns1:Hopital ;
-    ns1:nom_hopital "fa"^^xsd:string ;
-    ns1:wilaya_hopitale ns1:wilaya10 .
-
-<https://projetWebsem.org/ontologie.owl#hopital/faz> a ns2:NamedIndividual,
-        ns1:Hopital ;
-    ns1:nom_hopital "faz"^^xsd:string ;
-    ns1:wilaya_hopitale ns1:wilaya10 .
+ns1:RDV a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
 
 ns1:wilaya33 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -9898,6 +9860,9 @@ ns1:Allergie a ns2:Class ;
 ns1:Hematologie a ns2:Class ;
     rdfs:subClassOf ns1:Maladies .
 
+ns1:Hopital a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
+
 ns1:Medecin a ns2:Class ;
     rdfs:subClassOf ns1:Personne .
 
@@ -9907,11 +9872,14 @@ ns1:Phlebologie a ns2:Class ;
 ns1:Sympthomes a ns2:Class ;
     rdfs:subClassOf ns2:Thing .
 
-ns1:Hopital a ns2:Class ;
+ns1:Consultation a ns2:Class ;
     rdfs:subClassOf ns2:Thing .
 
 ns1:Maladies_Parasitaires a ns2:Class ;
     rdfs:subClassOf ns1:Maladies .
+
+ns1:Orientation a ns2:Class ;
+    rdfs:subClassOf ns2:Thing .
 
 ns1:wilaya11 a ns2:NamedIndividual,
         ns1:Wilaya ;
@@ -9932,12 +9900,6 @@ ns1:wilaya45 a ns2:NamedIndividual,
         ns1:Wilaya ;
     ns1:idWilaya 45 ;
     ns1:nomWilaya "Naâma"^^xsd:string .
-
-ns1:Consultation a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
-
-ns1:Orientation a ns2:Class ;
-    rdfs:subClassOf ns2:Thing .
 
 ns1:wilaya47 a ns2:NamedIndividual,
         ns1:Wilaya ;

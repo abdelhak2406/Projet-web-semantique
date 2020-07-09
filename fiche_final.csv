@@ -1,4 +1,4 @@
 nom,prenom,id_patient,wilaya_patient,commune_patient,age,poid,taille,sexe,sympthomes,maladies,traitement,nb_jrs_depuis_derniere_sortie,nb_jrs_depuis_premiers_sympthomes,date,nom_medecin,prenom_medecin,id_medecin,atteint covid,orientation,gravite,specialite_medecin
-Aissat,abdelhak,0,bouira,chorfa,21,68,170,homme,"fatigue,stress",nan,nan,3,90,8/7/2020,ef,ae,faze,oui,prise_en_charge_hopital:fa,ae,fa
+Aissat,abdelhak,0,bouira,chorfa,21,68,170,homme,"fatigue,stress",nan,nan,3,90,8/7/2020,ef,ae,faze,oui,prise_de_rendez_vous:21/05/2021,ae,fa
 racim,righi,1,bouira,tazmalt,21,65,170,homme,"fatigue,fievre",nan,nan,1,3,8/7/2020,zef,aze,fa,non,prise_en_charge_hopital:f,fazef,zef
-aksel,kada,3,bouira,chorfa,21,70,170,homme,"fievre,vomissement",nan,nan,0,5,8/7/2020,faz,fa,zfe,non,prise_en_charge_hopital:faz,faze,af
+aksel,kada,3,bouira,chorfa,21,70,170,homme,"fievre,vomissement",nan,nan,0,5,8/7/2020,faz,fa,zfe,oui,prise_en_charge_hopital:faz,faze,af

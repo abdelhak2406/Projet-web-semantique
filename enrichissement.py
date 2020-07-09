@@ -189,7 +189,7 @@ class adresses_onto(traitemnt_onto):
 
     path_wilaya = "Localisation_csv/wilayas.csv"
     path_commune = "Localisation_csv/communes.csv"
-    encode_wilaya = {}
+    encode_wilaya = {}#dictionnaire contenant {nomwilaya():code}
     encode_commune = {}
 
     def __init__(self):
@@ -272,27 +272,44 @@ class fiche_onto(traitemnt_onto):
     def __init__(self):	    
         super().__init__()
    
-    def traitement_orientation(self,obj_orientation,dico,i):
-        print("nous sommes dans traitement orientation ",obj_orientation[0].type_orientation)
+    def traitement_orientation(self,obj_orientation,dico,i,pat):
+        print("type orientation ",obj_orientation[0].type_orientation)
         if obj_orientation[0].date_rendez_vous=="prise_en_charge_domicile":
-            dico[i]["orientation"]=obj_orientation.type_orientation+":"
+            dico[i]["orientation"]=obj_orientation[0].type_orientation+":"
         if obj_orientation[0].type_orientation=="prise_de_rendez_vous":
-            dico[i]["orientation"]=obj_orientation.type_orientation+":"
+            dico[i]["orientation"]=obj_orientation[0].type_orientation+":"
             #obj_orientation.date_rendez_vous =
-            #TODO: voir comment se presnte une date et la transformer ainsi jj/mm/aa
-            print("date de rendez-vous: ",obj_orientation.prend_RDV)
+            dat= str(obj_orientation[0].prend_RDV[0].date_rendez_vous).split('-')
+            dico[i]["orientation"] = obj_orientation[0].type_orientation+":"+dat[2]+"/"+dat[1]+"/"+dat[0]
+            #print("voila dico orientation apres: ",dico[i]["orientation"])
+        
         if  obj_orientation[0].type_orientation=="prise_en_charge_hopital":
-            pass
+            #print("patienet est hosppi: ",pat.est_hospitalilser_a[0].nom_hopital)
+            dico[i]["orientation"] = obj_orientation[0].type_orientation+":"+pat.est_hospitalilser_a[0].nom_hopital
 
+    def creation_header_fiche_sortie(self):
+        with open('fiche_sortie.csv', mode='w') as fiche0:
+            patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-    def creer_fiche(self):
+            patient_infos.writerow(['id_patient',"wilaya_patient","commune_patient", 'age', "poid"
+                                    , "taille", "sexe", "sympthomes", "maladies","traitement","nb_jrs_depuis_derniere_sortie",
+                                    "nb_jrs_depuis_premiers_sympthomes","date","gravite","orientation","id_medecin"])
+
+    def creer_fiche(self,new=False):
+        """
+        new : booleen: si c'est faut il va juste ajouter au fichier sortie_final
+        si c'est vrai il vas créer un nouveau 
+        """
+        if new:
+            self.creation_header_fiche_sortie()
+            
         f = self.dico["Fiche"]
         graph = rdflib.Graph()
         graph.parse("ontologie.owl",format="turtle")
         open("graph_turtle.rdf","w")    
         graph.serialize("graph_turtle.rdf",format="turtle")
         
-
+        print("nous y sommes")
 
         requete = """ 
         prefix ns1: <https://projetWebsem.org/ontologie.owl#> 
@@ -386,6 +403,7 @@ class fiche_onto(traitemnt_onto):
 
                 cpt = cpt + 1
         #ajouter les infos qui reste!
+
         for i in dico:
             pat = dico[i]["patient"]
             print(pat)
@@ -395,7 +413,7 @@ class fiche_onto(traitemnt_onto):
             for j in  obj_pat[0].a_sympthomes:
                 dico[i]["sympthomes"] =dico[i]["sympthomes"]+","+j.nom_sympthome
             dico[i]["maladies"]=""
-            for j in obj_pat[0].a_maladie:##TODO:gerer le cas ou il n'a aucune maladie ou aucune sympthomes ect
+            for j in obj_pat[0].a_maladie:
                 dico[i]['maladies'] =dico[i]['maladies']+","+j.nom_maladie 
             dico[i]["traitement"]=""
             for j in obj_pat[0].prend_traitement:
@@ -405,27 +423,32 @@ class fiche_onto(traitemnt_onto):
             ori = dico[i]["orientation"]#orientation
             obj_orien = self.onto.search(iri=ori) 
 
-            self.traitement_orientation(obj_orien,dico,i)
-
+            self.traitement_orientation(obj_orien,dico,i,obj_pat[0])
+            print("\n\norientation: ", dico[i]["orientation"])
         #creation de la fiche finale qui est censé etre faite par le ministére
 
-        with open('fiche_sortie.csv', mode='w') as fiche0:
-            patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            with open('fiche_sortie.csv', mode='a+') as fiche0:
+                patient_infos = csv.writer(fiche0, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-            patient_infos.writerow(['id_patient',"wilaya_patient","commune_patient", 'age', "poid", "taille", "sexe", "sympthomes", "maladies","traitement","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes","date","gravite"])
-            patient_infos.writerow([dico[i]["id_patient"], dico[i]["wilaya_patient"],dico[i]["commune_patient"],dico[i]["age"],dico[i]["poid"],dico[i]["taille"],dico[i]["sexe"],dico[i]["sympthomes"],dico[i]["maladies"],dico[i]["traitement"],dico[i]["njds"],dico[i]["njps"],dico[i]["date"],dico[i]["gravite"]
-            ])
-            # wilaya,commune,age, poid,taille, sexe, sympthomes, maladies,traitements,nb_jour_depuis_dernier_sortie,nb_jour_depuis_premier_sympthomes])
-            #TODO: ajouter l'orientation
+                """patient_infos.writerow(['id_patient',"wilaya_patient","commune_patient", 'age', "poid"
+                                        , "taille", "sexe", "sympthomes", "maladies","traitement","nb_jrs_depuis_derniere_sortie",
+                                        "nb_jrs_depuis_premiers_sympthomes","date","gravite","orientation","id_medecin"])
+                """
+                patient_infos.writerow([dico[i]["id_patient"], dico[i]["wilaya_patient"],dico[i]["commune_patient"],dico[i]["age"],
+                                        dico[i]["poid"],dico[i]["taille"],dico[i]["sexe"],dico[i]["sympthomes"]
+                                        ,dico[i]["maladies"],dico[i]["traitement"],dico[i]["njds"],dico[i]["njps"],
+                                        dico[i]["date"],dico[i]["gravite"],
+                                         dico[i]["orientation"], dico[i]["id_medecin"]])
+                # wilaya,commune,age, poid,taille, sexe, sympthomes, maladies,traitements,nb_jour_depuis_dernier_sortie,nb_jour_depuis_premier_sympthomes])
 
 
 if __name__ == "__main__":
     """ontolo = traitemnt_onto()
-    ontolo.enrichir_maladies()
+    ontolo.enrichir_maladies()#TODO:remettre comme avant
     ontolo.save_onto()
     adresse = adresses_onto()
     adresse.creer_Wilaya("Localisation_csv/wilayas.csv")
     adresse.creer_Commune("Localisation_csv/communes.csv")
-    #ontolo.ajout_sympthomes_covid()
+    #ontolo.ajout_sympthomes_covid() #TODO:tester et faire marcher
     ontolo.save_onto()"""
-    fiche_onto().creer_fiche()
+    fiche_onto().creer_fiche(True)
