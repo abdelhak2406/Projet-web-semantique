@@ -168,10 +168,10 @@ class patient_onto(traitemnt_onto):
                     self.ajout_classe(nom_classe=i.title(),herite_de=self.dico[typee])
                 symp = self.dico[i.title()]() #creer objet 
                 #creer la relation 
-                print("dans le if patient ",pat)
+              
                 relation.append(symp)
             else:#objet instancier
-                print("else patient: ",pat)
+               
                 relation.append(res[0])
     
     def ajout_sympthomes(self,liste_symp,pat):
@@ -238,9 +238,9 @@ class patient_onto(traitemnt_onto):
     def ajout_wilaya(self,wilaya,pat):
         wilaya=re.sub(r" |-", "_", wilaya).lower()
         wil_code = adresses_onto().get_code_wilaya(wilaya)
-        print("wilaya: ",wilaya," son code:",wil_code)
-        print("aaaaaaa:\n\n\n",self.onto.search(iri='*wilaya'+wil_code),"\n\n",type(wil_code))
-        print("wil  ",self.onto.search(iri=self.mon_iri+"wilaya*"))
+        #print("wilaya: ",wilaya," son code:",wil_code)
+        #print("aaaaaaa:\n\n\n",self.onto.search(iri='*wilaya'+wil_code),"\n\n",type(wil_code))
+        #print("wil  ",self.onto.search(iri=self.mon_iri+"wilaya*"))
         wil = self.onto.search(iri="*wilaya"+wil_code+"*")[0]#on doit chercher la wilaya sauf aue cette derniere est encode avec son iri donc on va utiliser
         #print("type wil ",type(wil)) 
         pat.habite_wilaya= [wil]
@@ -256,7 +256,7 @@ class patient_onto(traitemnt_onto):
         ##chercher si l'iri existe
         res0 =self.onto.search(iri="*"+"patient/"+str(id))
         if res0 == []:#il n'existe pas
-            print("resultat ",res0)
+            #print("resultat ",res0)
             p =  self.dico["Patient"]()
             p.iri = self.mon_iri + "patient/" + str(id) #on le cree
         else:#il existe(le patient ayant cet id)
@@ -319,7 +319,7 @@ class patient_onto(traitemnt_onto):
             mal= re.sub(r" |-", "_", liste1[0]).lower()
             m = self.obtenir_objet(nom_objet=mal,nom_classe="Maladies")
             m.nom_maladie = mal
-            print("les sympthomes du patien sont: ",self.objet_patient.a_sympthomes)
+            #print("les sympthomes du patien sont: ",self.objet_patient.a_sympthomes)
             for i in self.objet_patient.a_sympthomes:
                 i.est_sympthomes_maladie.append(m)
 
