@@ -43,22 +43,41 @@ class medecin_onto(traitemnt_onto):
                             "sympthomes", "maladies","traitement","nb_jrs_depuis_derniere_sortie","nb_jrs_depuis_premiers_sympthomes",
                             "date","nom_medecin","prenom_medecin","id_medecin","atteint covid","orientation","gravite","specialite_medecin"])
     
-    def creation_fiche_final(self,fiche_preliminaire):
+    def supprimer_ligne(self,lignes,fiche="fiche_preliminaire.csv"):#TODO:essyer d'abord sur collab puis ici
+        """
+        lignes liste ,numero de toutes les lignes qui doivent etre supprimer de 
+        -fiche 
+        """
+        liste=[]
+        print("nous sommes dans supprimer ligne")
+        with open(fiche,mode='r') as rd:
+            i=0#on commence par 1 a cause du header
+            for row in csv.reader(rd):
+                if i not in lignes:#n'a pas etait consulter par le medecin
+                    liste.append(row)    
+                i+=1
+        with open(fiche,mode="w") as out:
+            writer=csv.writer(out)
+            for i in liste:
+                writer.writerow(i)
+                
+    def creation_fiche_final(self,fiche_preliminaire="fiche_preliminaire.csv"):#TODO:choix de faire une nouvelle consultation
         """
         fiche_preliminaire: contient les infos que le patient a saisie! on la parcours donc et pour chaque colonne qu'il reste on remplie! 
         donc il faut affiché le contenu de 
         """
         #parcourir la fiche préliminaire
         df = pd.read_csv(fiche_preliminaire)
-
+        listes_consultation=[]
         for i in range(len(df)):
             print("-----------------------------------------------------------------------------------------------------------------------------\n")
             print("------------------------------------------voici les infos saisie par le patient---------------------------------------------\n")
             print("-----------------------------------------------------------------------------------------------------------------------------\n")
             print("age: ",df.iloc[i]["age"],"\npoid: ",df.iloc[i]["poid"],"\ntaille: ",df.iloc[i]["taille"],"\nsexe: ", 
-            df.iloc[i]["sexe"]," \nsympthomes:",df.iloc[i]["sympthomes"] ,"\nmaladies: ",df.iloc[i]["maladies"],'\nnb_jrs_depuis_derniere_sortie: '
-            ,df.iloc[i]["nb_jrs_depuis_derniere_sortie"],
-            "\nnb_jrs_depuis_premiers_sympthomes: ",df.iloc[i]["nb_jrs_depuis_premiers_sympthomes"])
+                df.iloc[i]["sexe"]," \nsympthomes:",df.iloc[i]["sympthomes"] ,"\nmaladies: ",df.iloc[i]["maladies"],
+                '\nnb_jrs_depuis_derniere_sortie: '
+                ,df.iloc[i]["nb_jrs_depuis_derniere_sortie"],
+                "\nnb_jrs_depuis_premiers_sympthomes: ",df.iloc[i]["nb_jrs_depuis_premiers_sympthomes"])
 
             try:
                 print("traitements: ",df.iloc[i]["traitement"])
@@ -106,9 +125,14 @@ class medecin_onto(traitemnt_onto):
                 except:
                     print("valleur de traitement:")
                     print(df.iloc[i]["traitement"])
+            listes_consultation.append(i+1)
+            reponse=input("voullez vous effectuez une autre consultation?\n1-oui\n2-non\n\t")
+            print("le i : ",i)
+            if reponse=="2":
+                break
             print("-----------------------------------------------------------------------------------------------------------------------------")
             #supression infos de la fiche 
-
+        self.supprimer_ligne(lignes=listes_consultation)
             #poser la question pour continuer ou pas
 
 
@@ -291,7 +315,7 @@ class patient_onto(traitemnt_onto):
             for i in self.objet_patient.a_sympthomes:
                 i.est_sympthomes_maladie.append(m)
 
-    def saisie_infos(self,ajouter):
+    def saisie_infos(self,ajouter=True):
         """
         ajouter : si vrai alors on ajoute a la fiche actuelle
         si faux alors on créer depuis le debut
