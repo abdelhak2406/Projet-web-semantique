@@ -228,9 +228,9 @@ with onto:
         pass
     class commune_hopitale(Hopital >> Commune):
         pass
-    #TODO: disjoindre les classes!
-   # et si on ne mettait pas la classe orientation mais juste la relation orient� ? mais du coup elle sera entre patient et hopital 
-   # et entre patient et domicile c possible ? 
+    
+    AllDisjoint([Patient, Medecin, Commune, Wilaya, Orientation, Maladies, Sympthomes, Traitements, Consultation, RDV, Hopital, Fiche])
+  
 
 
 onto.save("ontologie.owl", format="ntriples")
