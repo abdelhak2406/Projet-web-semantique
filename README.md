@@ -24,5 +24,5 @@ pip install owlready2
 ```
 
 # How to use
-executer main.py
+execute [main](main.py) 
 
